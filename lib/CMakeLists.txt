@@ -11,9 +11,9 @@ ExternalProject_Add(libaudiofile
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../submodules/audiofile
     CONFIGURE_COMMAND cd ${CMAKE_CURRENT_SOURCE_DIR}/../submodules/audiofile/ && make distclean && ${CMAKE_CURRENT_SOURCE_DIR}/../submodules/audiofile/configure --srcdir=${CMAKE_CURRENT_SOURCE_DIR}/../submodules/audiofile/ --prefix=${CMAKE_CURRENT_BINARY_DIR} --enable-static=yes 
 
-    BUILD_COMMAND cd ${CMAKE_CURRENT_SOURCE_DIR}/../submodules/audiofile/ && make libaudiofile    BUILD_BYPRODUCTS ${AUDIOFILE_LIB}
+    BUILD_COMMAND cd ${CMAKE_CURRENT_SOURCE_DIR}/../submodules/audiofile/libaudiofile && make    BUILD_BYPRODUCTS ${AUDIOFILE_LIB}
 
-    INSTALL_COMMAND cd ${CMAKE_CURRENT_SOURCE_DIR}/../submodules/audiofile/ && make libaudiofile && echo "DONE"
+    INSTALL_COMMAND cd ${CMAKE_CURRENT_SOURCE_DIR}/../submodules/audiofile/libaudiofile && make install && echo "DONE"
 #echo ""
 
 )
