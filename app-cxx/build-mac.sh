@@ -5,4 +5,4 @@ cmake ..
 make
 cd ..
 mkdir dist
-cp -r build/paulstretch-imgui.app dist/paulstretch-imgui.app
+cp -r build-osx/paulstretch-imgui.app dist/paulstretch-imgui.app
