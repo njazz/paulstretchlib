@@ -1,0 +1,10 @@
+/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/CMakeFiles/install.dir
+/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/CMakeFiles/paulstretch-imgui.dir
+/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/CMakeFiles/ALL_BUILD.dir
+/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/CMakeFiles/ZERO_CHECK.dir
+/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/CMakeFiles/install.dir
+/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/CMakeFiles/paulstretchlib.dir
+/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/CMakeFiles/ALL_BUILD.dir
+/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/CMakeFiles/ZERO_CHECK.dir
+/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/build/portaudio/CMakeFiles/install.dir
+/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/build/portaudio/CMakeFiles/portaudio.dir

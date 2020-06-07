@@ -1,0 +1,1464 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		0B96040A42FE48E0AA7DBD70 /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 9BD4D904648F4623894AFD07 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				901D99EBC15A406B8EE0C00F /* CMake Rules */,
+			);
+			dependencies = (
+				E5351B3E68F84CE4A68A81FE /* PBXTargetDependency */,
+				DEA612A20B0D4858ABD79D44 /* PBXTargetDependency */,
+				DD0F27E34BEE4B42A9559600 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+		929FAA0421BD40E2874ED6D1 /* install */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 316D2D064B17440C8D190405 /* Build configuration list for PBXAggregateTarget "install" */;
+			buildPhases = (
+				991C56F5C9FD46D8AF442420 /* CMake PostBuild Rules */,
+			);
+			dependencies = (
+				3BAD879A3193436CACB07A19 /* PBXTargetDependency */,
+			);
+			name = install;
+			productName = install;
+		};
+		F77CEF288F06422898D01E7F /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = FE70A5FDFF024F49AE9EB443 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				449B253E7A284BF7A1273F79 /* CMake Rules */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		0071E861F2354A88BCA59D50 /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/examples/libs/gl3w/GL/gl3w.c */ = {isa = PBXBuildFile; fileRef = E7D94B904DBC42CAB8FED8EF /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/examples/libs/gl3w/GL/gl3w.c */; };
+		03FCA3E6CFDE4A82B66AB58B /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_allocation.c */ = {isa = PBXBuildFile; fileRef = 1364583DF1A642EBBB7C9142 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_allocation.c */; };
+		0423A37DCABA4F43BE93E24A /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Player.cpp */ = {isa = PBXBuildFile; fileRef = 7EE92CBB8767416BB52C43A6 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Player.cpp */; };
+		0AA4E8238C1C4B55BAC070A0 /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/tfd/tinyfiledialogs.c */ = {isa = PBXBuildFile; fileRef = 6924575D824D457AA41A5469 /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/tfd/tinyfiledialogs.c */; };
+		0D7101A134804B718860601A /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core_utilities.c */ = {isa = PBXBuildFile; fileRef = 32D7865ABEAE494ABB8E6B17 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core_utilities.c */; };
+		0E40A9E09F8C45F38D5C7879 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_allocation.h */ = {isa = PBXBuildFile; fileRef = 64A65CA74CD643E9BEEC472F /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_allocation.h */; };
+		107EF8311C4040D9A539240F /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_cpuload.h */ = {isa = PBXBuildFile; fileRef = 283E2CC4C31848A085A14A0D /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_cpuload.h */; };
+		13DC586CE1EC469F8C1E2660 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/globals.cpp */ = {isa = PBXBuildFile; fileRef = CA80F464E4134A44A213B9D4 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/globals.cpp */; };
+		17E96E581F2A410B9D0911FD /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/imgui_demo.cpp */ = {isa = PBXBuildFile; fileRef = 1753C22635BF42B8A8233B64 /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/imgui_demo.cpp */; };
+		1BDFA3CE82424F9F91006B5E /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_stream.c */ = {isa = PBXBuildFile; fileRef = 91E9D4D3D65D479C9C778FCA /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_stream.c */; };
+		20FC365C72F442A5A740BCF8 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_hostapi.h */ = {isa = PBXBuildFile; fileRef = 75190929B14D449182B710F2 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_hostapi.h */; };
+		23C09723F06D44FDBD7D7EC2 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core_blocking.c */ = {isa = PBXBuildFile; fileRef = FC821D7FDB5F4F0C904A12D9 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core_blocking.c */; };
+		2956181C57CF4AE3B24A1AE9 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_process.h */ = {isa = PBXBuildFile; fileRef = 3E13A5440F104B328EBD2B37 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_process.h */; };
+		2CB9E6DBA6CD4F6C9030FF3B /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 89DA9852A6C648AFAC45664B /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/CMakeLists.txt */; };
+		31CAC94364624039A7657BD2 /* /Users/njazz/Documents/github/paulstretchlib/lib/PaulstretchLib.cpp */ = {isa = PBXBuildFile; fileRef = 1F02DBB754C54B7D981BD1DC /* /Users/njazz/Documents/github/paulstretchlib/lib/PaulstretchLib.cpp */; };
+		374D4E3C107E4049BD18B712 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/ProcessedStretch.cpp */ = {isa = PBXBuildFile; fileRef = CE3E377D12D84077B6862FB9 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/ProcessedStretch.cpp */; };
+		37E255A661304F14848B7892 /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/imgui.cpp */ = {isa = PBXBuildFile; fileRef = 95DEB3DA620E4FA19079AF45 /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/imgui.cpp */; };
+		3922719B04494536A818F123 /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/imgui_draw.cpp */ = {isa = PBXBuildFile; fileRef = 3BE3C13AC4984A25B1D4BBEF /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/imgui_draw.cpp */; };
+		39E1F813288F44799BC4823F /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Input/AInputS.cpp */ = {isa = PBXBuildFile; fileRef = B3FA05849B04403FBBFFBEB7 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Input/AInputS.cpp */; };
+		3BEA57CFC88440FAB1DDE866 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Mutex.cpp */ = {isa = PBXBuildFile; fileRef = 5FA198516DE94206B0866DBF /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Mutex.cpp */; };
+		3C0782D86DE544DE9F5FA248 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_converters.h */ = {isa = PBXBuildFile; fileRef = 73FE87E76F864F7A8A8D75FE /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_converters.h */; };
+		3E4214B15E254296A2181664 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/PAaudiooutput.cpp */ = {isa = PBXBuildFile; fileRef = CAB9709023F84C35AAEC5E4C /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/PAaudiooutput.cpp */; };
+		4075F08E338E4DD4AD84748F /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/include/portaudio.h */ = {isa = PBXBuildFile; fileRef = D8683C5632FB44B19863EA3B /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/include/portaudio.h */; };
+		49195BA815F54B12A9C30AEF /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/BinauralBeats.cpp */ = {isa = PBXBuildFile; fileRef = DA88F9808EA24A49A9C12D0A /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/BinauralBeats.cpp */; };
+		4CD0ADF9A21343359B3344EA /* /Users/njazz/Documents/github/paulstretchlib/lib/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 67E9C49611034214987F50D4 /* /Users/njazz/Documents/github/paulstretchlib/lib/CMakeLists.txt */; };
+		4D3949DD70A44BCF8EF980AB /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core_blocking.h */ = {isa = PBXBuildFile; fileRef = FE3978A6B57D496893D0F70E /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core_blocking.h */; };
+		4EDA1E4532C64990A2F5310D /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_converters.c */ = {isa = PBXBuildFile; fileRef = C9EC3473063941B3BAAD6BF9 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_converters.c */; };
+		548BFAE1F6374A179F1C1BB4 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/os/unix/pa_unix_hostapis.c */ = {isa = PBXBuildFile; fileRef = DF9270716862480E870AAF1D /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/os/unix/pa_unix_hostapis.c */; };
+		55EF92467E004B3D823BDF5C /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_front.c */ = {isa = PBXBuildFile; fileRef = 67EBA48D0E0A4882BCB1363D /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_front.c */; };
+		5DE52536A7B5430BA664A4D0 /* /Users/njazz/Documents/github/paulstretchlib/submodules/paulstretch_cpp/contrib/kiss_fft.c */ = {isa = PBXBuildFile; fileRef = 7CFF81EAACD042718421567B /* /Users/njazz/Documents/github/paulstretchlib/submodules/paulstretch_cpp/contrib/kiss_fft.c */; };
+		5E0F16AF030E45429F93E45D /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_debugprint.h */ = {isa = PBXBuildFile; fileRef = 369D5513ACA44684BE108E52 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_debugprint.h */; };
+		5E44A739D5E64E76B0F599DD /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/examples/imgui_impl_sdl.cpp */ = {isa = PBXBuildFile; fileRef = 125CDAC886CE444D8E8099C6 /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/examples/imgui_impl_sdl.cpp */; };
+		610CC690DF5F40ACB80353CB /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/UI.cpp */ = {isa = PBXBuildFile; fileRef = 709BF190A5A143CB988A6E42 /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/UI.cpp */; };
+		68DF972D753B480BA531CB9C /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_endianness.h */ = {isa = PBXBuildFile; fileRef = 2FC8F73E6290491C9819E334 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_endianness.h */; };
+		70FF2FDC5FF64B309F816397 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_memorybarrier.h */ = {isa = PBXBuildFile; fileRef = F705DE6627804800B5877349 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_memorybarrier.h */; };
+		761CB16C287E4A7682528648 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/FreeEdit.cpp */ = {isa = PBXBuildFile; fileRef = 6C21C4859D1B412B9A9F1118 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/FreeEdit.cpp */; };
+		801A64505056442AB9FD4C97 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_ringbuffer.c */ = {isa = PBXBuildFile; fileRef = E5D09575BB1F42E0AB573EB0 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_ringbuffer.c */; };
+		807E711B36E44712B5920FF1 /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/CMakeFiles/paulstretch-imgui.dir/Info.plist */ = {isa = PBXBuildFile; fileRef = 4BBEB3DF44304831A7B0A8ED /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/CMakeFiles/paulstretch-imgui.dir/Info.plist */; };
+		8BC7B40B498D48819053D061 /* /Users/njazz/Documents/github/paulstretchlib/lib/JSONCodec.cpp */ = {isa = PBXBuildFile; fileRef = 3856987BE96E44EC9CE68653 /* /Users/njazz/Documents/github/paulstretchlib/lib/JSONCodec.cpp */; };
+		8CB0A59B9D784EB6B78D03DE /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/paulstretch-imgui.cpp */ = {isa = PBXBuildFile; fileRef = 218244FDB5C84666B4321D1E /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/paulstretch-imgui.cpp */; };
+		911DB8A98F0E4012B62B7792 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_util.h */ = {isa = PBXBuildFile; fileRef = 16A94EF974A14AD08E50E9E7 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_util.h */; };
+		95E9297A30CA4AAFA68E5C3F /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/AFOverview.cpp */ = {isa = PBXBuildFile; fileRef = 12DAB61CE98B4EC2BB6F07D2 /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/AFOverview.cpp */; };
+		A18B68565ACB4E7591BBB4FF /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 82F6BC0B9CC7450ABCC9D471 /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/CMakeLists.txt */; };
+		A34B09354B5148E499A7D23C /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui-plot/src/imgui_plot.cpp */ = {isa = PBXBuildFile; fileRef = 0F9523A0769D43B7BB23D553 /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui-plot/src/imgui_plot.cpp */; };
+		A4118DADA1844D4493961420 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/os/unix/pa_unix_util.c */ = {isa = PBXBuildFile; fileRef = C5252BDFA6F8499C9824BDA1 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/os/unix/pa_unix_util.c */; };
+		A98E813324244290B9F79124 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Control.cpp */ = {isa = PBXBuildFile; fileRef = 84474E4162E6497D9902DA4E /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Control.cpp */; };
+		B285AADCEFAD4B68ADFB0149 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core_utilities.h */ = {isa = PBXBuildFile; fileRef = 17C0C9EF853C4855BEE7CA47 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core_utilities.h */; };
+		B2DBB57518C0400096ECF53D /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/skeleton/pa_hostapi_skeleton.c */ = {isa = PBXBuildFile; fileRef = A4520AD709E14C6392CBF17B /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/skeleton/pa_hostapi_skeleton.c */; };
+		B377124A63554722B65FFBD5 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core.c */ = {isa = PBXBuildFile; fileRef = F5B23AD4654B4D9A99E250F8 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core.c */; };
+		B672FEC6EC0E4AB6A38805D8 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_ringbuffer.h */ = {isa = PBXBuildFile; fileRef = F1E2951C8F9F42B09CFEBF02 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_ringbuffer.h */; };
+		B8DB64BEDA194DA8B8530190 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_debugprint.c */ = {isa = PBXBuildFile; fileRef = 53E4AF4F8D8A4F2A914FAF0D /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_debugprint.c */; };
+		C548BC3F1794481AA0D8C160 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_types.h */ = {isa = PBXBuildFile; fileRef = 6A2D6E54E8DA4976AE8CB33C /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_types.h */; };
+		C8674533A875446CBAE731FD /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_dither.h */ = {isa = PBXBuildFile; fileRef = 2C423D3DDBA4491EBC268A84 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_dither.h */; };
+		C995BC9FBEF346039FFE4ECA /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/examples/imgui_impl_opengl3.cpp */ = {isa = PBXBuildFile; fileRef = DBF44C6F337E4FEE92D1691D /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/examples/imgui_impl_opengl3.cpp */; };
+		CAA082D7711F4E0CA4F07213 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/include/pa_mac_core.h */ = {isa = PBXBuildFile; fileRef = A5AB56F4BA984620B8C3E661 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/include/pa_mac_core.h */; };
+		CB73F208C0A14788A1C2A66D /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Output/AOutputS.cpp */ = {isa = PBXBuildFile; fileRef = 31FD49D7E3FB472A870DC1BA /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Output/AOutputS.cpp */; };
+		CE44ABB43EF54F43AC09B292 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_stream.h */ = {isa = PBXBuildFile; fileRef = F78890DAC6504E03BC80E296 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_stream.h */; };
+		D0FD970CC36A4046994DE62B /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/XMLWrapperDummy.cpp */ = {isa = PBXBuildFile; fileRef = 729CB5475A2E472D9EB69310 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/XMLWrapperDummy.cpp */; };
+		D5DE6D3E18D04768B59E876A /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_trace.h */ = {isa = PBXBuildFile; fileRef = 5B4DE515F3B948A5AA34065B /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_trace.h */; };
+		EE4731494F8F420E80F3F538 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_trace.c */ = {isa = PBXBuildFile; fileRef = 23A13F80082E43429043CD5B /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_trace.c */; };
+		F247040169E84BFE92D00945 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Thread.cpp */ = {isa = PBXBuildFile; fileRef = 1290E9529A4646FB9D56C3F6 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Thread.cpp */; };
+		F487C61BFDF041438CA3FD20 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_dither.c */ = {isa = PBXBuildFile; fileRef = 39F87BFFE0BF49A4AE4B3532 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_dither.c */; };
+		F6BD171719B54901929B90FA /* /Users/njazz/Documents/github/paulstretchlib/submodules/paulstretch_cpp/contrib/kiss_fftr.c */ = {isa = PBXBuildFile; fileRef = F15F9EBDA4E140D69E151E07 /* /Users/njazz/Documents/github/paulstretchlib/submodules/paulstretch_cpp/contrib/kiss_fftr.c */; };
+		FBF063CCF58547E3A946B241 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_process.c */ = {isa = PBXBuildFile; fileRef = A613E098EA8D455DA304C600 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_process.c */; };
+		FCAC8AF95D7749AEB64C3833 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_cpuload.c */ = {isa = PBXBuildFile; fileRef = 8AC8B61EBF07443D868D1D07 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_cpuload.c */; };
+		FF5A6B6218FB42CFAD9C2D60 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Stretch.cpp */ = {isa = PBXBuildFile; fileRef = 8671338C722A458893E5702C /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Stretch.cpp */; };
+		FFDA6A77B98B4D7383696BB7 /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/imgui_widgets.cpp */ = {isa = PBXBuildFile; fileRef = E85A1B45DF17493F88FD8D7D /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/imgui_widgets.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		2946B4EFE9454E3386278DB5 /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+		9C9963AAE53A4CFA9197BB48 /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+		AF8C489DD5F645718166C7FC /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		C02CA421E2254C3CBEDFE386 /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		35AE475C86B7487289047404 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6A1F63BF64F42E3B3CB0512 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F77CEF288F06422898D01E7F;
+			remoteInfo = ZERO_CHECK;
+		};
+		5163A46D74C34BA381372125 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6A1F63BF64F42E3B3CB0512 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA2527004AA94E9A9198C96B;
+			remoteInfo = "paulstretch-imgui";
+		};
+		5AA949F909C84480B67FD548 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6A1F63BF64F42E3B3CB0512 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F1C569F55B743BAB5E91997;
+			remoteInfo = paulstretchlib;
+		};
+		63D8B2D230F240698771C2A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6A1F63BF64F42E3B3CB0512 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F77CEF288F06422898D01E7F;
+			remoteInfo = ZERO_CHECK;
+		};
+		64D250E565244A9B94DDD827 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6A1F63BF64F42E3B3CB0512 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E6B4466C8C5748378FED18D2;
+			remoteInfo = portaudio;
+		};
+		6620D5AF7F034E8499233900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6A1F63BF64F42E3B3CB0512 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F1C569F55B743BAB5E91997;
+			remoteInfo = paulstretchlib;
+		};
+		A351469E59684285843DF5C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6A1F63BF64F42E3B3CB0512 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B96040A42FE48E0AA7DBD70;
+			remoteInfo = ALL_BUILD;
+		};
+		FDCBB5AAC5894CF9A99065A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6A1F63BF64F42E3B3CB0512 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E6B4466C8C5748378FED18D2;
+			remoteInfo = portaudio;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0F9523A0769D43B7BB23D553 /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui-plot/src/imgui_plot.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = imgui_plot.cpp; path = "../submodules/imgui-plot/src/imgui_plot.cpp"; sourceTree = SOURCE_ROOT; };
+		11E899900BF14A61A0D486C4 /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		125CDAC886CE444D8E8099C6 /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/examples/imgui_impl_sdl.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = imgui_impl_sdl.cpp; path = ../submodules/imgui/examples/imgui_impl_sdl.cpp; sourceTree = SOURCE_ROOT; };
+		1290E9529A4646FB9D56C3F6 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Thread.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Thread.cpp; path = ../paulstretch_cpp_modified/Thread.cpp; sourceTree = SOURCE_ROOT; };
+		12DAB61CE98B4EC2BB6F07D2 /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/AFOverview.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = AFOverview.cpp; path = AFOverview.cpp; sourceTree = SOURCE_ROOT; };
+		1364583DF1A642EBBB7C9142 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_allocation.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = pa_allocation.c; path = ../submodules/portaudio/src/common/pa_allocation.c; sourceTree = SOURCE_ROOT; };
+		16A94EF974A14AD08E50E9E7 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_util.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pa_util.h; path = ../submodules/portaudio/src/common/pa_util.h; sourceTree = SOURCE_ROOT; };
+		1753C22635BF42B8A8233B64 /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/imgui_demo.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = imgui_demo.cpp; path = ../submodules/imgui/imgui_demo.cpp; sourceTree = SOURCE_ROOT; };
+		17C0C9EF853C4855BEE7CA47 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core_utilities.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pa_mac_core_utilities.h; path = ../submodules/portaudio/src/hostapi/coreaudio/pa_mac_core_utilities.h; sourceTree = SOURCE_ROOT; };
+		1F02DBB754C54B7D981BD1DC /* /Users/njazz/Documents/github/paulstretchlib/lib/PaulstretchLib.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = PaulstretchLib.cpp; path = ../lib/PaulstretchLib.cpp; sourceTree = SOURCE_ROOT; };
+		218244FDB5C84666B4321D1E /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/paulstretch-imgui.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = "paulstretch-imgui.cpp"; path = "paulstretch-imgui.cpp"; sourceTree = SOURCE_ROOT; };
+		23A13F80082E43429043CD5B /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_trace.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = pa_trace.c; path = ../submodules/portaudio/src/common/pa_trace.c; sourceTree = SOURCE_ROOT; };
+		283E2CC4C31848A085A14A0D /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_cpuload.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pa_cpuload.h; path = ../submodules/portaudio/src/common/pa_cpuload.h; sourceTree = SOURCE_ROOT; };
+		2C423D3DDBA4491EBC268A84 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_dither.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pa_dither.h; path = ../submodules/portaudio/src/common/pa_dither.h; sourceTree = SOURCE_ROOT; };
+		2FC8F73E6290491C9819E334 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_endianness.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pa_endianness.h; path = ../submodules/portaudio/src/common/pa_endianness.h; sourceTree = SOURCE_ROOT; };
+		31FD49D7E3FB472A870DC1BA /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Output/AOutputS.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = AOutputS.cpp; path = ../paulstretch_cpp_modified/Output/AOutputS.cpp; sourceTree = SOURCE_ROOT; };
+		32D7865ABEAE494ABB8E6B17 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core_utilities.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = pa_mac_core_utilities.c; path = ../submodules/portaudio/src/hostapi/coreaudio/pa_mac_core_utilities.c; sourceTree = SOURCE_ROOT; };
+		369D5513ACA44684BE108E52 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_debugprint.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pa_debugprint.h; path = ../submodules/portaudio/src/common/pa_debugprint.h; sourceTree = SOURCE_ROOT; };
+		3856987BE96E44EC9CE68653 /* /Users/njazz/Documents/github/paulstretchlib/lib/JSONCodec.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = JSONCodec.cpp; path = ../lib/JSONCodec.cpp; sourceTree = SOURCE_ROOT; };
+		39F87BFFE0BF49A4AE4B3532 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_dither.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = pa_dither.c; path = ../submodules/portaudio/src/common/pa_dither.c; sourceTree = SOURCE_ROOT; };
+		3BE3C13AC4984A25B1D4BBEF /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/imgui_draw.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = imgui_draw.cpp; path = ../submodules/imgui/imgui_draw.cpp; sourceTree = SOURCE_ROOT; };
+		3E13A5440F104B328EBD2B37 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_process.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pa_process.h; path = ../submodules/portaudio/src/common/pa_process.h; sourceTree = SOURCE_ROOT; };
+		4BBEB3DF44304831A7B0A8ED /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/CMakeFiles/paulstretch-imgui.dir/Info.plist */ = {isa = PBXFileReference; explicitFileType = sourcecode.text.plist; fileEncoding = 4; name = Info.plist; path = "xcode/CMakeFiles/paulstretch-imgui.dir/Info.plist"; sourceTree = SOURCE_ROOT; };
+		53E4AF4F8D8A4F2A914FAF0D /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_debugprint.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = pa_debugprint.c; path = ../submodules/portaudio/src/common/pa_debugprint.c; sourceTree = SOURCE_ROOT; };
+		5B4DE515F3B948A5AA34065B /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_trace.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pa_trace.h; path = ../submodules/portaudio/src/common/pa_trace.h; sourceTree = SOURCE_ROOT; };
+		5FA198516DE94206B0866DBF /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Mutex.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Mutex.cpp; path = ../paulstretch_cpp_modified/Mutex.cpp; sourceTree = SOURCE_ROOT; };
+		64A65CA74CD643E9BEEC472F /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_allocation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pa_allocation.h; path = ../submodules/portaudio/src/common/pa_allocation.h; sourceTree = SOURCE_ROOT; };
+		67E9C49611034214987F50D4 /* /Users/njazz/Documents/github/paulstretchlib/lib/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = ../lib/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		67EBA48D0E0A4882BCB1363D /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_front.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = pa_front.c; path = ../submodules/portaudio/src/common/pa_front.c; sourceTree = SOURCE_ROOT; };
+		6924575D824D457AA41A5469 /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/tfd/tinyfiledialogs.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = tinyfiledialogs.c; path = tfd/tinyfiledialogs.c; sourceTree = SOURCE_ROOT; };
+		6A2D6E54E8DA4976AE8CB33C /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_types.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pa_types.h; path = ../submodules/portaudio/src/common/pa_types.h; sourceTree = SOURCE_ROOT; };
+		6C21C4859D1B412B9A9F1118 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/FreeEdit.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = FreeEdit.cpp; path = ../paulstretch_cpp_modified/FreeEdit.cpp; sourceTree = SOURCE_ROOT; };
+		709BF190A5A143CB988A6E42 /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/UI.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = UI.cpp; path = UI.cpp; sourceTree = SOURCE_ROOT; };
+		729CB5475A2E472D9EB69310 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/XMLWrapperDummy.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = XMLWrapperDummy.cpp; path = ../paulstretch_cpp_modified/XMLWrapperDummy.cpp; sourceTree = SOURCE_ROOT; };
+		73FE87E76F864F7A8A8D75FE /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_converters.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pa_converters.h; path = ../submodules/portaudio/src/common/pa_converters.h; sourceTree = SOURCE_ROOT; };
+		75190929B14D449182B710F2 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_hostapi.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pa_hostapi.h; path = ../submodules/portaudio/src/common/pa_hostapi.h; sourceTree = SOURCE_ROOT; };
+		7CFF81EAACD042718421567B /* /Users/njazz/Documents/github/paulstretchlib/submodules/paulstretch_cpp/contrib/kiss_fft.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = kiss_fft.c; path = ../submodules/paulstretch_cpp/contrib/kiss_fft.c; sourceTree = SOURCE_ROOT; };
+		7EC85F5409194E6C87BE7A36 /* portaudio */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libportaudio.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EE92CBB8767416BB52C43A6 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Player.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Player.cpp; path = ../paulstretch_cpp_modified/Player.cpp; sourceTree = SOURCE_ROOT; };
+		82F6BC0B9CC7450ABCC9D471 /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		84474E4162E6497D9902DA4E /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Control.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Control.cpp; path = ../paulstretch_cpp_modified/Control.cpp; sourceTree = SOURCE_ROOT; };
+		8671338C722A458893E5702C /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Stretch.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Stretch.cpp; path = ../paulstretch_cpp_modified/Stretch.cpp; sourceTree = SOURCE_ROOT; };
+		89DA9852A6C648AFAC45664B /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = ../submodules/portaudio/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		8AC8B61EBF07443D868D1D07 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_cpuload.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = pa_cpuload.c; path = ../submodules/portaudio/src/common/pa_cpuload.c; sourceTree = SOURCE_ROOT; };
+		91E9D4D3D65D479C9C778FCA /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_stream.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = pa_stream.c; path = ../submodules/portaudio/src/common/pa_stream.c; sourceTree = SOURCE_ROOT; };
+		95DEB3DA620E4FA19079AF45 /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/imgui.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = imgui.cpp; path = ../submodules/imgui/imgui.cpp; sourceTree = SOURCE_ROOT; };
+		A4520AD709E14C6392CBF17B /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/skeleton/pa_hostapi_skeleton.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = pa_hostapi_skeleton.c; path = ../submodules/portaudio/src/hostapi/skeleton/pa_hostapi_skeleton.c; sourceTree = SOURCE_ROOT; };
+		A5AB56F4BA984620B8C3E661 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/include/pa_mac_core.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pa_mac_core.h; path = ../submodules/portaudio/include/pa_mac_core.h; sourceTree = SOURCE_ROOT; };
+		A613E098EA8D455DA304C600 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_process.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = pa_process.c; path = ../submodules/portaudio/src/common/pa_process.c; sourceTree = SOURCE_ROOT; };
+		B3FA05849B04403FBBFFBEB7 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Input/AInputS.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = AInputS.cpp; path = ../paulstretch_cpp_modified/Input/AInputS.cpp; sourceTree = SOURCE_ROOT; };
+		C41835784F354DFCB62BEB16 /* paulstretch-imgui */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = "paulstretch-imgui"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5252BDFA6F8499C9824BDA1 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/os/unix/pa_unix_util.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = pa_unix_util.c; path = ../submodules/portaudio/src/os/unix/pa_unix_util.c; sourceTree = SOURCE_ROOT; };
+		C9EC3473063941B3BAAD6BF9 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_converters.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = pa_converters.c; path = ../submodules/portaudio/src/common/pa_converters.c; sourceTree = SOURCE_ROOT; };
+		CA80F464E4134A44A213B9D4 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/globals.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = globals.cpp; path = ../paulstretch_cpp_modified/globals.cpp; sourceTree = SOURCE_ROOT; };
+		CAB9709023F84C35AAEC5E4C /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/PAaudiooutput.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = PAaudiooutput.cpp; path = ../paulstretch_cpp_modified/PAaudiooutput.cpp; sourceTree = SOURCE_ROOT; };
+		CE3E377D12D84077B6862FB9 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/ProcessedStretch.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ProcessedStretch.cpp; path = ../paulstretch_cpp_modified/ProcessedStretch.cpp; sourceTree = SOURCE_ROOT; };
+		D8683C5632FB44B19863EA3B /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/include/portaudio.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = portaudio.h; path = ../submodules/portaudio/include/portaudio.h; sourceTree = SOURCE_ROOT; };
+		DA88F9808EA24A49A9C12D0A /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/BinauralBeats.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = BinauralBeats.cpp; path = ../paulstretch_cpp_modified/BinauralBeats.cpp; sourceTree = SOURCE_ROOT; };
+		DBF44C6F337E4FEE92D1691D /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/examples/imgui_impl_opengl3.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = imgui_impl_opengl3.cpp; path = ../submodules/imgui/examples/imgui_impl_opengl3.cpp; sourceTree = SOURCE_ROOT; };
+		DF9270716862480E870AAF1D /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/os/unix/pa_unix_hostapis.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = pa_unix_hostapis.c; path = ../submodules/portaudio/src/os/unix/pa_unix_hostapis.c; sourceTree = SOURCE_ROOT; };
+		E5D09575BB1F42E0AB573EB0 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_ringbuffer.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = pa_ringbuffer.c; path = ../submodules/portaudio/src/common/pa_ringbuffer.c; sourceTree = SOURCE_ROOT; };
+		E7D94B904DBC42CAB8FED8EF /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/examples/libs/gl3w/GL/gl3w.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = gl3w.c; path = ../submodules/imgui/examples/libs/gl3w/GL/gl3w.c; sourceTree = SOURCE_ROOT; };
+		E85A1B45DF17493F88FD8D7D /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/imgui_widgets.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = imgui_widgets.cpp; path = ../submodules/imgui/imgui_widgets.cpp; sourceTree = SOURCE_ROOT; };
+		EA196662A6F741E881AFFE43 /* paulstretchlib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libpaulstretchlib.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		F15F9EBDA4E140D69E151E07 /* /Users/njazz/Documents/github/paulstretchlib/submodules/paulstretch_cpp/contrib/kiss_fftr.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = kiss_fftr.c; path = ../submodules/paulstretch_cpp/contrib/kiss_fftr.c; sourceTree = SOURCE_ROOT; };
+		F1E2951C8F9F42B09CFEBF02 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_ringbuffer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pa_ringbuffer.h; path = ../submodules/portaudio/src/common/pa_ringbuffer.h; sourceTree = SOURCE_ROOT; };
+		F5B23AD4654B4D9A99E250F8 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = pa_mac_core.c; path = ../submodules/portaudio/src/hostapi/coreaudio/pa_mac_core.c; sourceTree = SOURCE_ROOT; };
+		F705DE6627804800B5877349 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_memorybarrier.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pa_memorybarrier.h; path = ../submodules/portaudio/src/common/pa_memorybarrier.h; sourceTree = SOURCE_ROOT; };
+		F78890DAC6504E03BC80E296 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_stream.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pa_stream.h; path = ../submodules/portaudio/src/common/pa_stream.h; sourceTree = SOURCE_ROOT; };
+		FC821D7FDB5F4F0C904A12D9 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core_blocking.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = pa_mac_core_blocking.c; path = ../submodules/portaudio/src/hostapi/coreaudio/pa_mac_core_blocking.c; sourceTree = SOURCE_ROOT; };
+		FE3978A6B57D496893D0F70E /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core_blocking.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pa_mac_core_blocking.h; path = ../submodules/portaudio/src/hostapi/coreaudio/pa_mac_core_blocking.h; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		09425E16AD5E48C7BA3AD9DD /* skeleton */ = {
+			isa = PBXGroup;
+			children = (
+				A4520AD709E14C6392CBF17B /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/skeleton/pa_hostapi_skeleton.c */,
+			);
+			name = skeleton;
+			sourceTree = "<group>";
+		};
+		221697EF70234EFF974BA07C /* paulstretch-imgui */ = {
+			isa = PBXGroup;
+			children = (
+				B964A27DF4F84477B421C600 /* Source Files */,
+				C1962E4F838A493381B1F75F /* Resources */,
+				82F6BC0B9CC7450ABCC9D471 /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/CMakeLists.txt */,
+			);
+			name = "paulstretch-imgui";
+			sourceTree = "<group>";
+		};
+		32645EDF92A24E54896546E0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C41835784F354DFCB62BEB16 /* paulstretch-imgui */,
+				EA196662A6F741E881AFFE43 /* paulstretchlib */,
+				7EC85F5409194E6C87BE7A36 /* portaudio */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		49D27B99CDF642B8BF84E4BC /* coreaudio */ = {
+			isa = PBXGroup;
+			children = (
+				F5B23AD4654B4D9A99E250F8 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core.c */,
+				FC821D7FDB5F4F0C904A12D9 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core_blocking.c */,
+				FE3978A6B57D496893D0F70E /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core_blocking.h */,
+				32D7865ABEAE494ABB8E6B17 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core_utilities.c */,
+				17C0C9EF853C4855BEE7CA47 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core_utilities.h */,
+			);
+			name = coreaudio;
+			sourceTree = "<group>";
+		};
+		7579539EE30846B886D389C3 = {
+			isa = PBXGroup;
+			children = (
+				221697EF70234EFF974BA07C /* paulstretch-imgui */,
+				7F10837C957243C0B43A5981 /* ALL_BUILD */,
+				CE906A0EC88D413C96F1E17C /* paulstretchlib */,
+				A222617208144E17933AB017 /* portaudio */,
+				32645EDF92A24E54896546E0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7B8262D809414B9288D231F8 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				A5AB56F4BA984620B8C3E661 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/include/pa_mac_core.h */,
+				D8683C5632FB44B19863EA3B /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/include/portaudio.h */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
+		7C8CB046279547558CF64673 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				1364583DF1A642EBBB7C9142 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_allocation.c */,
+				64A65CA74CD643E9BEEC472F /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_allocation.h */,
+				C9EC3473063941B3BAAD6BF9 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_converters.c */,
+				73FE87E76F864F7A8A8D75FE /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_converters.h */,
+				8AC8B61EBF07443D868D1D07 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_cpuload.c */,
+				283E2CC4C31848A085A14A0D /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_cpuload.h */,
+				53E4AF4F8D8A4F2A914FAF0D /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_debugprint.c */,
+				369D5513ACA44684BE108E52 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_debugprint.h */,
+				39F87BFFE0BF49A4AE4B3532 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_dither.c */,
+				2C423D3DDBA4491EBC268A84 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_dither.h */,
+				2FC8F73E6290491C9819E334 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_endianness.h */,
+				67EBA48D0E0A4882BCB1363D /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_front.c */,
+				75190929B14D449182B710F2 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_hostapi.h */,
+				F705DE6627804800B5877349 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_memorybarrier.h */,
+				A613E098EA8D455DA304C600 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_process.c */,
+				3E13A5440F104B328EBD2B37 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_process.h */,
+				E5D09575BB1F42E0AB573EB0 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_ringbuffer.c */,
+				F1E2951C8F9F42B09CFEBF02 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_ringbuffer.h */,
+				91E9D4D3D65D479C9C778FCA /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_stream.c */,
+				F78890DAC6504E03BC80E296 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_stream.h */,
+				23A13F80082E43429043CD5B /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_trace.c */,
+				5B4DE515F3B948A5AA34065B /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_trace.h */,
+				6A2D6E54E8DA4976AE8CB33C /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_types.h */,
+				16A94EF974A14AD08E50E9E7 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_util.h */,
+			);
+			name = common;
+			sourceTree = "<group>";
+		};
+		7F10837C957243C0B43A5981 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				A3869694256641CABCBA559B /* CMake Rules */,
+				11E899900BF14A61A0D486C4 /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		84513CC73B564C888F6F8EE0 /* hostapi */ = {
+			isa = PBXGroup;
+			children = (
+				49D27B99CDF642B8BF84E4BC /* coreaudio */,
+				09425E16AD5E48C7BA3AD9DD /* skeleton */,
+			);
+			name = hostapi;
+			sourceTree = "<group>";
+		};
+		91D5A768920444B7A9072C4B /* unix */ = {
+			isa = PBXGroup;
+			children = (
+				DF9270716862480E870AAF1D /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/os/unix/pa_unix_hostapis.c */,
+				C5252BDFA6F8499C9824BDA1 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/os/unix/pa_unix_util.c */,
+			);
+			name = unix;
+			sourceTree = "<group>";
+		};
+		A222617208144E17933AB017 /* portaudio */ = {
+			isa = PBXGroup;
+			children = (
+				84513CC73B564C888F6F8EE0 /* hostapi */,
+				7B8262D809414B9288D231F8 /* include */,
+				7C8CB046279547558CF64673 /* common */,
+				C345273F28E64328B2F984B4 /* os */,
+				89DA9852A6C648AFAC45664B /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/CMakeLists.txt */,
+			);
+			name = portaudio;
+			sourceTree = "<group>";
+		};
+		A3869694256641CABCBA559B /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		B964A27DF4F84477B421C600 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				12DAB61CE98B4EC2BB6F07D2 /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/AFOverview.cpp */,
+				709BF190A5A143CB988A6E42 /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/UI.cpp */,
+				218244FDB5C84666B4321D1E /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/paulstretch-imgui.cpp */,
+				6924575D824D457AA41A5469 /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/tfd/tinyfiledialogs.c */,
+				0F9523A0769D43B7BB23D553 /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui-plot/src/imgui_plot.cpp */,
+				DBF44C6F337E4FEE92D1691D /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/examples/imgui_impl_opengl3.cpp */,
+				125CDAC886CE444D8E8099C6 /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/examples/imgui_impl_sdl.cpp */,
+				E7D94B904DBC42CAB8FED8EF /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/examples/libs/gl3w/GL/gl3w.c */,
+				95DEB3DA620E4FA19079AF45 /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/imgui.cpp */,
+				1753C22635BF42B8A8233B64 /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/imgui_demo.cpp */,
+				3BE3C13AC4984A25B1D4BBEF /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/imgui_draw.cpp */,
+				E85A1B45DF17493F88FD8D7D /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/imgui_widgets.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		C1962E4F838A493381B1F75F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4BBEB3DF44304831A7B0A8ED /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/CMakeFiles/paulstretch-imgui.dir/Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		C345273F28E64328B2F984B4 /* os */ = {
+			isa = PBXGroup;
+			children = (
+				91D5A768920444B7A9072C4B /* unix */,
+			);
+			name = os;
+			sourceTree = "<group>";
+		};
+		CE906A0EC88D413C96F1E17C /* paulstretchlib */ = {
+			isa = PBXGroup;
+			children = (
+				DDBC944C39314DE3BF0954AA /* Source Files */,
+				67E9C49611034214987F50D4 /* /Users/njazz/Documents/github/paulstretchlib/lib/CMakeLists.txt */,
+			);
+			name = paulstretchlib;
+			sourceTree = "<group>";
+		};
+		DDBC944C39314DE3BF0954AA /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				3856987BE96E44EC9CE68653 /* /Users/njazz/Documents/github/paulstretchlib/lib/JSONCodec.cpp */,
+				1F02DBB754C54B7D981BD1DC /* /Users/njazz/Documents/github/paulstretchlib/lib/PaulstretchLib.cpp */,
+				DA88F9808EA24A49A9C12D0A /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/BinauralBeats.cpp */,
+				84474E4162E6497D9902DA4E /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Control.cpp */,
+				6C21C4859D1B412B9A9F1118 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/FreeEdit.cpp */,
+				B3FA05849B04403FBBFFBEB7 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Input/AInputS.cpp */,
+				5FA198516DE94206B0866DBF /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Mutex.cpp */,
+				31FD49D7E3FB472A870DC1BA /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Output/AOutputS.cpp */,
+				CAB9709023F84C35AAEC5E4C /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/PAaudiooutput.cpp */,
+				7EE92CBB8767416BB52C43A6 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Player.cpp */,
+				CE3E377D12D84077B6862FB9 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/ProcessedStretch.cpp */,
+				8671338C722A458893E5702C /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Stretch.cpp */,
+				1290E9529A4646FB9D56C3F6 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Thread.cpp */,
+				729CB5475A2E472D9EB69310 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/XMLWrapperDummy.cpp */,
+				CA80F464E4134A44A213B9D4 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/globals.cpp */,
+				7CFF81EAACD042718421567B /* /Users/njazz/Documents/github/paulstretchlib/submodules/paulstretch_cpp/contrib/kiss_fft.c */,
+				F15F9EBDA4E140D69E151E07 /* /Users/njazz/Documents/github/paulstretchlib/submodules/paulstretch_cpp/contrib/kiss_fftr.c */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5F1C569F55B743BAB5E91997 /* paulstretchlib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CE1A2AEACA44BDF8AF4CD3E /* Build configuration list for PBXNativeTarget "paulstretchlib" */;
+			buildPhases = (
+				A50FBE4A998745F092BA8309 /* Sources */,
+				526A63B1A3F44DD2A3E0F80C /* CMake PostBuild Rules */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B752D0313D204B98BE982311 /* PBXTargetDependency */,
+			);
+			name = paulstretchlib;
+			productName = paulstretchlib;
+			productReference = EA196662A6F741E881AFFE43 /* paulstretchlib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		BA2527004AA94E9A9198C96B /* paulstretch-imgui */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09B837BCF8FC4664BB090969 /* Build configuration list for PBXNativeTarget "paulstretch-imgui" */;
+			buildPhases = (
+				E409323254A64EBCABDE963C /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2FA706CAE2F2464E9F737EA4 /* PBXTargetDependency */,
+				98B861AC1A1F4D0B9E7B5BEB /* PBXTargetDependency */,
+				BDFBEE25D96349AB9254F7C4 /* PBXTargetDependency */,
+			);
+			name = "paulstretch-imgui";
+			productName = "paulstretch-imgui";
+			productReference = C41835784F354DFCB62BEB16 /* paulstretch-imgui */;
+			productType = "com.apple.product-type.application";
+		};
+		E6B4466C8C5748378FED18D2 /* portaudio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6591A7808F67486087E02F60 /* Build configuration list for PBXNativeTarget "portaudio" */;
+			buildPhases = (
+				6398D515958A42A3A07044CD /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = portaudio;
+			productName = portaudio;
+			productReference = 7EC85F5409194E6C87BE7A36 /* portaudio */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C6A1F63BF64F42E3B3CB0512 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 0910;
+			};
+			buildConfigurationList = 5B78F515B2324EAC92847390 /* Build configuration list for PBXProject "paulstretch-imgui" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				AF8C489DD5F645718166C7FC /* Debug */,
+				9C9963AAE53A4CFA9197BB48 /* Release */,
+				C02CA421E2254C3CBEDFE386 /* MinSizeRel */,
+				2946B4EFE9454E3386278DB5 /* RelWithDebInfo */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = 7579539EE30846B886D389C3;
+			projectDirPath = ../;
+			projectRoot = "";
+			targets = (
+				0B96040A42FE48E0AA7DBD70 /* ALL_BUILD */,
+				F77CEF288F06422898D01E7F /* ZERO_CHECK */,
+				929FAA0421BD40E2874ED6D1 /* install */,
+				BA2527004AA94E9A9198C96B /* paulstretch-imgui */,
+				5F1C569F55B743BAB5E91997 /* paulstretchlib */,
+				E6B4466C8C5748378FED18D2 /* portaudio */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0EFA7E2584394BA693D72019 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		0FCFAA8365D64E6BA737AB70 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		449B253E7A284BF7A1273F79 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode -f /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
+			showEnvVarsInLog = 0;
+		};
+		526A63B1A3F44DD2A3E0F80C /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib -f /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/CMakeScripts/paulstretchlib_postBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
+			showEnvVarsInLog = 0;
+		};
+		6DAC644AF78040FF90854FFF = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		901D99EBC15A406B8EE0C00F /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode -f /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
+			showEnvVarsInLog = 0;
+		};
+		991C56F5C9FD46D8AF442420 /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode -f /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/CMakeScripts/install_postBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6398D515958A42A3A07044CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03FCA3E6CFDE4A82B66AB58B /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_allocation.c */,
+				4EDA1E4532C64990A2F5310D /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_converters.c */,
+				FCAC8AF95D7749AEB64C3833 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_cpuload.c */,
+				B8DB64BEDA194DA8B8530190 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_debugprint.c */,
+				F487C61BFDF041438CA3FD20 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_dither.c */,
+				55EF92467E004B3D823BDF5C /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_front.c */,
+				FBF063CCF58547E3A946B241 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_process.c */,
+				801A64505056442AB9FD4C97 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_ringbuffer.c */,
+				1BDFA3CE82424F9F91006B5E /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_stream.c */,
+				EE4731494F8F420E80F3F538 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common/pa_trace.c */,
+				B377124A63554722B65FFBD5 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core.c */,
+				23C09723F06D44FDBD7D7EC2 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core_blocking.c */,
+				0D7101A134804B718860601A /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/coreaudio/pa_mac_core_utilities.c */,
+				B2DBB57518C0400096ECF53D /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/hostapi/skeleton/pa_hostapi_skeleton.c */,
+				548BFAE1F6374A179F1C1BB4 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/os/unix/pa_unix_hostapis.c */,
+				A4118DADA1844D4493961420 /* /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/os/unix/pa_unix_util.c */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A50FBE4A998745F092BA8309 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BC7B40B498D48819053D061 /* /Users/njazz/Documents/github/paulstretchlib/lib/JSONCodec.cpp */,
+				31CAC94364624039A7657BD2 /* /Users/njazz/Documents/github/paulstretchlib/lib/PaulstretchLib.cpp */,
+				49195BA815F54B12A9C30AEF /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/BinauralBeats.cpp */,
+				A98E813324244290B9F79124 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Control.cpp */,
+				761CB16C287E4A7682528648 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/FreeEdit.cpp */,
+				39E1F813288F44799BC4823F /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Input/AInputS.cpp */,
+				3BEA57CFC88440FAB1DDE866 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Mutex.cpp */,
+				CB73F208C0A14788A1C2A66D /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Output/AOutputS.cpp */,
+				3E4214B15E254296A2181664 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/PAaudiooutput.cpp */,
+				0423A37DCABA4F43BE93E24A /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Player.cpp */,
+				374D4E3C107E4049BD18B712 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/ProcessedStretch.cpp */,
+				FF5A6B6218FB42CFAD9C2D60 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Stretch.cpp */,
+				F247040169E84BFE92D00945 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/Thread.cpp */,
+				D0FD970CC36A4046994DE62B /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/XMLWrapperDummy.cpp */,
+				13DC586CE1EC469F8C1E2660 /* /Users/njazz/Documents/github/paulstretchlib/paulstretch_cpp_modified/globals.cpp */,
+				5DE52536A7B5430BA664A4D0 /* /Users/njazz/Documents/github/paulstretchlib/submodules/paulstretch_cpp/contrib/kiss_fft.c */,
+				F6BD171719B54901929B90FA /* /Users/njazz/Documents/github/paulstretchlib/submodules/paulstretch_cpp/contrib/kiss_fftr.c */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E409323254A64EBCABDE963C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95E9297A30CA4AAFA68E5C3F /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/AFOverview.cpp */,
+				610CC690DF5F40ACB80353CB /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/UI.cpp */,
+				8CB0A59B9D784EB6B78D03DE /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/paulstretch-imgui.cpp */,
+				0AA4E8238C1C4B55BAC070A0 /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/tfd/tinyfiledialogs.c */,
+				A34B09354B5148E499A7D23C /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui-plot/src/imgui_plot.cpp */,
+				C995BC9FBEF346039FFE4ECA /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/examples/imgui_impl_opengl3.cpp */,
+				5E44A739D5E64E76B0F599DD /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/examples/imgui_impl_sdl.cpp */,
+				0071E861F2354A88BCA59D50 /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/examples/libs/gl3w/GL/gl3w.c */,
+				37E255A661304F14848B7892 /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/imgui.cpp */,
+				17E96E581F2A410B9D0911FD /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/imgui_demo.cpp */,
+				3922719B04494536A818F123 /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/imgui_draw.cpp */,
+				FFDA6A77B98B4D7383696BB7 /* /Users/njazz/Documents/github/paulstretchlib/submodules/imgui/imgui_widgets.cpp */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2FA706CAE2F2464E9F737EA4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F77CEF288F06422898D01E7F /* ZERO_CHECK */;
+			targetProxy = 63D8B2D230F240698771C2A6 /* PBXContainerItemProxy */;
+		};
+		3BAD879A3193436CACB07A19 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B96040A42FE48E0AA7DBD70 /* ALL_BUILD */;
+			targetProxy = A351469E59684285843DF5C6 /* PBXContainerItemProxy */;
+		};
+		98B861AC1A1F4D0B9E7B5BEB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5F1C569F55B743BAB5E91997 /* paulstretchlib */;
+			targetProxy = 5AA949F909C84480B67FD548 /* PBXContainerItemProxy */;
+		};
+		B752D0313D204B98BE982311 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E6B4466C8C5748378FED18D2 /* portaudio */;
+			targetProxy = 64D250E565244A9B94DDD827 /* PBXContainerItemProxy */;
+		};
+		BDFBEE25D96349AB9254F7C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E6B4466C8C5748378FED18D2 /* portaudio */;
+			targetProxy = FDCBB5AAC5894CF9A99065A1 /* PBXContainerItemProxy */;
+		};
+		DD0F27E34BEE4B42A9559600 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5F1C569F55B743BAB5E91997 /* paulstretchlib */;
+			targetProxy = 6620D5AF7F034E8499233900 /* PBXContainerItemProxy */;
+		};
+		DEA612A20B0D4858ABD79D44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F77CEF288F06422898D01E7F /* ZERO_CHECK */;
+			targetProxy = 35AE475C86B7487289047404 /* PBXContainerItemProxy */;
+		};
+		E5351B3E68F84CE4A68A81FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA2527004AA94E9A9198C96B /* paulstretch-imgui */;
+			targetProxy = 5163A46D74C34BA381372125 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		003540E81D4C401C92FAEBE8 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		0188053D44CF42E7BD29B95C /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		14672D2C8BBB48FD85CB43FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = "";
+				DYLIB_CURRENT_VERSION = "";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",paulstretchlib_EXPORTS,KISSFFT,PA_USE_COREAUDIO);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/SDL2,"/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui-plot/include","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples/libs/gl3w",/Users/njazz/Documents/github/paulstretchlib/lib/../paulstretch_cpp_modified,/Users/njazz/Documents/github/paulstretchlib/lib/../submodules/paulstretch_cpp/contrib,/Users/njazz/Documents/github/paulstretchlib/lib/../submodules/mxml,/Users/njazz/Documents/github/paulstretchlib/lib/./compatibility,/Users/njazz/Documents/github/paulstretchlib/lib/../submodules/audiofile/libaudiofile,/Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/include);
+				INSTALL_PATH = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/Debug";
+				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_STYLE = DYNAMIC;
+				OTHER_CFLAGS = "   -fPIC  ";
+				OTHER_CPLUSPLUSFLAGS = "   -fPIC '-std=gnu++11'  ";
+				OTHER_LDFLAGS = " -undefined dynamic_lookup -dynamiclib -Wl,-headerpad_max_install_names  /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/build/portaudio/Debug/libportaudio.a -laudiofile -framework CoreAudio -framework AudioToolbox -framework AudioUnit -framework Carbon -lm -lpthread";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = paulstretchlib;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		150B51F1FAA54634833CF52F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/SDL2,"/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui-plot/include","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples/libs/gl3w","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../lib","/Users/njazz/Documents/github/paulstretchlib/app-cxx/tfd","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/audiofile/libaudiofile",/Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/include);
+				INFOPLIST_FILE = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/CMakeFiles/paulstretch-imgui.dir/Info.plist";
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++11'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /usr/local/lib/libSDL2.dylib -framework Cocoa /usr/local/lib/libSDL2main.a -framework OpenGL -framework OpenGL -framework GLUT -framework Cocoa /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/Release/libpaulstretchlib.dylib /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/build/portaudio/Release/libportaudio.a -framework CoreAudio -framework AudioToolbox -framework AudioUnit -framework Carbon -lm -lpthread -laudiofile";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "paulstretch-imgui";
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		211BF1F113774C17B39DE1DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		27AFDDE08C854DB5823BC3E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		33F6325D69524F71BD743843 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = "";
+				DYLIB_CURRENT_VERSION = "";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",paulstretchlib_EXPORTS,KISSFFT,PA_USE_COREAUDIO);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/SDL2,"/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui-plot/include","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples/libs/gl3w",/Users/njazz/Documents/github/paulstretchlib/lib/../paulstretch_cpp_modified,/Users/njazz/Documents/github/paulstretchlib/lib/../submodules/paulstretch_cpp/contrib,/Users/njazz/Documents/github/paulstretchlib/lib/../submodules/mxml,/Users/njazz/Documents/github/paulstretchlib/lib/./compatibility,/Users/njazz/Documents/github/paulstretchlib/lib/../submodules/audiofile/libaudiofile,/Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/include);
+				INSTALL_PATH = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/RelWithDebInfo";
+				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_STYLE = DYNAMIC;
+				OTHER_CFLAGS = "       -DNDEBUG -fPIC  ";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG -fPIC '-std=gnu++11'  ";
+				OTHER_LDFLAGS = " -undefined dynamic_lookup -dynamiclib -Wl,-headerpad_max_install_names  /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/build/portaudio/RelWithDebInfo/libportaudio.a -laudiofile -framework CoreAudio -framework AudioToolbox -framework AudioUnit -framework Carbon -lm -lpthread";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = paulstretchlib;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		35C8C7AEC68949B5973C00F9 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/SDL2,"/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui-plot/include","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples/libs/gl3w","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../lib","/Users/njazz/Documents/github/paulstretchlib/app-cxx/tfd","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/audiofile/libaudiofile",/Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/include);
+				INFOPLIST_FILE = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/CMakeFiles/paulstretch-imgui.dir/Info.plist";
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=gnu++11'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /usr/local/lib/libSDL2.dylib -framework Cocoa /usr/local/lib/libSDL2main.a -framework OpenGL -framework OpenGL -framework GLUT -framework Cocoa /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/MinSizeRel/libpaulstretchlib.dylib /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/build/portaudio/MinSizeRel/libportaudio.a -framework CoreAudio -framework AudioToolbox -framework AudioUnit -framework Carbon -lm -lpthread -laudiofile";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "paulstretch-imgui";
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		44E67E59423042AC88045947 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		45AD9260B8974388A0182C99 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		5DF60BC13CEE4EB0A885A936 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = "";
+				DYLIB_CURRENT_VERSION = "";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",paulstretchlib_EXPORTS,KISSFFT,PA_USE_COREAUDIO);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/SDL2,"/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui-plot/include","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples/libs/gl3w",/Users/njazz/Documents/github/paulstretchlib/lib/../paulstretch_cpp_modified,/Users/njazz/Documents/github/paulstretchlib/lib/../submodules/paulstretch_cpp/contrib,/Users/njazz/Documents/github/paulstretchlib/lib/../submodules/mxml,/Users/njazz/Documents/github/paulstretchlib/lib/./compatibility,/Users/njazz/Documents/github/paulstretchlib/lib/../submodules/audiofile/libaudiofile,/Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/include);
+				INSTALL_PATH = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/Release";
+				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_STYLE = DYNAMIC;
+				OTHER_CFLAGS = "    -DNDEBUG -fPIC  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -fPIC '-std=gnu++11'  ";
+				OTHER_LDFLAGS = " -undefined dynamic_lookup -dynamiclib -Wl,-headerpad_max_install_names  /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/build/portaudio/Release/libportaudio.a -laudiofile -framework CoreAudio -framework AudioToolbox -framework AudioUnit -framework Carbon -lm -lpthread";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = paulstretchlib;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		67BDCB685E334B8EA4D143C3 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = "";
+				DYLIB_CURRENT_VERSION = "";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",paulstretchlib_EXPORTS,KISSFFT,PA_USE_COREAUDIO);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/SDL2,"/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui-plot/include","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples/libs/gl3w",/Users/njazz/Documents/github/paulstretchlib/lib/../paulstretch_cpp_modified,/Users/njazz/Documents/github/paulstretchlib/lib/../submodules/paulstretch_cpp/contrib,/Users/njazz/Documents/github/paulstretchlib/lib/../submodules/mxml,/Users/njazz/Documents/github/paulstretchlib/lib/./compatibility,/Users/njazz/Documents/github/paulstretchlib/lib/../submodules/audiofile/libaudiofile,/Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/include);
+				INSTALL_PATH = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/MinSizeRel";
+				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_STYLE = DYNAMIC;
+				OTHER_CFLAGS = "    -DNDEBUG -fPIC  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -fPIC '-std=gnu++11'  ";
+				OTHER_LDFLAGS = " -undefined dynamic_lookup -dynamiclib -Wl,-headerpad_max_install_names  /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/build/portaudio/MinSizeRel/libportaudio.a -laudiofile -framework CoreAudio -framework AudioToolbox -framework AudioUnit -framework Carbon -lm -lpthread";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = paulstretchlib;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		6FF7DA8FA84B401386FBB48F /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		78DCFCD64BC24870919DD5A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		7C4D35F73C7E4418B5DC3D7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		80CFC7DE80644B7DAE3D8BBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/SDL2,"/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui-plot/include","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples/libs/gl3w","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../lib","/Users/njazz/Documents/github/paulstretchlib/app-cxx/tfd","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/audiofile/libaudiofile",/Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/include);
+				INFOPLIST_FILE = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/CMakeFiles/paulstretch-imgui.dir/Info.plist";
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    ";
+				OTHER_CPLUSPLUSFLAGS = "   '-std=gnu++11'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /usr/local/lib/libSDL2.dylib -framework Cocoa /usr/local/lib/libSDL2main.a -framework OpenGL -framework OpenGL -framework GLUT -framework Cocoa /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/Debug/libpaulstretchlib.dylib /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/build/portaudio/Debug/libportaudio.a -framework CoreAudio -framework AudioToolbox -framework AudioUnit -framework Carbon -lm -lpthread -laudiofile";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "paulstretch-imgui";
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		99F7DB0BBB09425991821F1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/build";
+			};
+			name = Debug;
+		};
+		9AE2283653E24D97A842B722 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/build";
+			};
+			name = Release;
+		};
+		A52EEB8EB18444A98CF8AEA0 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/build";
+			};
+			name = RelWithDebInfo;
+		};
+		A5BC895524294353A6DE1ACD /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",PA_USE_COREAUDIO,PA_LITTLE_ENDIAN,KISSFFT);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/SDL2,"/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui-plot/include","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples/libs/gl3w",/Users/njazz/Documents/github/paulstretchlib/lib/../paulstretch_cpp_modified,/Users/njazz/Documents/github/paulstretchlib/lib/../submodules/paulstretch_cpp/contrib,/Users/njazz/Documents/github/paulstretchlib/lib/../submodules/mxml,/Users/njazz/Documents/github/paulstretchlib/lib/./compatibility,/Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common,"/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/build/portaudio",/Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/os/unix,/Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/include);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "       -DNDEBUG  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = portaudio;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/build/portaudio";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		A96A15D5EF984CA4AEF70A10 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/build";
+			};
+			name = MinSizeRel;
+		};
+		BA31A6C20AEA429DB6ECEDBA /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",PA_USE_COREAUDIO,PA_LITTLE_ENDIAN,KISSFFT);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/SDL2,"/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui-plot/include","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples/libs/gl3w",/Users/njazz/Documents/github/paulstretchlib/lib/../paulstretch_cpp_modified,/Users/njazz/Documents/github/paulstretchlib/lib/../submodules/paulstretch_cpp/contrib,/Users/njazz/Documents/github/paulstretchlib/lib/../submodules/mxml,/Users/njazz/Documents/github/paulstretchlib/lib/./compatibility,/Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common,"/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/build/portaudio",/Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/os/unix,/Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/include);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = portaudio;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/build/portaudio";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		BC08E6960C3548759A1B51ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		E3C982AF1BE14588B7B52D2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",PA_USE_COREAUDIO,PA_LITTLE_ENDIAN,KISSFFT);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/SDL2,"/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui-plot/include","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples/libs/gl3w",/Users/njazz/Documents/github/paulstretchlib/lib/../paulstretch_cpp_modified,/Users/njazz/Documents/github/paulstretchlib/lib/../submodules/paulstretch_cpp/contrib,/Users/njazz/Documents/github/paulstretchlib/lib/../submodules/mxml,/Users/njazz/Documents/github/paulstretchlib/lib/./compatibility,/Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common,"/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/build/portaudio",/Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/os/unix,/Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/include);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = portaudio;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/build/portaudio";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		EBE87730AA9E47879574E770 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		F0EFC0C1F5FC4366BB23533F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",PA_USE_COREAUDIO,PA_LITTLE_ENDIAN,KISSFFT);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/SDL2,"/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui-plot/include","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples/libs/gl3w",/Users/njazz/Documents/github/paulstretchlib/lib/../paulstretch_cpp_modified,/Users/njazz/Documents/github/paulstretchlib/lib/../submodules/paulstretch_cpp/contrib,/Users/njazz/Documents/github/paulstretchlib/lib/../submodules/mxml,/Users/njazz/Documents/github/paulstretchlib/lib/./compatibility,/Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/common,"/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/build/portaudio",/Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/src/os/unix,/Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/include);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "    ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = portaudio;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/build/portaudio";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		F6C8D8E3B1494BA49FC9C50B /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include/SDL2,"/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui-plot/include","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/imgui/examples/libs/gl3w","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../lib","/Users/njazz/Documents/github/paulstretchlib/app-cxx/tfd","/Users/njazz/Documents/github/paulstretchlib/app-cxx/../submodules/audiofile/libaudiofile",/Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/include);
+				INFOPLIST_FILE = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/CMakeFiles/paulstretch-imgui.dir/Info.plist";
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "       -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=gnu++11'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /usr/local/lib/libSDL2.dylib -framework Cocoa /usr/local/lib/libSDL2main.a -framework OpenGL -framework OpenGL -framework GLUT -framework Cocoa /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/RelWithDebInfo/libpaulstretchlib.dylib /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/build/portaudio/RelWithDebInfo/libportaudio.a -framework CoreAudio -framework AudioToolbox -framework AudioUnit -framework Carbon -lm -lpthread -laudiofile";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "paulstretch-imgui";
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		FA7F2E3EFC4248179CD0E7EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		09B837BCF8FC4664BB090969 /* Build configuration list for PBXNativeTarget "paulstretch-imgui" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80CFC7DE80644B7DAE3D8BBB /* Debug */,
+				150B51F1FAA54634833CF52F /* Release */,
+				35C8C7AEC68949B5973C00F9 /* MinSizeRel */,
+				F6C8D8E3B1494BA49FC9C50B /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		316D2D064B17440C8D190405 /* Build configuration list for PBXAggregateTarget "install" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78DCFCD64BC24870919DD5A2 /* Debug */,
+				FA7F2E3EFC4248179CD0E7EF /* Release */,
+				44E67E59423042AC88045947 /* MinSizeRel */,
+				45AD9260B8974388A0182C99 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5B78F515B2324EAC92847390 /* Build configuration list for PBXProject "paulstretch-imgui" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99F7DB0BBB09425991821F1F /* Debug */,
+				9AE2283653E24D97A842B722 /* Release */,
+				A96A15D5EF984CA4AEF70A10 /* MinSizeRel */,
+				A52EEB8EB18444A98CF8AEA0 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6591A7808F67486087E02F60 /* Build configuration list for PBXNativeTarget "portaudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0EFC0C1F5FC4366BB23533F /* Debug */,
+				E3C982AF1BE14588B7B52D2F /* Release */,
+				BA31A6C20AEA429DB6ECEDBA /* MinSizeRel */,
+				A5BC895524294353A6DE1ACD /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6CE1A2AEACA44BDF8AF4CD3E /* Build configuration list for PBXNativeTarget "paulstretchlib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14672D2C8BBB48FD85CB43FA /* Debug */,
+				5DF60BC13CEE4EB0A885A936 /* Release */,
+				67BDCB685E334B8EA4D143C3 /* MinSizeRel */,
+				33F6325D69524F71BD743843 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9BD4D904648F4623894AFD07 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27AFDDE08C854DB5823BC3E7 /* Debug */,
+				211BF1F113774C17B39DE1DA /* Release */,
+				EBE87730AA9E47879574E770 /* MinSizeRel */,
+				003540E81D4C401C92FAEBE8 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FE70A5FDFF024F49AE9EB443 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C4D35F73C7E4418B5DC3D7E /* Debug */,
+				BC08E6960C3548759A1B51ED /* Release */,
+				6FF7DA8FA84B401386FBB48F /* MinSizeRel */,
+				0188053D44CF42E7BD29B95C /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C6A1F63BF64F42E3B3CB0512 /* Project object */;
+}

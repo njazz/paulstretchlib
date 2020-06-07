@@ -1,0 +1,14 @@
+/Users/njazz/Documents/github/paulstretchlib/lib/build-lib/CMakeFiles/install/local.dir
+/Users/njazz/Documents/github/paulstretchlib/lib/build-lib/CMakeFiles/install/strip.dir
+/Users/njazz/Documents/github/paulstretchlib/lib/build-lib/CMakeFiles/install.dir
+/Users/njazz/Documents/github/paulstretchlib/lib/build-lib/CMakeFiles/list_install_components.dir
+/Users/njazz/Documents/github/paulstretchlib/lib/build-lib/CMakeFiles/rebuild_cache.dir
+/Users/njazz/Documents/github/paulstretchlib/lib/build-lib/CMakeFiles/edit_cache.dir
+/Users/njazz/Documents/github/paulstretchlib/lib/build-lib/CMakeFiles/paulstretchlib.dir
+/Users/njazz/Documents/github/paulstretchlib/lib/build-lib/build/portaudio/CMakeFiles/install/strip.dir
+/Users/njazz/Documents/github/paulstretchlib/lib/build-lib/build/portaudio/CMakeFiles/install.dir
+/Users/njazz/Documents/github/paulstretchlib/lib/build-lib/build/portaudio/CMakeFiles/list_install_components.dir
+/Users/njazz/Documents/github/paulstretchlib/lib/build-lib/build/portaudio/CMakeFiles/rebuild_cache.dir
+/Users/njazz/Documents/github/paulstretchlib/lib/build-lib/build/portaudio/CMakeFiles/edit_cache.dir
+/Users/njazz/Documents/github/paulstretchlib/lib/build-lib/build/portaudio/CMakeFiles/install/local.dir
+/Users/njazz/Documents/github/paulstretchlib/lib/build-lib/build/portaudio/CMakeFiles/portaudio.dir

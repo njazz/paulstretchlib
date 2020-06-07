@@ -1,0 +1,28 @@
+[submodule "submodules/pybind11"]
+	path = submodules/pybind11
+	url = http://github.com/pybind/pybind11
+[submodule "submodules/paulstretch_cpp"]
+	path = submodules/paulstretch_cpp
+	url = https://github.com/paulnasca/paulstretch_cpp
+[submodule "portaudio"]
+	path = portaudio
+	url = https://github.com/supercollider/portaudio
+[submodule "submodules/portaudio"]
+	path = submodules/portaudio
+	url = https://github.com/supercollider/portaudio
+[submodule "submodules/audiofile"]
+	path = submodules/audiofile
+	url = https://github.com/mpruett/audiofile
+[submodule "submodules/imgui-plot"]
+	path = submodules/imgui-plot
+	url = https://github.com/soulthreads/imgui-plot
+[submodule "submodules/imgui"]
+	path = submodules/imgui
+	url = https://github.com/ocornut/imgui
+	branch = docking
+[submodule "submodules/glfw"]
+	path = submodules/glfw
+	url = https://github.com/glfw/glfw
+[submodule "submodules/SDL-mirror"]
+	path = submodules/SDL-mirror
+	url = https://github.com/spurious/SDL-mirror
