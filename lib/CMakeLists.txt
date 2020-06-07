@@ -9,11 +9,11 @@ include(ExternalProject)
 ExternalProject_Add(libaudiofile
     PREFIX ${${CMAKE_CURRENT_BINARY_DIR}/libaudiofile}
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../submodules/audiofile
-    CONFIGURE_COMMAND cd ${CMAKE_CURRENT_SOURCE_DIR}/../submodules/audiofile/ && make distclean && ${CMAKE_CURRENT_SOURCE_DIR}/../submodules/audiofile/configure --srcdir=${CMAKE_CURRENT_SOURCE_DIR}/../submodules/audiofile/ --prefix=${CMAKE_CURRENT_BINARY_DIR} --enable-static=yes 
+    #CONFIGURE_COMMAND  ${CMAKE_CURRENT_SOURCE_DIR}/../submodules/audiofile/configure --srcdir=${CMAKE_CURRENT_SOURCE_DIR}/../submodules/audiofile/ --prefix=${CMAKE_CURRENT_BINARY_DIR} --enable-static=yes 
+    CONFIGURE_COMMAND echo "CFG"
+    BUILD_COMMAND cd ${CMAKE_CURRENT_SOURCE_DIR}/../submodules/audiofile/ && ${CMAKE_MAKE_PROGRAM} libaudiofile    BUILD_BYPRODUCTS ${AUDIOFILE_LIB}
 
-    BUILD_COMMAND cd ${CMAKE_CURRENT_SOURCE_DIR}/../submodules/audiofile/ && make libaudiofile    BUILD_BYPRODUCTS ${AUDIOFILE_LIB}
-
-    INSTALL_COMMAND cd ${CMAKE_CURRENT_SOURCE_DIR}/../submodules/audiofile/ && make libaudiofile && echo "DONE"
+    INSTALL_COMMAND cd ${CMAKE_CURRENT_SOURCE_DIR}/../submodules/audiofile/ && ${CMAKE_MAKE_PROGRAM} libaudiofile && echo "DONE"
 #echo ""
 
 )
@@ -57,8 +57,14 @@ set(SOURCES
     ../paulstretch_cpp_modified/XMLWrapperDummy.cpp
 	
 )
-
+if(UNIX)
 add_definitions(-DPA_USE_COREAUDIO)
+endif(UNIX)
+if(MINGW)
+#add_definitions(-DPA_USE_WASAPI)
+include(FindDSound)
+include_directories(${DSOUND_INCLUDE_DIRS})
+endif(MINGW)
 
 add_subdirectory("../submodules/portaudio" "build/portaudio" EXCLUDE_FROM_ALL)
 
