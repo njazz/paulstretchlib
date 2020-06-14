@@ -1,3 +1,7 @@
 app-cxx/build-osx
 app-cxx/build-win-mingw
 app-cxx/build-win
+
+app-cxx/dist/paulstretch-imgui.app/Contents/Info.plist
+
+app-cxx/dist/paulstretch-imgui.app/Contents/MacOS/paulstretch-imgui
