@@ -1,4 +1,7 @@
 
+
+
+
 #include "UI.hpp"
 
 #include "PaulstretchLib.hpp"
@@ -20,6 +23,8 @@
 
 #include "AFOverview.hpp"
 
+#include "StringUtilities.hpp"
+
 using namespace Core;
 
 struct _UIState {
@@ -37,6 +42,9 @@ struct _UIState {
     ImGuiID _dockMain;
     ImGuiID _dockLeft;
     ImGuiID _dockRight;
+
+    std::vector<std::string> inputFiles;
+    std::vector<std::string> inputConfigurations;
 };
 
 static _UIState UIState;
@@ -50,14 +58,41 @@ static AFOverview overview;
 
 inline Optional<std::vector<std::string> > _OpenAudioFiles()
 {
+    using namespace StringUtilities;
+    
     Optional<std::vector<std::string> > ret;
+    
+    std::vector<const char*> flt = { "*.wav", "*.aif*" };
+
+    auto r = tinyfd_openFileDialog(
+        "Open audio files", /* NULL or "" */
+        NULL, /* NULL or "" */
+        2, /* 0 */
+        flt.data(), /* NULL | {"*.jpg","*.png"} */
+        "Audio files", /* NULL | "image files" */
+        1);
+
+    if (r)
+        ret = SplitStringWithDelimiter(r, "|");
 
     return ret;
 }
 
 inline Optional<std::vector<std::string> > _OpenConfigFiles()
 {
+    using namespace StringUtilities;
+    
     Optional<std::vector<std::string> > ret;
+    
+     std::vector<const char*> flt = { "*.ps.json" };
+
+    auto r = tinyfd_openFileDialog(
+        "Open configuration file", /* NULL or "" */
+        NULL, /* NULL or "" */
+        1, /* 0 */
+        flt.data(), /* NULL | {"*.jpg","*.png"} */
+        "paulstretchlib configuration files (JSON)", /* NULL | "image files" */
+        0);
 
     return ret;
 }
@@ -167,12 +202,102 @@ void _BatchWindow()
 {
     using namespace ImGui;
     Begin("Batch process");
-    Button("Open files...");
-    Button("Open configurations...");
+    if (Button("Open files...")) {
+        auto v = _OpenAudioFiles();
+        if (!v.IsNull())
+            UIState.inputFiles = v.Get();
+    }
+    // --- audio files
+    Separator();
+    if (UIState.inputFiles.size()==0){
+        Text("No audio files");
+        
+    }
+    for (const auto& e: UIState.inputFiles){
+        Text("%s",e.c_str());
+        Separator();
+        Button("Del");
+        SameLine(50);
+        Button("Replace");
+        SameLine(130);
+        bool b = false;
+        Checkbox("View",&b);
+    }
+    
+    Separator();
+    
+    if (Button("Open configurations...")) {
+        auto v = _OpenConfigFiles();
+        if (!v.IsNull())
+            UIState.inputConfigurations = v.Get();
+    }
+    
+    // --- cfg
+    
+    Separator();
+    if (UIState.inputConfigurations.size()==0){
+        Text("No configuration files");
+        
+    }
+    for (const auto& e: UIState.inputConfigurations){
+        Text("%s",e.c_str());
+        Separator();
+        Button("Del");
+        SameLine(50);
+        Button("Replace");
+        SameLine(130);
+        bool b = false;
+        Checkbox("Edit",&b);
+    }
+    
     Separator();
     Text("Regions:");
     Separator();
     Button("Render Files");
+    End();
+}
+
+void _FileWindow()
+{
+using namespace ImGui;
+    using namespace PaulstretchLib;
+Begin("File");
+
+    Columns(2);
+    float fs = overview.ScaleFraction();
+    if (SliderFloat("Scale", &fs, 0.01, 1)) {
+        overview.SetScaleFraction(fs);
+    }
+    NextColumn();
+    float scroll = overview.ScrollFraction();
+    if (SliderFloat("Scroll", &scroll, 0, 1)) {
+        overview.SetScrollFraction(scroll);
+    }
+    NextColumn();
+    Columns(1);
+
+    auto ws = ImVec2(GetWindowWidth() * .97, GetWindowHeight() * .87);
+    plotCfg.frame_size = ws;
+
+    overview.SetDataSize(1024);
+    plotCfg.values.ys = overview.GetData().data();
+
+    auto rng = _lc.RenderRange();
+
+    uint32_t selStart = overview.FractionToViewCoord(rng.startFraction);
+    uint32_t selLen = overview.FractionToViewCoord(rng.endFraction) - selStart;
+    plotCfg.selection.start = &selStart;
+    plotCfg.selection.length = &selLen;
+    plotCfg.selection.show = true;
+
+    if (Plot("file:", plotCfg) == PlotStatus::selection_updated) {
+        float nStart = overview.ViewCoordToFraction(selStart);
+        float nEnd = overview.ViewCoordToFraction(selLen) + nStart;
+
+        auto r = PaulstretchLib::PercentRegion(nStart, nEnd);
+
+        _lc.SetRenderRange(r);
+    }
     End();
 }
 
@@ -522,7 +647,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
     Separator();
 
     End();
-    
+
     if (ret)
         cfg_o.Set(cfg);
 
@@ -627,20 +752,17 @@ void _LegacyControllerWindow()
         }
     }
 
-    
     auto rr = _lc.RenderRange();
     float range[2];
     range[0] = rr.startFraction;
     range[1] = rr.endFraction;
-    
-    if (DragFloat2("Range", range,0.005,0,1))
-        {
-            _lc.SetRenderRange(PaulstretchLib::PercentRegion(range[0],range[1]));
-        }
-    
-    if (Button("Select all"))
-    {
-        _lc.SetRenderRange(PaulstretchLib::PercentRegion(0,1));
+
+    if (DragFloat2("Range", range, 0.005, 0, 1)) {
+        _lc.SetRenderRange(PaulstretchLib::PercentRegion(range[0], range[1]));
+    }
+
+    if (Button("Select all")) {
+        _lc.SetRenderRange(PaulstretchLib::PercentRegion(0, 1));
     }
 
     Separator();
@@ -712,8 +834,9 @@ void PaulstretchUI()
         UIState._dockLeft = ImGui::DockBuilderSplitNode(UIState._dockMain, ImGuiDir_Left, 0.20f, NULL, &UIState._dockMain);
         UIState._dockRight = ImGui::DockBuilderSplitNode(UIState._dockMain, ImGuiDir_Right, 0.45f, NULL, &UIState._dockMain);
 
-        ImGui::DockBuilderDockWindow("Single file", UIState._dockLeft);
         ImGui::DockBuilderDockWindow("Batch process", UIState._dockLeft);
+        ImGui::DockBuilderDockWindow("Single file", UIState._dockLeft);
+        
         ImGui::DockBuilderDockWindow("File", UIState._dockMain);
         ImGui::DockBuilderDockWindow("Parameters", UIState._dockRight);
         ImGui::DockBuilderFinish(dockspaceID);
@@ -727,6 +850,8 @@ void PaulstretchUI()
     ImGui::PopStyleVar();
 
     // ---
+    ImGui::SetNextWindowDockID(UIState._dockLeft, ImGuiCond_FirstUseEver);
+    _BatchWindow();
 
     ImGui::SetNextWindowDockID(UIState._dockLeft, ImGuiCond_FirstUseEver);
     _LegacyControllerWindow();
@@ -739,52 +864,15 @@ void PaulstretchUI()
     }
 
     auto r = _ConfigurationWindow(UIState.cfg);
-    if (r && !UIState.cfg.IsNull())
-    {
+    if (r && !UIState.cfg.IsNull()) {
         _lc.SetParameters(UIState.cfg.Get());
         //UIState.cfg = _lc.Parameters();
     }
 
     ImGui::SetNextWindowDockID(UIState._dockMain, ImGuiCond_FirstUseEver);
-    Begin("File");
-    
-    Columns(2);
-    float fs = overview.ScaleFraction();
-    if (SliderFloat("Scale", &fs, 0.01, 1)){
-        overview.SetScaleFraction(fs);
-    }
-    NextColumn();
-    float scroll = overview.ScrollFraction();
-    if (SliderFloat("Scroll", &scroll, 0, 1)){
-        overview.SetScrollFraction(scroll);
-    }
-    NextColumn();
-    Columns(1);
-    
-    auto ws = ImVec2(GetWindowWidth() * .97, GetWindowHeight() * .87);
-    plotCfg.frame_size = ws;
-    
-    overview.SetDataSize(1024);
-    plotCfg.values.ys = overview.GetData().data();
-    
-    auto rng = _lc.RenderRange();
-    
-    uint32_t selStart = overview.FractionToViewCoord(rng.startFraction);
-    uint32_t selLen = overview.FractionToViewCoord(rng.endFraction)-selStart;
-    plotCfg.selection.start= &selStart;
-    plotCfg.selection.length = &selLen;
-    plotCfg.selection.show = true;
-    
-    if (Plot("file:", plotCfg) == PlotStatus::selection_updated){
-        float nStart = overview.ViewCoordToFraction(selStart);
-        float nEnd = overview.ViewCoordToFraction(selLen) + nStart;
-        
-        auto r = PaulstretchLib::PercentRegion(nStart, nEnd);
-        
-        _lc.SetRenderRange(r);
-    }
-    End();
+    _FileWindow();
 
-    ImGui::SetNextWindowDockID(UIState._dockLeft, ImGuiCond_FirstUseEver);
-    _BatchWindow();
+    
 };
+
+;

@@ -68,7 +68,7 @@ AFOverview.cpp
 
 add_executable(paulstretch-imgui MACOSX_BUNDLE ${src} ${glew_src} ${imgui_src})
 target_link_libraries(paulstretch-imgui 
-SDL2
+#SDL2
 glfw
 ${OPENGL_LIBRARIES} 
 #${GLUT_LIBRARY}  
