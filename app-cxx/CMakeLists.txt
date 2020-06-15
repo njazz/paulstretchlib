@@ -36,10 +36,6 @@ include_directories(tfd)
 include_directories(../submodules/audiofile/libaudiofile)
 
 set(glew_src
-#glew/src/glew.c
-#glew/src/glewinfo.c
-#glew/src/visualinfo.c
-
 ../submodules/imgui/examples/libs/gl3w/GL/gl3w.c
 )
 
@@ -51,15 +47,17 @@ set(imgui_src
 ../submodules/imgui/imgui_demo.cpp
 
 #../submodules/imgui/examples/imgui_impl_sdl.cpp
+
 ../submodules/imgui/examples/imgui_impl_glfw.cpp
-../submodules/imgui/examples/imgui_impl_opengl3.cpp
+
+../submodules/imgui/examples/imgui_impl_opengl2.cpp
 
 ../submodules/imgui-plot/src/imgui_plot.cpp
 
 )
 
 set (src
-paulstretch-imgui-glfw.cpp 
+paulstretch-imgui-glfw-gl2.cpp 
 UI.cpp
 tfd/tinyfiledialogs.c
 AFOverview.cpp
@@ -77,11 +75,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static")
 endif()
 
 target_link_libraries(paulstretch-imgui 
-#SDL2
 glfw
+
 ${OPENGL_LIBRARIES} 
 
-#${GLUT_LIBRARY}  
 ${WIN_LIB}
 
 paulstretchlib-static

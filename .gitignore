@@ -5,3 +5,5 @@ app-cxx/build-win
 app-cxx/dist/paulstretch-imgui.app/Contents/Info.plist
 
 app-cxx/dist/paulstretch-imgui.app/Contents/MacOS/paulstretch-imgui
+
+app-cxx/dist/paulstretch-imgui.exe
