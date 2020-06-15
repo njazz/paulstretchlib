@@ -26,3 +26,15 @@
 [submodule "submodules/SDL-mirror"]
 	path = submodules/SDL-mirror
 	url = https://github.com/spurious/SDL-mirror
+[submodule "submodules/flac"]
+	path = submodules/flac
+	url = https://github.com/xiph/flac
+[submodule "submodules/alac"]
+	path = submodules/alac
+	url = https://github.com/macosforge/alac
+[submodule "submodules/ogg"]
+	path = submodules/ogg
+	url = https://github.com/xiph/ogg
+[submodule "submodules/G711"]
+	path = submodules/G711
+	url = https://github.com/escrichov/G711

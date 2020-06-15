@@ -1,7 +1,5 @@
 
 
-
-
 #include "UI.hpp"
 
 #include "PaulstretchLib.hpp"
@@ -45,6 +43,7 @@ struct _UIState {
 
     std::vector<std::string> inputFiles;
     std::vector<std::string> inputConfigurations;
+    std::vector<PaulstretchLib::PercentRegion> batchRegions;
 };
 
 static _UIState UIState;
@@ -59,9 +58,9 @@ static AFOverview overview;
 inline Optional<std::vector<std::string> > _OpenAudioFiles()
 {
     using namespace StringUtilities;
-    
+
     Optional<std::vector<std::string> > ret;
-    
+
     std::vector<const char*> flt = { "*.wav", "*.aif*" };
 
     auto r = tinyfd_openFileDialog(
@@ -81,10 +80,10 @@ inline Optional<std::vector<std::string> > _OpenAudioFiles()
 inline Optional<std::vector<std::string> > _OpenConfigFiles()
 {
     using namespace StringUtilities;
-    
+
     Optional<std::vector<std::string> > ret;
-    
-     std::vector<const char*> flt = { "*.ps.json" };
+
+    std::vector<const char*> flt = { "*.ps.json" };
 
     auto r = tinyfd_openFileDialog(
         "Open configuration file", /* NULL or "" */
@@ -201,6 +200,8 @@ Optional<float> _EditAutofloat(PaulstretchLib::AutomatedFloat& af, std::string o
 void _BatchWindow()
 {
     using namespace ImGui;
+    using namespace PaulstretchLib;
+
     Begin("Batch process");
     if (Button("Open files...")) {
         auto v = _OpenAudioFiles();
@@ -209,49 +210,69 @@ void _BatchWindow()
     }
     // --- audio files
     Separator();
-    if (UIState.inputFiles.size()==0){
+    if (UIState.inputFiles.size() == 0) {
         Text("No audio files");
-        
     }
-    for (const auto& e: UIState.inputFiles){
-        Text("%s",e.c_str());
+    for (const auto& e : UIState.inputFiles) {
+        Text("%s", e.c_str());
         Separator();
         Button("Del");
         SameLine(50);
         Button("Replace");
         SameLine(130);
         bool b = false;
-        Checkbox("View",&b);
+        Checkbox("View", &b);
     }
-    
+
     Separator();
-    
+
     if (Button("Open configurations...")) {
         auto v = _OpenConfigFiles();
         if (!v.IsNull())
             UIState.inputConfigurations = v.Get();
     }
-    
+
     // --- cfg
-    
+
     Separator();
-    if (UIState.inputConfigurations.size()==0){
+    if (UIState.inputConfigurations.size() == 0) {
         Text("No configuration files");
-        
     }
-    for (const auto& e: UIState.inputConfigurations){
-        Text("%s",e.c_str());
+    for (const auto& e : UIState.inputConfigurations) {
+        Text("%s", e.c_str());
         Separator();
         Button("Del");
         SameLine(50);
         Button("Replace");
         SameLine(130);
         bool b = false;
-        Checkbox("Edit",&b);
+        Checkbox("Edit", &b);
     }
-    
+
     Separator();
     Text("Regions:");
+    if (UIState.batchRegions.size() == 0) {
+        Text("No regions");
+    }
+    
+    for (auto& e : UIState.batchRegions) {
+        float range[2];
+        range[0] = e.startFraction;
+        range[1] = e.endFraction;
+
+        if (DragFloat2("Range", range, 0.005, 0, 1)) {
+            e = PercentRegion(range[0], range[1]);
+        }
+
+        Button("Del");
+        SameLine(50);
+        bool b = false;
+        Checkbox("View", &b);
+        Separator();
+    }
+    if (Button("Add region"))
+        UIState.batchRegions.push_back(PercentRegion(0, 1));
+
     Separator();
     Button("Render Files");
     End();
@@ -259,9 +280,9 @@ void _BatchWindow()
 
 void _FileWindow()
 {
-using namespace ImGui;
+    using namespace ImGui;
     using namespace PaulstretchLib;
-Begin("File");
+    Begin("File");
 
     Columns(2);
     float fs = overview.ScaleFraction();
@@ -836,7 +857,7 @@ void PaulstretchUI()
 
         ImGui::DockBuilderDockWindow("Batch process", UIState._dockLeft);
         ImGui::DockBuilderDockWindow("Single file", UIState._dockLeft);
-        
+
         ImGui::DockBuilderDockWindow("File", UIState._dockMain);
         ImGui::DockBuilderDockWindow("Parameters", UIState._dockRight);
         ImGui::DockBuilderFinish(dockspaceID);
@@ -871,8 +892,6 @@ void PaulstretchUI()
 
     ImGui::SetNextWindowDockID(UIState._dockMain, ImGuiCond_FirstUseEver);
     _FileWindow();
-
-    
 };
 
 ;

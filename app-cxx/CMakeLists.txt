@@ -65,11 +65,24 @@ tfd/tinyfiledialogs.c
 AFOverview.cpp
 )
 
+set (CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} -fstack-protector)
+set (CMAKE_LINKER_FLAGS ${CMAKE_LINKER_FLAGS} -fstack-protector)
 
 add_executable(paulstretch-imgui MACOSX_BUNDLE ${src} ${glew_src} ${imgui_src})
+
+if (WIN32)
+#set(WIN_LIB stdc++ winpthread ssp gcc)
+set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++ -Bstatic,--whole-archive -lssp -lpthread")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static")
+endif()
+
 target_link_libraries(paulstretch-imgui 
 #SDL2
 glfw
 ${OPENGL_LIBRARIES} 
+
 #${GLUT_LIBRARY}  
-paulstretchlib)
+${WIN_LIB}
+
+paulstretchlib-static
+)
