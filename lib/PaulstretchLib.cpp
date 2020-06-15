@@ -225,8 +225,6 @@ struct LegacyControllerImplementation {
     LegacyController::CallbackFn _onEndPlayback = []() {};
     LegacyController::CallbackFn _onFileOpenError = []() {};
     LegacyController::ErrorCallbackFn _onRenderError = [](const std::string&) {};
-    
-    
 };
 
 LegacyController::LegacyController()
@@ -366,9 +364,8 @@ void LegacyController::RenderToFile(const std::string& of)
 
 void LegacyController::RenderToFileAsync(const std::string& of)
 {
-    auto t = std::thread([=](){RenderToFile(of);});
+    auto t = std::thread([=]() { RenderToFile(of); });
     t.detach();
-
 }
 
 //
@@ -388,29 +385,173 @@ void LegacyController::SetOnRenderError(const ErrorCallbackFn& fn)
 
 // ---
 
-LegacyRenderTask::LegacyRenderTask(const std::string& in_, const std::string& out_, const PercentRegion& reg_, const Configuration& cfg_)
+LegacyRenderWorker::LegacyRenderWorker(const std::string& in_, const std::string& out_, const PercentRegion& reg_, const Configuration& cfg_)
 {
     _ctrl.OpenFile(in_);
     _ctrl.SetParameters(cfg_);
     _ctrl.SetRenderRange(reg_);
+    _output = out_;
 }
 
-void LegacyRenderTask::StartRender()
+LegacyRenderWorker::LegacyRenderWorker(const RenderTaskSetup& s)
 {
+    //    SetTask(s);
+    _ctrl.OpenFile(s.audioFile);
+    _ctrl.SetParameters(s.configuration);
+    _ctrl.SetRenderRange(s.region);
+    _output = s.outputFile;
+    _done = false;
+}
 
-    auto task = std::async(std::launch::async, [&] {
+// mutable:
+
+void LegacyRenderWorker::SetTask(const RenderTaskSetup& s)
+{
+    _mutex.lock();
+    _rendering.lock();
+
+    _ctrl.OpenFile(s.audioFile);
+    _ctrl.SetParameters(s.configuration);
+    _ctrl.SetRenderRange(s.region);
+    _output = s.outputFile;
+
+    _rendering.unlock();
+    _mutex.unlock();
+}
+
+LegacyRenderWorker::LegacyRenderWorker()
+{
+    _done = true;
+}
+
+void LegacyRenderWorker::StartRender()
+{
+    if (_done)
+        return;
+    auto onStartRender = [&]() {
+        _mutex.lock();
+        _rendering.lock();
+        _mutex.unlock();
+    };
+
+    auto onTaskDone = [&]() {
+        _mutex.lock();
+        _done = true;
+        _rendering.unlock();
+        _mutex.unlock();
+    };
+
+    auto t = std::thread([=]() {
+        onStartRender();
         _ctrl.RenderToFile(_output);
+        onTaskDone();
     });
+
+    t.detach();
 }
 
-void LegacyRenderTask::CancelRender()
+const bool LegacyRenderWorker::IsDone()
 {
+    bool ret;
+    _mutex.lock();
+    ret = _done;
+    _mutex.unlock();
+    return ret;
+}
+
+void LegacyRenderWorker::CancelRender()
+{
+    if (_done)
+        return;
     _ctrl.CancelRender();
 }
 
-float LegacyRenderTask::GetRenderPercent()
+float LegacyRenderWorker::GetRenderPercent()
 {
     return _ctrl.GetRenderPercent();
 }
+
+// ---
+
+void BatchProcessorLegacyController::_ScheduleTask(const RenderTaskSetup& t)
+{
+    bool wait = true;
+    while (wait) {
+        auto w = _GetAvailableWorker();
+        if (w)
+            w->SetTask(t);
+        wait = (w == nullptr);
+    }
+}
+LegacyRenderWorkerPtr BatchProcessorLegacyController::_GetAvailableWorker()
+{
+    for (auto& e : _workers)
+        if (e->IsDone())
+            return e;
+
+    return nullptr;
+}
+
+//
+BatchProcessorLegacyController::BatchProcessorLegacyController()
+{
+    for (int i = 0; i < std::thread::hardware_concurrency(); i++)
+        _workers.push_back(std::make_shared<LegacyRenderWorker>());
+}
+//
+void BatchProcessorLegacyController::OpenFiles(const std::vector<std::string>& names)
+{
+    _inputFiles = names;
+}
+void BatchProcessorLegacyController::OpenConfigurations(const std::vector<std::string>& names)
+{
+    _configurations = names;
+}
+void BatchProcessorLegacyController::SetRegions(const std::vector<PercentRegion>& reg)
+{
+    _regions = reg;
+}
+void BatchProcessorLegacyController::SetOutputFolder(const std::string& f)
+{
+    _outputFolder = f;
+}
+
+std::string BatchProcessorLegacyController::MakeOutputFilename(const std::string& file, const std::string& cfg, const PercentRegion& region, const std::string& outFolder)
+{
+    // TODO
+    return file + "OUT__.wav";
+}
+
+void BatchProcessorLegacyController::RenderBatchAsync()
+{
+    // make task list:
+    _taskList.clear();
+    _doneCounter = 0;
+
+    // ---
+    for (auto& e : _taskList) {
+        _ScheduleTask(e);
+        _doneCounter++;
+    }
+}
+
+void BatchProcessorLegacyController::CancelRender()
+{
+    for (auto& e : _workers)
+        e->CancelRender();
+}
+
+size_t BatchProcessorLegacyController::GetActiveWorkerCount() { return _workers.size(); }
+float BatchProcessorLegacyController::GetWorkerRenderPercent(const size_t& idx)
+{
+    if (idx >= _workers.size())
+        return 0.;
+
+    return _workers[idx]->GetRenderPercent();
+}
+
+size_t BatchProcessorLegacyController::GetTotalTasks() { return _taskList.size(); }
+size_t BatchProcessorLegacyController::GetDoneTasks() { return _doneCounter; }
+size_t BatchProcessorLegacyController::GetRemainingTasks() { return _taskList.size() - _doneCounter; }
 
 }; // namespace

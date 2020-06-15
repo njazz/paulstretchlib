@@ -8,6 +8,8 @@
 #include <array>
 #include <mutex>
 
+#include <memory>
+
 //#include "RangedValue.hpp"
 
 // wrapper classes for the original Paulstretch cxx code
@@ -67,7 +69,7 @@ struct Region {
 struct BatchProcessorImplementation;
 struct PlayerImplementation;
 
-/// @brief batch processor class
+/// @brief batch processor class. stub/interface example
 struct BatchProcessor {
     BatchProcessorImplementation* _impl = nullptr;
 
@@ -287,21 +289,81 @@ struct LegacyController {
     void SetOnRenderError(const ErrorCallbackFn&);
 };
 
+// common for legacy controller and possible other implementation of standard algorithm:
+    struct RenderTaskSetup{
+        std::string audioFile;
+        std::string outputFile;
+        PercentRegion region;
+        Configuration configuration;
+    };
+    
+// runs legacy controller in separate thread (currently using RenderToFileAsync)
+// renamed from LegacyRenderWorker
 
-
-// runs legacy controller in separate thread
-struct LegacyRenderTask{
+struct LegacyRenderWorker{
     LegacyController _ctrl;
     std::string _output;
     std::mutex _mutex;
     
-    LegacyRenderTask(const std::string&, const std::string&, const PercentRegion&, const Configuration&);
+    std::mutex _rendering;
+    bool _done = false;
+    
+    // input file, output file, region, cfg
+    LegacyRenderWorker(const std::string&, const std::string&, const PercentRegion&, const Configuration&);
+    LegacyRenderWorker(const RenderTaskSetup&);
+    
+    // mutable:
+    LegacyRenderWorker();
+    void SetTask(const RenderTaskSetup&);
     
     void StartRender();
     void CancelRender();
     
     float GetRenderPercent();
     
+    const bool IsDone() ;
+    
+};
+
+using LegacyRenderWorkerPtr = std::shared_ptr<LegacyRenderWorker>;
+
+
+
+struct BatchProcessorLegacyController {
+    BatchProcessorLegacyController();
+    
+    std::vector<std::string> _inputFiles;
+    std::vector<std::string> _configurations;
+    std::vector<PercentRegion> _regions;
+    std::string _outputFolder;
+    
+    std::vector<RenderTaskSetup> _taskList;
+    
+    std::vector<LegacyRenderWorkerPtr> _workers;
+    size_t _doneCounter = 0;
+    
+    void _ScheduleTask(const RenderTaskSetup&);
+    LegacyRenderWorkerPtr _GetAvailableWorker();
+    
+    void OpenFiles(const std::vector<std::string>& names);
+    void OpenConfigurations(const std::vector<std::string>& names);
+    void SetRegions(const std::vector<PercentRegion>& reg);
+    void SetOutputFolder(const std::string&);
+    
+    static std::string MakeOutputFilename(const std::string& file, const std::string& cfg, const PercentRegion& region, const std::string& outFolder);
+    
+    void RenderBatchAsync();
+    void CancelRender();
+    
+    
+
+    
+    size_t GetActiveWorkerCount();
+    float GetWorkerRenderPercent(const size_t& idx);
+    
+    size_t GetTotalTasks();
+    size_t GetDoneTasks();
+    size_t GetRemainingTasks();
 };
 
 };
