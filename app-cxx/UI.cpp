@@ -41,9 +41,11 @@ struct _UIState {
     ImGuiID _dockLeft;
     ImGuiID _dockRight;
 
+    // batch
     std::vector<std::string> inputFiles;
     std::vector<std::string> inputConfigurations;
     std::vector<PaulstretchLib::PercentRegion> batchRegions;
+    std::string outputFolder;
 };
 
 static _UIState UIState;
@@ -52,6 +54,8 @@ static ImGuiID dockspaceID = 0;
 static ImGui::PlotConfig plotCfg;
 
 static AFOverview overview;
+
+static PaulstretchLib::BatchProcessorLegacyController _batch;
 
 // ---
 
@@ -213,6 +217,8 @@ void _BatchWindow()
     if (UIState.inputFiles.size() == 0) {
         Text("No audio files");
     }
+    
+    
     for (const auto& e : UIState.inputFiles) {
         Text("%s", e.c_str());
         Separator();
@@ -274,7 +280,27 @@ void _BatchWindow()
         UIState.batchRegions.push_back(PercentRegion(0, 1));
 
     Separator();
-    Button("Render Files");
+    if (Button("Render Files"))
+    {
+        _batch.OpenFiles(UIState.inputFiles);
+        _batch.OpenConfigurations(UIState.inputConfigurations);
+        _batch.SetRegions(UIState.batchRegions);
+        _batch.SetOutputFolder(UIState.outputFolder);
+
+        _batch.RenderBatchAsync();
+    }
+    
+    if (_batch.IsRendering())
+    {
+        Separator();
+        Text("Processing %i of %i", (int)_batch.GetDoneTasks(), (int)_batch.GetTotalTasks());
+        Separator();
+        for (int i=0;i<_batch.GetActiveWorkerCount();i++)
+        {
+            Text("%i %%", int(100*_batch.GetWorkerRenderPercent(i)));
+        };
+        Separator();
+    }
     End();
 }
 
@@ -684,7 +710,9 @@ void _LegacyControllerWindow()
     Begin("Single file");
 
     Text("%s", (UIState.filename.compare("") == 0 ? "No file" : UIState.filename.c_str()));
-
+    bool f_b = true;
+    Checkbox("View file", &f_b);
+    
     if (Button("Open file...")) {
         auto f = _OpenAudioFile();
         if (!f.IsNull()) {
@@ -777,6 +805,11 @@ void _LegacyControllerWindow()
     float range[2];
     range[0] = rr.startFraction;
     range[1] = rr.endFraction;
+    
+    Separator();
+    
+    bool r_b = true;
+    Checkbox("Set range", &r_b);
 
     if (DragFloat2("Range", range, 0.005, 0, 1)) {
         _lc.SetRenderRange(PaulstretchLib::PercentRegion(range[0], range[1]));

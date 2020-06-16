@@ -50,6 +50,8 @@ set(SOURCES
     PaulstretchLib.cpp
     JSONCodec.cpp
 
+    LiteControl.cpp
+
     ../paulstretch_cpp_modified/Stretch.cpp
     ../paulstretch_cpp_modified/ProcessedStretch.cpp
 

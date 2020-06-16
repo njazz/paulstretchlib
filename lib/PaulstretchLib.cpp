@@ -7,6 +7,8 @@
 
 #include "Control.h"
 
+#include "LiteControl.h"
+
 // yet disabled
 // #include "XMLwrapper.h"
 
@@ -16,6 +18,7 @@
 #include <thread>
 #include <chrono>
 
+#include "StringUtilities.hpp"
 // ---
 namespace PaulstretchLib {
 
@@ -385,6 +388,135 @@ void LegacyController::SetOnRenderError(const ErrorCallbackFn& fn)
 
 // ---
 
+// duplicate:
+
+struct LegacyRenderControllerImplementation {
+    LiteControl _legacyControl;
+
+    std::string _inputFilename;
+    float _volume = 1;
+    Configuration _cfg;
+    PercentRegion _range;
+
+    LegacyRenderController::CallbackFn _onFileOpenError = []() {};
+    LegacyRenderController::ErrorCallbackFn _onRenderError = [](const std::string&) {};
+};
+
+LegacyRenderController::LegacyRenderController()
+{
+    _impl = new LegacyRenderControllerImplementation();
+
+    SetParameters(_impl->_cfg);
+}
+LegacyRenderController::~LegacyRenderController()
+{
+    delete _impl;
+}
+
+LegacyRenderController::LegacyRenderController(const LegacyRenderController& src)
+{
+    _impl = new LegacyRenderControllerImplementation();
+
+    *_impl = *src._impl;
+};
+
+LegacyRenderController& LegacyRenderController::operator=(const LegacyRenderController& src)
+{
+    if (&src != this) {
+        _impl = new LegacyRenderControllerImplementation();
+
+        *_impl = *src._impl;
+    }
+    return *this;
+}
+
+
+bool LegacyRenderController::OpenFile(const std::string& fn)
+{
+    _impl->_inputFilename = fn;
+    auto ret = _impl->_legacyControl.set_input_filename(fn, FILE_WAV);
+    if (!ret)
+        _impl->_onFileOpenError();
+
+    return ret;
+}
+
+void LegacyRenderController::SetParameters(const Configuration& cfg)
+{
+    _impl->_cfg = cfg;
+
+    auto stretch_v = ConfigurationInfo::Clamp(ConfigurationInfo::stretch, _impl->_cfg.stretch.staticValue);
+    auto windowSize_v = ConfigurationInfo::Clamp(ConfigurationInfo::windowSize, _impl->_cfg.windowSize);
+    auto onset_v = ConfigurationInfo::Clamp(ConfigurationInfo::onsetSensitivity, _impl->_cfg.onsetSensitivity);
+
+    _impl->_legacyControl.set_stretch_direct_controls(stretch_v, windowSize_v, onset_v);
+
+//    _impl->_legacyControl.update_player_stretch();
+
+    _impl->_legacyControl.set_window_type(FromFFTWType(_impl->_cfg.windowType));
+
+    _impl->_legacyControl.ppar = ToPParameters(_impl->_cfg);
+    _impl->_legacyControl.bbpar = ToBBParameters(_impl->_cfg);
+//    _impl->_legacyControl.update_process_parameters();
+};
+
+const Configuration LegacyRenderController::Parameters()
+{
+    return _impl->_cfg;
+}
+
+//
+
+float LegacyRenderController::GetRenderPercent()
+{
+    return _impl->_legacyControl.info.render_percent;
+}
+void LegacyRenderController::CancelRender()
+{
+    _impl->_legacyControl.info.cancel_render = true;
+}
+
+//
+
+void LegacyRenderController::SetRenderRange(const PercentRegion& r)
+{
+    _impl->_range = r;
+}
+
+PercentRegion LegacyRenderController::RenderRange()
+{
+    return _impl->_range;
+}
+
+void LegacyRenderController::RenderToFile(const std::string& of)
+{
+    _impl->_legacyControl.info.cancel_render = false;
+
+    auto err = _impl->_legacyControl.Render(_impl->_inputFilename, of, FILE_WAV, FILE_WAV, _impl->_range.startFraction, _impl->_range.endFraction);
+    if (err.size())
+        _impl->_onRenderError(err);
+}
+
+void LegacyRenderController::RenderToFileAsync(const std::string& of)
+{
+    auto t = std::thread([=]() { RenderToFile(of); });
+    t.detach();
+}
+
+//
+
+
+void LegacyRenderController::SetOnFileOpenError(const CallbackFn& fn)
+{
+    _impl->_onFileOpenError = fn;
+}
+void LegacyRenderController::SetOnRenderError(const ErrorCallbackFn& fn)
+{
+    _impl->_onRenderError = fn;
+}
+
+// ---
+
 LegacyRenderWorker::LegacyRenderWorker(const std::string& in_, const std::string& out_, const PercentRegion& reg_, const Configuration& cfg_)
 {
     _ctrl.OpenFile(in_);
@@ -519,6 +651,15 @@ void BatchProcessorLegacyController::SetOutputFolder(const std::string& f)
 std::string BatchProcessorLegacyController::MakeOutputFilename(const std::string& file, const std::string& cfg, const PercentRegion& region, const std::string& outFolder)
 {
     // TODO
+    using namespace StringUtilities;
+    
+//    auto f = ReplaceTokenInString(file, "\\", "\\\\");
+//    f = ReplaceTokenInString(f, "/", "\\\\");
+//
+//    auto path1 = SplitStringWithDelimiter(file, "\\\\");
+//
+//    path1.pop_back();
+    
     return file + "OUT__.wav";
 }
 
@@ -527,12 +668,15 @@ void BatchProcessorLegacyController::RenderBatchAsync()
     // make task list:
     _taskList.clear();
     _doneCounter = 0;
-
+    _isRendering = true;
+    
     // ---
     for (auto& e : _taskList) {
         _ScheduleTask(e);
         _doneCounter++;
     }
+    
+    _isRendering = false;
 }
 
 void BatchProcessorLegacyController::CancelRender()

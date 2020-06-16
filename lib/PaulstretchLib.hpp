@@ -289,6 +289,45 @@ struct LegacyController {
     void SetOnRenderError(const ErrorCallbackFn&);
 };
 
+// duplicate: legacy controller with player removed
+struct LegacyRenderControllerImplementation;
+// "LiteControl.h/cpp"
+struct LegacyRenderController {
+    using ErrorCallbackFn = std::function<void(const std::string&)>;
+    using CallbackFn = std::function<void(void)>;
+
+    LegacyRenderControllerImplementation* _impl = nullptr;
+
+    LegacyRenderController();
+    ~LegacyRenderController();
+
+    LegacyRenderController(const LegacyRenderController&);
+    LegacyRenderController& operator=(const LegacyRenderController&);
+
+    // legacy file i/o removed (xml library)
+
+    bool OpenFile(const std::string&);
+
+    void SetParameters(const Configuration&);
+    const Configuration Parameters();
+    
+    //
+    float GetRenderPercent();
+    void CancelRender();
+    //
+
+    void SetRenderRange(const PercentRegion&);
+    PercentRegion RenderRange();
+    
+    void RenderToFile(const std::string&);
+    void RenderToFileAsync(const std::string&);
+
+    //
+    void SetOnFileOpenError(const CallbackFn&);
+    void SetOnRenderError(const ErrorCallbackFn&);
+};
+
+
 // common for legacy controller and possible other implementation of standard algorithm:
     struct RenderTaskSetup{
         std::string audioFile;
@@ -301,7 +340,7 @@ struct LegacyController {
 // renamed from LegacyRenderWorker
 
 struct LegacyRenderWorker{
-    LegacyController _ctrl;
+    LegacyRenderController _ctrl;
     std::string _output;
     std::mutex _mutex;
     
@@ -327,10 +366,8 @@ struct LegacyRenderWorker{
 
 using LegacyRenderWorkerPtr = std::shared_ptr<LegacyRenderWorker>;
 
-
-
 struct BatchProcessorLegacyController {
-    BatchProcessorLegacyController();
+    private:
     
     std::vector<std::string> _inputFiles;
     std::vector<std::string> _configurations;
@@ -345,6 +382,12 @@ struct BatchProcessorLegacyController {
     void _ScheduleTask(const RenderTaskSetup&);
     LegacyRenderWorkerPtr _GetAvailableWorker();
     
+    bool _isRendering = false;
+    
+    public:
+    
+    BatchProcessorLegacyController();
+    
     void OpenFiles(const std::vector<std::string>& names);
     void OpenConfigurations(const std::vector<std::string>& names);
     void SetRegions(const std::vector<PercentRegion>& reg);
@@ -355,15 +398,14 @@ struct BatchProcessorLegacyController {
     void RenderBatchAsync();
     void CancelRender();
     
-    
-
-    
     size_t GetActiveWorkerCount();
     float GetWorkerRenderPercent(const size_t& idx);
     
     size_t GetTotalTasks();
     size_t GetDoneTasks();
     size_t GetRemainingTasks();
+    
+    const bool IsRendering() { return _isRendering; }
 };
 
 };
