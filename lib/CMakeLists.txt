@@ -52,6 +52,8 @@ set(SOURCES
 
     LiteControl.cpp
 
+    TextFileIO.cpp
+
     ../paulstretch_cpp_modified/Stretch.cpp
     ../paulstretch_cpp_modified/ProcessedStretch.cpp
 

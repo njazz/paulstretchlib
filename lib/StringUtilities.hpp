@@ -14,74 +14,109 @@
 
 namespace StringUtilities {
 
-    static inline std::vector<std::string> SplitStringWithDelimiter(const std::string& str,const std::string& delimiter)
-    {
-        auto str0= str;
-        std::vector<std::string> tokens;
-        size_t pos = 0;
-        while ((pos = str0.find(delimiter)) != std::string::npos) {
-            
-            tokens.push_back(str0.substr(0, pos));
-            str0.erase(0, pos + delimiter.length());
-        }
+static inline std::vector<std::string> SplitStringWithDelimiter(const std::string& str, const std::string& delimiter)
+{
+    auto str0 = str;
+    std::vector<std::string> tokens;
+    size_t pos = 0;
+    while ((pos = str0.find(delimiter)) != std::string::npos) {
 
-        tokens.push_back(str0);
-        return tokens;
+        tokens.push_back(str0.substr(0, pos));
+        str0.erase(0, pos + delimiter.length());
     }
 
-   static inline  std::string JoinStringsWithDelimiter(const std::vector<std::string>& vec, const std::string& delim)
-    {
-        std::string ret = "";
-        
-        if (vec.size() == 1)
-            return vec[0];
+    tokens.push_back(str0);
+    return tokens;
+}
 
-        unsigned int i = 0;
-        for (auto s : vec) {
+static inline std::string JoinStringsWithDelimiter(const std::vector<std::string>& vec, const std::string& delim)
+{
+    std::string ret = "";
 
-            //if (s != "")
-            ret += s;
-            if (i != vec.size() - 1)
-                ret += delim;
+    if (vec.size() == 1)
+        return vec[0];
 
-            i++;
-        }
-        return ret;
+    unsigned int i = 0;
+    for (auto s : vec) {
+
+        //if (s != "")
+        ret += s;
+        if (i != vec.size() - 1)
+            ret += delim;
+
+        i++;
     }
+    return ret;
+}
 
-   static inline std::string ReplaceTokenInString(const std::string& src, const std::string& src_token, const std::string& dest_token)
-    {
-        return JoinStringsWithDelimiter(SplitStringWithDelimiter(src, src_token), dest_token);
-    }
+static inline std::string ReplaceTokenInString(const std::string& src, const std::string& src_token, const std::string& dest_token)
+{
+    return JoinStringsWithDelimiter(SplitStringWithDelimiter(src, src_token), dest_token);
+}
 
-    static inline std::string EscapeJSONString(const std::string& src)
-    {
-        std::string ret;
+static inline std::string EscapeJSONString(const std::string& src)
+{
+    std::string ret;
 
-        ret = ReplaceTokenInString(ret, "\\", "\\\\");
-        ret = ReplaceTokenInString(src, "\"", "\\\"");
-        ret = ReplaceTokenInString(ret, "\n", "\\n");
-        ret = ReplaceTokenInString(ret, "\t", "\\t");
+    ret = ReplaceTokenInString(ret, "\\", "\\\\");
+    ret = ReplaceTokenInString(src, "\"", "\\\"");
+    ret = ReplaceTokenInString(ret, "\n", "\\n");
+    ret = ReplaceTokenInString(ret, "\t", "\\t");
 
-        return ret;
-    }
+    return ret;
+}
 
-    static inline std::string UnescapeJSONString(const std::string& src)
-    {
-        std::string ret;
+static inline std::string UnescapeJSONString(const std::string& src)
+{
+    std::string ret;
 
-        ret = ReplaceTokenInString(ret, "\\\\", "\\");
-        ret = ReplaceTokenInString(src, "\\\"", "\"");
-        ret = ReplaceTokenInString(ret, "\\n", "\n");
-        ret = ReplaceTokenInString(ret, "\\t", "\t");
+    ret = ReplaceTokenInString(ret, "\\\\", "\\");
+    ret = ReplaceTokenInString(src, "\\\"", "\"");
+    ret = ReplaceTokenInString(ret, "\\n", "\n");
+    ret = ReplaceTokenInString(ret, "\\t", "\t");
 
-        return ret;
-    }
+    return ret;
+}
+
+static inline bool StartsWith(const std::string& src, const std::string& m)
+{
+    return !src.substr(0, m.size()).compare(m);
+}
+
+// very slow implementations:
+
+static inline std::string GetPath(const std::string& src)
+{
+    auto f = ReplaceTokenInString(src, "\\", "\\\\");
+    f = ReplaceTokenInString(f, "/", "\\\\");
+
+    auto lf = SplitStringWithDelimiter(f, "\\\\");
+    lf.pop_back();
+
+    // TODO:
+    std::string pathD = "\\";
+        if (SplitStringWithDelimiter(src, "/").size() > 1)
+            pathD
+        = "/";
+
+    auto ret = JoinStringsWithDelimiter(lf, pathD);
+    return ret;
+}
+
+static inline std::string GetFileName(const std::string& src)
+{
+    auto f = ReplaceTokenInString(src, "\\", "\\\\");
+    f = ReplaceTokenInString(f, "/", "\\\\");
+
+    auto lf = SplitStringWithDelimiter(f, "\\\\");
+
+    auto fn = lf.at(lf.size() - 1);
     
-    static inline bool StartsWith(const std::string& src, const std::string& m){
-        return !src.substr(0, m.size()).compare(m);
-    }
-
+    auto lfn = SplitStringWithDelimiter(fn,".");
+    lfn.pop_back();
+    
+    return JoinStringsWithDelimiter(lfn,".");
+}
 };
 
 #endif

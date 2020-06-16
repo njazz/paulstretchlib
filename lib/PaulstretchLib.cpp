@@ -52,6 +52,62 @@ constexpr RangeInfo ConfigurationInfo::binaural;
 
 // ---
 
+const std::string ToString(const FFTWindowType& v)
+{
+    switch (v) {
+    case FFTWindowType_Rectangular:
+        return "Rectangular";
+    case FFTWindowType_Hamming:
+        return "Hamming";
+    case FFTWindowType_Hann:
+        return "Hann";
+    case FFTWindowType_Blackmann:
+        return "Blackmann";
+    case FFTWindowType_BlackmannHarris:
+        return "BlackmannHarris";
+    }
+}
+
+const bool ToFFTWindowType(FFTWindowType& obj, const std::string src){
+    if (!src.compare("Rectangular"))
+    {
+        obj = FFTWindowType_Rectangular;
+        return true;
+    }
+    if (!src.compare("Hamming"))
+    {
+        obj = FFTWindowType_Hamming;
+        return true;
+    }
+    if (!src.compare("Hann"))
+    {
+        obj = FFTWindowType_Hann;
+        return true;
+    }
+    if (!src.compare("Blackmann"))
+    {
+        obj = FFTWindowType_Blackmann;
+        return true;
+    }
+    if (!src.compare("BlackmannHarris"))
+    {
+        obj = FFTWindowType_BlackmannHarris;
+        return true;
+    }
+    return false;
+}
+
+const bool ToFFTWindowType(FFTWindowType& obj, const int& v)
+{
+    if (v>=0 && v<5){
+        obj = (FFTWindowType)v;
+        return true;
+        }
+    return false;
+};
+
+// ---
+
 struct BatchProcessorImplementation {
 };
 
@@ -634,18 +690,22 @@ BatchProcessorLegacyController::BatchProcessorLegacyController()
 void BatchProcessorLegacyController::OpenFiles(const std::vector<std::string>& names)
 {
     _inputFiles = names;
+    _UpdateTaskList();
 }
 void BatchProcessorLegacyController::OpenConfigurations(const std::vector<std::string>& names)
 {
     _configurations = names;
+    _UpdateTaskList();
 }
 void BatchProcessorLegacyController::SetRegions(const std::vector<PercentRegion>& reg)
 {
     _regions = reg;
+    _UpdateTaskList();
 }
 void BatchProcessorLegacyController::SetOutputFolder(const std::string& f)
 {
     _outputFolder = f;
+    _UpdateTaskList();
 }
 
 std::string BatchProcessorLegacyController::MakeOutputFilename(const std::string& file, const std::string& cfg, const PercentRegion& region, const std::string& outFolder)
@@ -653,25 +713,51 @@ std::string BatchProcessorLegacyController::MakeOutputFilename(const std::string
     // TODO
     using namespace StringUtilities;
     
-//    auto f = ReplaceTokenInString(file, "\\", "\\\\");
-//    f = ReplaceTokenInString(f, "/", "\\\\");
-//
-//    auto path1 = SplitStringWithDelimiter(file, "\\\\");
-//
-//    path1.pop_back();
+    auto lf =SplitStringWithDelimiter(file,".");
+    lf.pop_back();
+    auto ln = JoinStringsWithDelimiter(lf,".");
     
-    return file + "OUT__.wav";
+    auto cfgName = GetFileName(cfg);
+    
+    auto regionName = "FULL";
+    
+    if ( (region.startFraction>0) || (region.endFraction<1))
+        // TODO:
+        regionName = "PART";
+    
+    return ln + "_"+cfgName+"_"+regionName+".wav";
+}
+
+void BatchProcessorLegacyController::_UpdateTaskList(){
+    _taskList.data.clear();
+    
+    for (const auto& infile: _inputFiles)
+    {
+        for (const auto& incfg: _configurations)
+        {
+            for (const auto& inreg: _regions)
+            {
+                RenderTaskSetup setup;
+                setup.audioFile = infile;
+                setup.outputFile = MakeOutputFilename(infile, incfg, inreg, _outputFolder);
+                setup.region = inreg;
+                setup.configuration =  Configuration();// TODO: load from file: incfg;
+                _taskList.data.push_back(setup);
+            }
+        }
+    }
 }
 
 void BatchProcessorLegacyController::RenderBatchAsync()
 {
-    // make task list:
-    _taskList.clear();
+    // extra:
+    _UpdateTaskList();
+    
     _doneCounter = 0;
     _isRendering = true;
     
     // ---
-    for (auto& e : _taskList) {
+    for (auto& e : _taskList.data) {
         _ScheduleTask(e);
         _doneCounter++;
     }
@@ -694,8 +780,8 @@ float BatchProcessorLegacyController::GetWorkerRenderPercent(const size_t& idx)
     return _workers[idx]->GetRenderPercent();
 }
 
-size_t BatchProcessorLegacyController::GetTotalTasks() { return _taskList.size(); }
+size_t BatchProcessorLegacyController::GetTotalTasks() { return _taskList.data.size(); }
 size_t BatchProcessorLegacyController::GetDoneTasks() { return _doneCounter; }
-size_t BatchProcessorLegacyController::GetRemainingTasks() { return _taskList.size() - _doneCounter; }
+size_t BatchProcessorLegacyController::GetRemainingTasks() { return _taskList.data.size() - _doneCounter; }
 
 }; // namespace

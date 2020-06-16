@@ -57,6 +57,10 @@ static AFOverview overview;
 
 static PaulstretchLib::BatchProcessorLegacyController _batch;
 
+static const char* __windowTypes[5] = { "Rectangular", "Hamming", "Hann", "Blackmann", "BlackmannHarris" };
+
+
+
 // ---
 
 inline Optional<std::vector<std::string> > _OpenAudioFiles()
@@ -386,7 +390,20 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
     }
 
     NextColumn();
-    Separator();
+//    Separator();
+
+    Text("Window Type:");
+    NextColumn();
+    
+    int wt = (int)cfg.windowType;
+    SetNextItemWidth(GetWindowWidth() * .45);
+    if (Combo("##window_type", &wt, __windowTypes, 5))
+    {
+         PaulstretchLib::ToFFTWindowType(cfg.windowType ,wt);
+         ret = true;
+         }
+    
+    NextColumn();
 
     Text("Onset Sensitivity");
 
@@ -399,8 +416,10 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
     }
 
     NextColumn();
-    Separator();
-
+//    Separator();
+    
+    
+    
     Separator();
 
     Text("Harmonics:");
@@ -412,7 +431,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
     }
 
     NextColumn();
-    Separator();
+//    Separator();
 
     if (cfg.harmonics) {
         Text("Freq");
@@ -426,7 +445,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
         }
 
         NextColumn();
-        Separator();
+//        Separator();
 
         Text("Bandwidth");
 
@@ -439,7 +458,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
         }
 
         NextColumn();
-        Separator();
+//        Separator();
 
         Text("Count");
 
@@ -452,7 +471,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
         }
 
         NextColumn();
-        Separator();
+//        Separator();
 
         Text("Gaussian");
 
@@ -462,10 +481,12 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
             ret = true;
 
         NextColumn();
-        Separator();
+//        Separator();
 
-        Separator();
+//        Separator();
     }
+    
+    Separator();
 
     Text("Octaves:");
 
@@ -516,7 +537,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
     NextColumn();
     Separator();
 
-    Text("Pitch Shift");
+    Text("Pitch Shift:");
 
     NextColumn();
 
@@ -525,7 +546,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
     }
 
     NextColumn();
-    Separator();
+    
 
     if (cfg.pitchShift) {
         Text("Cents");
@@ -539,11 +560,13 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
         }
 
         NextColumn();
-        Separator();
+//        Separator();
 
-        Separator();
+//        Separator();
     }
-    Text("Freq Shift");
+    Separator();
+    
+    Text("Freq Shift:");
 
     NextColumn();
 
@@ -552,7 +575,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
     }
 
     NextColumn();
-    Separator();
+//    Separator();
 
     if (cfg.freqShift) {
         Text("Freq");
@@ -566,11 +589,13 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
         }
 
         NextColumn();
-        Separator();
+//        Separator();
 
-        Separator();
+//        Separator();
     }
-    Text("Filter");
+    Separator();
+    
+    Text("Filter:");
 
     NextColumn();
 
@@ -579,7 +604,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
     }
 
     NextColumn();
-    Separator();
+//    Separator();
 
     if (cfg.filter) {
         Text("Freq 1");
@@ -593,7 +618,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
         }
 
         NextColumn();
-        Separator();
+//        Separator();
 
         Text("Freq 2");
 
@@ -606,7 +631,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
         }
 
         NextColumn();
-        Separator();
+//        Separator();
 
         Text("Arbitrary Freq");
 
@@ -614,7 +639,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
         if (!_EditAutofloat(cfg.fFreqArbitrary, "fFreqArbitrary", PaulstretchLib::ConfigurationInfo::fFreqArbitrary).IsNull())
             ret = true;
         NextColumn();
-        Separator();
+//        Separator();
 
         Text("Bandstop");
 
@@ -625,12 +650,13 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
         };
 
         NextColumn();
-        Separator();
+//        Separator();
 
-        Separator();
+//        Separator();
     }
+    Separator();
 
-    Text("Tonal / Noise");
+    Text("Tonal / Noise:");
 
     NextColumn();
 
@@ -639,7 +665,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
     }
 
     NextColumn();
-    Separator();
+//    Separator();
 
     if (cfg.tonalNoise) {
         Text("Amount");
@@ -653,7 +679,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
         }
 
         NextColumn();
-        Separator();
+//        Separator();
 
         Text("Bandwidth");
 
@@ -666,11 +692,12 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
         }
 
         NextColumn();
-        Separator();
+//        Separator();
 
-        Separator();
+//        Separator();
     }
-
+    Separator();
+    
     Text("Compress");
 
     NextColumn();
@@ -682,7 +709,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
     NextColumn();
     Separator();
 
-    Separator();
+//    Separator();
 
     Text("Binaural");
     NextColumn();
@@ -730,6 +757,7 @@ void _LegacyControllerWindow()
         if (!r.IsNull()) {
 
             // TODO: try
+            // TODO: move to lib
 
             //
             std::string s;

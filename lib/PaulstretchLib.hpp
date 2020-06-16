@@ -22,10 +22,14 @@ struct AbsoluteRegion;
 struct PercentRegion {
     float startFraction = 0;
     float endFraction = 1;
-    
+
     PercentRegion(){};
-    PercentRegion(const float& s, const float& e): startFraction(s), endFraction(e) {}
-    
+    PercentRegion(const float& s, const float& e)
+        : startFraction(s)
+        , endFraction(e)
+    {
+    }
+
     const AbsoluteRegion ToAbsolute(const float& length);
 };
 
@@ -44,18 +48,31 @@ enum RegionType {
 //
 
 enum FFTWindowType {
-    FFTWindowType_Rectangular,
+    FFTWindowType_Rectangular = 0,
     FFTWindowType_Hamming,
     FFTWindowType_Hann,
     FFTWindowType_Blackmann,
     FFTWindowType_BlackmannHarris
 };
 
+static inline const std::vector<std::string> GetEnumOptions(const FFTWindowType&)
+{
+    return { "Rectangular", "Hamming", "Hann", "Blackmann", "BlackmannHarris" };
+}
+
+const std::string ToString(const FFTWindowType& v);
+const bool ToFFTWindowType(FFTWindowType& obj, const std::string src);
+const bool ToFFTWindowType(FFTWindowType& obj, const int& v);
+
+
+
+// this one is unused:
 enum StretchMode {
     StretchMode_Stretch,
     StretchMode_HyperStretch,
     StretchMode_Shorten
 };
+
 
 //
 
@@ -132,12 +149,13 @@ struct AutomatedFloat {
 struct RangeInfo {
     float min = 0;
     float max = 0;
-    
+
     float initial = 0;
 
     constexpr RangeInfo(const float& min_, const float& max_, const float& initial_)
         : min(min_)
-        , max(max_), initial(initial_){};
+        , max(max_)
+        , initial(initial_){};
 };
 
 struct Configuration {
@@ -147,7 +165,7 @@ struct Configuration {
     float onsetSensitivity = .5;
 
     FFTWindowType windowType = FFTWindowType_Rectangular;
-//    StretchMode stretchMode = StretchMode_Stretch;
+    //    StretchMode stretchMode = StretchMode_Stretch;
 
     bool harmonics = false;
     float hFreq = 440;
@@ -185,38 +203,41 @@ struct Configuration {
 };
 
 struct ConfigurationInfo {
-    static constexpr RangeInfo stretch = RangeInfo(0.01, 10000,8);
-    static constexpr RangeInfo windowSize = RangeInfo(512, 2048 * 1024,4096);
-    static constexpr RangeInfo onsetSensitivity = RangeInfo(0, 1,.5);
+    static constexpr RangeInfo stretch = RangeInfo(0.01, 10000, 8);
+    static constexpr RangeInfo windowSize = RangeInfo(512, 2048 * 1024, 4096);
+    static constexpr RangeInfo onsetSensitivity = RangeInfo(0, 1, .5);
 
-    static constexpr RangeInfo hFreq = RangeInfo(0, 22050,440);
-    static constexpr RangeInfo hBandwidth = RangeInfo(0, 1,0);
-    static constexpr RangeInfo hNumberHarm = RangeInfo(0, 100,10);
+    static constexpr RangeInfo hFreq = RangeInfo(0, 22050, 440);
+    static constexpr RangeInfo hBandwidth = RangeInfo(0, 1, 0);
+    static constexpr RangeInfo hNumberHarm = RangeInfo(0, 100, 10);
 
-    static constexpr RangeInfo psCents = RangeInfo(-3600, 3600,0);
+    static constexpr RangeInfo psCents = RangeInfo(-3600, 3600, 0);
 
-    static constexpr RangeInfo fsFreq = RangeInfo(-10000, 10000,0);
+    static constexpr RangeInfo fsFreq = RangeInfo(-10000, 10000, 0);
 
-    static constexpr RangeInfo oValues = RangeInfo(0, 1,0);
+    static constexpr RangeInfo oValues = RangeInfo(0, 1, 0);
 
-    static constexpr RangeInfo fFreq1= RangeInfo(0, 22050,0);
-    static constexpr RangeInfo fFreq2 = RangeInfo(0, 22050,22050);
-    static constexpr RangeInfo fFreqArbitrary = RangeInfo(0, 22050,0);
-    static constexpr RangeInfo fDamp = RangeInfo(0, 1,0);
+    static constexpr RangeInfo fFreq1 = RangeInfo(0, 22050, 0);
+    static constexpr RangeInfo fFreq2 = RangeInfo(0, 22050, 22050);
+    static constexpr RangeInfo fFreqArbitrary = RangeInfo(0, 22050, 0);
+    static constexpr RangeInfo fDamp = RangeInfo(0, 1, 0);
 
-    static constexpr RangeInfo tnAmount = RangeInfo(0, 1,0);
-    static constexpr RangeInfo tnBandwidth = RangeInfo(0, 1,0);
+    static constexpr RangeInfo tnAmount = RangeInfo(0, 1, 0);
+    static constexpr RangeInfo tnBandwidth = RangeInfo(0, 1, 0);
 
-    static constexpr RangeInfo spBandwidth = RangeInfo(0, 1,0);
+    static constexpr RangeInfo spBandwidth = RangeInfo(0, 1, 0);
 
-    static constexpr RangeInfo cmPower = RangeInfo(0, 1,0);
+    static constexpr RangeInfo cmPower = RangeInfo(0, 1, 0);
 
-    static constexpr RangeInfo binaural = RangeInfo(0, 100,0);
-    
-    template<typename T>
-    static const T Clamp(const RangeInfo& r, const T& v){
-        if (v<r.min) return r.min;
-        if (v>r.max) return r.max;
+    static constexpr RangeInfo binaural = RangeInfo(0, 100, 0);
+
+    template <typename T>
+    static const T Clamp(const RangeInfo& r, const T& v)
+    {
+        if (v < r.min)
+            return r.min;
+        if (v > r.max)
+            return r.max;
         return v;
     }
 };
@@ -256,12 +277,12 @@ struct LegacyController {
     void Pause();
     void Stop();
     // freeze removed
-    void Seek(const float& f);  // fraction??
+    void Seek(const float& f); // fraction??
     const float GetSeek(); // fraction 0..1
-    
+
     //
     bool IsPlaying();
-    
+
     void SetVolume(const float&);
     float Volume();
 
@@ -271,7 +292,7 @@ struct LegacyController {
 
     void SetParameters(const Configuration&);
     const Configuration Parameters();
-    
+
     //
     float GetRenderPercent();
     void CancelRender();
@@ -279,7 +300,7 @@ struct LegacyController {
 
     void SetRenderRange(const PercentRegion&);
     PercentRegion RenderRange();
-    
+
     void RenderToFile(const std::string&);
     void RenderToFileAsync(const std::string&);
 
@@ -310,7 +331,7 @@ struct LegacyRenderController {
 
     void SetParameters(const Configuration&);
     const Configuration Parameters();
-    
+
     //
     float GetRenderPercent();
     void CancelRender();
@@ -318,7 +339,7 @@ struct LegacyRenderController {
 
     void SetRenderRange(const PercentRegion&);
     PercentRegion RenderRange();
-    
+
     void RenderToFile(const std::string&);
     void RenderToFileAsync(const std::string&);
 
@@ -327,87 +348,86 @@ struct LegacyRenderController {
     void SetOnRenderError(const ErrorCallbackFn&);
 };
 
-
 // common for legacy controller and possible other implementation of standard algorithm:
-    struct RenderTaskSetup{
-        std::string audioFile;
-        std::string outputFile;
-        PercentRegion region;
-        Configuration configuration;
-    };
-    
-// runs legacy controller in separate thread (currently using RenderToFileAsync)
-// renamed from LegacyRenderWorker
+struct RenderTaskSetup {
+    std::string audioFile;
+    std::string outputFile;
+    PercentRegion region;
+    Configuration configuration;
+};
 
-struct LegacyRenderWorker{
+// runs legacy controller in separate thread (currently using RenderToFileAsync)
+
+struct LegacyRenderWorker {
     LegacyRenderController _ctrl;
     std::string _output;
     std::mutex _mutex;
-    
+
     std::mutex _rendering;
     bool _done = false;
-    
+
     // input file, output file, region, cfg
     LegacyRenderWorker(const std::string&, const std::string&, const PercentRegion&, const Configuration&);
     LegacyRenderWorker(const RenderTaskSetup&);
-    
+
     // mutable:
     LegacyRenderWorker();
     void SetTask(const RenderTaskSetup&);
-    
+
     void StartRender();
     void CancelRender();
-    
+
     float GetRenderPercent();
-    
-    const bool IsDone() ;
-    
+
+    const bool IsDone();
+};
+
+struct BatchTaskList {
+    std::vector<RenderTaskSetup> data;
 };
 
 using LegacyRenderWorkerPtr = std::shared_ptr<LegacyRenderWorker>;
 
 struct BatchProcessorLegacyController {
-    private:
-    
+private:
     std::vector<std::string> _inputFiles;
     std::vector<std::string> _configurations;
     std::vector<PercentRegion> _regions;
     std::string _outputFolder;
-    
-    std::vector<RenderTaskSetup> _taskList;
-    
+
+    BatchTaskList _taskList;
+
     std::vector<LegacyRenderWorkerPtr> _workers;
     size_t _doneCounter = 0;
-    
+
     void _ScheduleTask(const RenderTaskSetup&);
     LegacyRenderWorkerPtr _GetAvailableWorker();
-    
+    void _UpdateTaskList();
+
     bool _isRendering = false;
-    
-    public:
-    
+
+public:
     BatchProcessorLegacyController();
-    
+
     void OpenFiles(const std::vector<std::string>& names);
     void OpenConfigurations(const std::vector<std::string>& names);
     void SetRegions(const std::vector<PercentRegion>& reg);
     void SetOutputFolder(const std::string&);
-    
+
     static std::string MakeOutputFilename(const std::string& file, const std::string& cfg, const PercentRegion& region, const std::string& outFolder);
-    
+
     void RenderBatchAsync();
     void CancelRender();
-    
+
     size_t GetActiveWorkerCount();
     float GetWorkerRenderPercent(const size_t& idx);
-    
+
     size_t GetTotalTasks();
     size_t GetDoneTasks();
     size_t GetRemainingTasks();
-    
+
     const bool IsRendering() { return _isRendering; }
 };
-
 };
 
 #endif
