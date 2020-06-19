@@ -123,6 +123,7 @@ add_library(ALAC STATIC ${alac_sources})
 #option(WITH_OGG OFF)
 #add_definitions(-DWITH_OGG=OFF)
 set(WITH_OGG OFF CACHE BOOL "ogg" FORCE)
+set(BUILD_CXXLIBS OFF CACHE BOOL "flac++" FORCE)
 add_subdirectory("../submodules/flac" "FLAC" EXCLUDE_FROM_ALL)
 
 set (CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} -fstack-protector)
