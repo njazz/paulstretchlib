@@ -13,11 +13,11 @@ struct Configuration;
 struct BatchTaskList;
 
 struct JSONStringCodec{
-    bool FromJSONString(Configuration&, const std::string&);
-    bool FromJSONString(BatchTaskList&, const std::string&);
+    static bool FromJSONString(Configuration&, const std::string&);
+    static bool FromJSONString(BatchData&, const std::string&);
     
-    std::string ToJSONString(const Configuration&);
-    std::string ToJSONString(const BatchTaskList&);
+    static std::string ToJSONString(const Configuration&);
+    static std::string ToJSONString(const BatchData&);
     
 };
 };

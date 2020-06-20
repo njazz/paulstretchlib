@@ -34,6 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
+  include("/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/cmake_install.cmake")
   include("/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/cmake_install.cmake")
 
 endif()

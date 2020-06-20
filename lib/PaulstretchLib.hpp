@@ -200,6 +200,10 @@ struct Configuration {
     float cmPower = 1;
 
     AutomatedFloat binaural;
+    
+    //
+    void ToFile(const std::string& f);
+    bool FromFile(const std::string& f);
 };
 
 struct ConfigurationInfo {
@@ -240,6 +244,8 @@ struct ConfigurationInfo {
             return r.max;
         return v;
     }
+    
+    
 };
 
 struct StretchEngineImplementation;
@@ -290,6 +296,9 @@ struct LegacyController {
 
     bool OpenFile(const std::string&);
 
+//    bool OpenConfigurationFile(const std::string&);
+//    void SaveConfigurationFile(const std::string&);
+    
     void SetParameters(const Configuration&);
     const Configuration Parameters();
 
@@ -388,12 +397,25 @@ struct BatchTaskList {
 
 using LegacyRenderWorkerPtr = std::shared_ptr<LegacyRenderWorker>;
 
+struct BatchData{
+    std::vector<std::string> inputFiles;
+    std::vector<std::string> configurationFiles;
+    std::vector<PercentRegion> regions;
+    std::string outputFolder;
+    
+    //
+    void ToFile(const std::string& f);
+    bool FromFile(const std::string& f);
+};
+
 struct BatchProcessorLegacyController {
 private:
-    std::vector<std::string> _inputFiles;
-    std::vector<std::string> _configurations;
-    std::vector<PercentRegion> _regions;
-    std::string _outputFolder;
+//    std::vector<std::string> _inputFiles;
+//    std::vector<std::string> _configurations;
+//    std::vector<PercentRegion> _regions;
+//    std::string _outputFolder;
+
+    BatchData _data;
 
     BatchTaskList _taskList;
 
@@ -409,10 +431,13 @@ private:
 public:
     BatchProcessorLegacyController();
 
-    void OpenFiles(const std::vector<std::string>& names);
-    void OpenConfigurations(const std::vector<std::string>& names);
-    void SetRegions(const std::vector<PercentRegion>& reg);
-    void SetOutputFolder(const std::string&);
+//    void OpenFiles(const std::vector<std::string>& names);
+//    void OpenConfigurations(const std::vector<std::string>& names);
+//    void SetRegions(const std::vector<PercentRegion>& reg);
+//    void SetOutputFolder(const std::string&);
+
+    void SetData(const BatchData& data);
+    BatchData Data() { return _data;}
 
     static std::string MakeOutputFilename(const std::string& file, const std::string& cfg, const PercentRegion& region, const std::string& outFolder);
 

@@ -15,9 +15,9 @@
 
 #include "imgui_internal.h"
 
-#include <fstream>
+//#include <fstream>
 #include <string>
-#include <iostream>
+//#include <iostream>
 
 #include "AFOverview.hpp"
 
@@ -42,10 +42,12 @@ struct _UIState {
     ImGuiID _dockRight;
 
     // batch
-    std::vector<std::string> inputFiles;
-    std::vector<std::string> inputConfigurations;
-    std::vector<PaulstretchLib::PercentRegion> batchRegions;
-    std::string outputFolder;
+    //    std::vector<std::string> inputFiles;
+    //    std::vector<std::string> inputConfigurations;
+    //    std::vector<PaulstretchLib::PercentRegion> batchRegions;
+    //    std::string outputFolder;
+
+    PaulstretchLib::BatchData batch;
 };
 
 static _UIState UIState;
@@ -58,8 +60,6 @@ static AFOverview overview;
 static PaulstretchLib::BatchProcessorLegacyController _batch;
 
 static const char* __windowTypes[5] = { "Rectangular", "Hamming", "Hann", "Blackmann", "BlackmannHarris" };
-
-
 
 // ---
 
@@ -144,6 +144,28 @@ inline Optional<std::string> _OpenConfigFile()
     return ret;
 }
 
+inline Optional<std::string> _OpenBatchFile()
+{
+    Optional<std::string> ret;
+
+    std::vector<const char*> flt = { "*.ps-patch.json" };
+
+    auto r = tinyfd_openFileDialog(
+        "Open batch file", /* NULL or "" */
+        NULL, /* NULL or "" */
+        1, /* 0 */
+        flt.data(), /* NULL | {"*.jpg","*.png"} */
+        "paulstretchlib batch files (JSON)", /* NULL | "image files" */
+        0);
+
+    if (r)
+        ret.Set(std::string(r));
+
+    return ret;
+}
+
+// ---
+
 inline Optional<std::string> _SaveAudioFile()
 {
     Optional<std::string> ret;
@@ -164,7 +186,21 @@ inline Optional<std::string> _SaveConfigFile()
 
     std::vector<const char*> flt = { "*.ps.json" };
 
-    auto r = tinyfd_saveFileDialog("Save paulstretchlib configuration file", NULL, 1, flt.data(), "paulstretchlib configuration file (JSON)");
+    auto r = tinyfd_saveFileDialog("Save configuration file", NULL, 1, flt.data(), "paulstretchlib configuration file (JSON)");
+
+    if (r)
+        ret.Set(std::string(r));
+
+    return ret;
+};
+
+inline Optional<std::string> _SaveBatchFile()
+{
+    Optional<std::string> ret;
+
+    std::vector<const char*> flt = { "*.ps-batch.json" };
+
+    auto r = tinyfd_saveFileDialog("Save batch file", NULL, 1, flt.data(), "paulstretchlib batch file (JSON)");
 
     if (r)
         ret.Set(std::string(r));
@@ -205,67 +241,124 @@ Optional<float> _EditAutofloat(PaulstretchLib::AutomatedFloat& af, std::string o
     return ret;
 }
 
+void _StringArrayEdit(std::vector<std::string>& obj)
+{
+    using namespace ImGui;
+
+    int idx = 0;
+    int _itemToRemove = -1;
+
+    for (auto& e : obj) {
+        Text("%i: %s", idx, e.c_str());
+//        Separator();
+
+        if (Button("Del"))
+            _itemToRemove = idx;
+        SameLine(50);
+        if (Button("Replace")) {
+            auto v = _OpenAudioFile();
+            if (!v.IsNull())
+                e = v.Get();
+        }
+        SameLine(130);
+        bool b = false;
+        Checkbox("View", &b);
+
+        idx++;
+
+//        Separator();
+    }
+
+    if (_itemToRemove != -1) {
+        obj.erase(obj.begin() + _itemToRemove);
+    }
+}
+
 void _BatchWindow()
 {
     using namespace ImGui;
     using namespace PaulstretchLib;
 
     Begin("Batch process");
+
+    if (Button("Load batch...")) {
+        auto v = _OpenBatchFile();
+        if (!v.IsNull()) {
+            UIState.batch.FromFile(v.Get());
+        }
+    }
+    SameLine();
+    if (Button("Save batch...")) {
+        auto v = _SaveBatchFile();
+        if (!v.IsNull()) {
+            UIState.batch.ToFile(v.Get());
+        }
+    }
+    Separator();Text("");
+    Separator();
+    
+    Text("Audio files:");
+
     if (Button("Open files...")) {
         auto v = _OpenAudioFiles();
         if (!v.IsNull())
-            UIState.inputFiles = v.Get();
+            UIState.batch.inputFiles = v.Get();
     }
+
     // --- audio files
-    Separator();
-    if (UIState.inputFiles.size() == 0) {
+
+    //Separator();
+    
+
+    if (UIState.batch.inputFiles.size() == 0) {
         Text("No audio files");
     }
-    
-    
-    for (const auto& e : UIState.inputFiles) {
-        Text("%s", e.c_str());
-        Separator();
-        Button("Del");
-        SameLine(50);
-        Button("Replace");
-        SameLine(130);
-        bool b = false;
-        Checkbox("View", &b);
-    }
 
-    Separator();
+   // Separator();
 
-    if (Button("Open configurations...")) {
-        auto v = _OpenConfigFiles();
-        if (!v.IsNull())
-            UIState.inputConfigurations = v.Get();
-    }
+    _StringArrayEdit(UIState.batch.inputFiles);
+
+    Button("Add audio file ...");
 
     // --- cfg
-
+    
     Separator();
-    if (UIState.inputConfigurations.size() == 0) {
+    Text("");
+    Separator();
+    
+    Text("Configurations:");
+    
+    if (Button("Open configuration files ...")) {
+        auto v = _OpenConfigFiles();
+        if (!v.IsNull())
+            UIState.batch.configurationFiles = v.Get();
+    }
+
+    if (UIState.batch.configurationFiles.size() == 0) {
         Text("No configuration files");
     }
-    for (const auto& e : UIState.inputConfigurations) {
-        Text("%s", e.c_str());
-        Separator();
-        Button("Del");
-        SameLine(50);
-        Button("Replace");
-        SameLine(130);
-        bool b = false;
-        Checkbox("Edit", &b);
-    }
+
+    
+    _StringArrayEdit(UIState.batch.configurationFiles);
+
+    Button("Add configuration file ...");
+    Button("Create configuration file ...");
+
+    // regions
 
     Separator();
+    Text("");
+    Separator();
+
     Text("Regions:");
-    if (UIState.batchRegions.size() == 0) {
+    if (UIState.batch.regions.size() == 0) {
         Text("No regions");
     }
-    
-    for (auto& e : UIState.batchRegions) {
+
+    int idx = 0;
+    int _itemToRemove = -1;
+
+    for (auto& e : UIState.batch.regions) {
         float range[2];
         range[0] = e.startFraction;
         range[1] = e.endFraction;
@@ -274,34 +367,44 @@ void _BatchWindow()
             e = PercentRegion(range[0], range[1]);
         }
 
-        Button("Del");
-        SameLine(50);
+        if (Button("Del"))
+            _itemToRemove = idx;
+
+        SameLine(130);
         bool b = false;
         Checkbox("View", &b);
-        Separator();
+
+        idx++;
     }
+
+    if (_itemToRemove != -1) {
+        UIState.batch.regions.erase(UIState.batch.regions.begin() + _itemToRemove);
+    }
+
     if (Button("Add region"))
-        UIState.batchRegions.push_back(PercentRegion(0, 1));
+        UIState.batch.regions.push_back(PercentRegion(0, 1));
 
     Separator();
-    if (Button("Render Files"))
-    {
-        _batch.OpenFiles(UIState.inputFiles);
-        _batch.OpenConfigurations(UIState.inputConfigurations);
-        _batch.SetRegions(UIState.batchRegions);
-        _batch.SetOutputFolder(UIState.outputFolder);
+    Text("");
+    Separator();
+
+    if (Button("Render Files")) {
+        //        _batch.OpenFiles(UIState.inputFiles);
+        //        _batch.OpenConfigurations(UIState.inputConfigurations);
+        //        _batch.SetRegions(UIState.batchRegions);
+        //        _batch.SetOutputFolder(UIState.outputFolder);
+
+        _batch.SetData(UIState.batch);
 
         _batch.RenderBatchAsync();
     }
-    
-    if (_batch.IsRendering())
-    {
+
+    if (_batch.IsRendering()) {
         Separator();
         Text("Processing %i of %i", (int)_batch.GetDoneTasks(), (int)_batch.GetTotalTasks());
         Separator();
-        for (int i=0;i<_batch.GetActiveWorkerCount();i++)
-        {
-            Text("%i %%", int(100*_batch.GetWorkerRenderPercent(i)));
+        for (int i = 0; i < _batch.GetActiveWorkerCount(); i++) {
+            Text("%i %%", int(100 * _batch.GetWorkerRenderPercent(i)));
         };
         Separator();
     }
@@ -390,19 +493,18 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
     }
 
     NextColumn();
-//    Separator();
+    //    Separator();
 
     Text("Window Type:");
     NextColumn();
-    
+
     int wt = (int)cfg.windowType;
     SetNextItemWidth(GetWindowWidth() * .45);
-    if (Combo("##window_type", &wt, __windowTypes, 5))
-    {
-         PaulstretchLib::ToFFTWindowType(cfg.windowType ,wt);
-         ret = true;
-         }
-    
+    if (Combo("##window_type", &wt, __windowTypes, 5)) {
+        PaulstretchLib::ToFFTWindowType(cfg.windowType, wt);
+        ret = true;
+    }
+
     NextColumn();
 
     Text("Onset Sensitivity");
@@ -416,10 +518,8 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
     }
 
     NextColumn();
-//    Separator();
-    
-    
-    
+    //    Separator();
+
     Separator();
 
     Text("Harmonics:");
@@ -431,7 +531,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
     }
 
     NextColumn();
-//    Separator();
+    //    Separator();
 
     if (cfg.harmonics) {
         Text("Freq");
@@ -445,7 +545,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
         }
 
         NextColumn();
-//        Separator();
+        //        Separator();
 
         Text("Bandwidth");
 
@@ -458,7 +558,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
         }
 
         NextColumn();
-//        Separator();
+        //        Separator();
 
         Text("Count");
 
@@ -471,7 +571,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
         }
 
         NextColumn();
-//        Separator();
+        //        Separator();
 
         Text("Gaussian");
 
@@ -481,11 +581,11 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
             ret = true;
 
         NextColumn();
-//        Separator();
+        //        Separator();
 
-//        Separator();
+        //        Separator();
     }
-    
+
     Separator();
 
     Text("Octaves:");
@@ -546,7 +646,6 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
     }
 
     NextColumn();
-    
 
     if (cfg.pitchShift) {
         Text("Cents");
@@ -560,12 +659,12 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
         }
 
         NextColumn();
-//        Separator();
+        //        Separator();
 
-//        Separator();
+        //        Separator();
     }
     Separator();
-    
+
     Text("Freq Shift:");
 
     NextColumn();
@@ -575,7 +674,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
     }
 
     NextColumn();
-//    Separator();
+    //    Separator();
 
     if (cfg.freqShift) {
         Text("Freq");
@@ -589,12 +688,12 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
         }
 
         NextColumn();
-//        Separator();
+        //        Separator();
 
-//        Separator();
+        //        Separator();
     }
     Separator();
-    
+
     Text("Filter:");
 
     NextColumn();
@@ -604,7 +703,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
     }
 
     NextColumn();
-//    Separator();
+    //    Separator();
 
     if (cfg.filter) {
         Text("Freq 1");
@@ -618,7 +717,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
         }
 
         NextColumn();
-//        Separator();
+        //        Separator();
 
         Text("Freq 2");
 
@@ -631,7 +730,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
         }
 
         NextColumn();
-//        Separator();
+        //        Separator();
 
         Text("Arbitrary Freq");
 
@@ -639,7 +738,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
         if (!_EditAutofloat(cfg.fFreqArbitrary, "fFreqArbitrary", PaulstretchLib::ConfigurationInfo::fFreqArbitrary).IsNull())
             ret = true;
         NextColumn();
-//        Separator();
+        //        Separator();
 
         Text("Bandstop");
 
@@ -650,9 +749,9 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
         };
 
         NextColumn();
-//        Separator();
+        //        Separator();
 
-//        Separator();
+        //        Separator();
     }
     Separator();
 
@@ -665,7 +764,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
     }
 
     NextColumn();
-//    Separator();
+    //    Separator();
 
     if (cfg.tonalNoise) {
         Text("Amount");
@@ -679,7 +778,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
         }
 
         NextColumn();
-//        Separator();
+        //        Separator();
 
         Text("Bandwidth");
 
@@ -692,12 +791,12 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
         }
 
         NextColumn();
-//        Separator();
+        //        Separator();
 
-//        Separator();
+        //        Separator();
     }
     Separator();
-    
+
     Text("Compress");
 
     NextColumn();
@@ -709,7 +808,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
     NextColumn();
     Separator();
 
-//    Separator();
+    //    Separator();
 
     Text("Binaural");
     NextColumn();
@@ -739,7 +838,7 @@ void _LegacyControllerWindow()
     Text("%s", (UIState.filename.compare("") == 0 ? "No file" : UIState.filename.c_str()));
     bool f_b = true;
     Checkbox("View file", &f_b);
-    
+
     if (Button("Open file...")) {
         auto f = _OpenAudioFile();
         if (!f.IsNull()) {
@@ -760,24 +859,27 @@ void _LegacyControllerWindow()
             // TODO: move to lib
 
             //
-            std::string s;
-            std::ifstream in1(r.Get());
-            in1 >> s;
-            in1.close();
-
-            // auto s = PaulstretchLib::JSONStringFromConfiguration(UIState.cfg.Get());
-            UIState.cfg = PaulstretchLib::FromJSONString(s);
+            //            std::string s;
+            //            std::ifstream in1(r.Get());
+            //            in1 >> s;
+            //            in1.close();
+            //
+            //            // auto s = PaulstretchLib::JSONStringFromConfiguration(UIState.cfg.Get());
+            //            UIState.cfg = PaulstretchLib::FromJSONString(s);
+            UIState.cfg.Get().ToFile(r.Get());
         }
     }
 
     if (Button("Save configuration file...")) {
         auto r = _SaveConfigFile();
         if (!r.IsNull()) {
-            auto s = PaulstretchLib::JSONStringFromConfiguration(UIState.cfg.Get());
+            //            auto s = PaulstretchLib::JSONStringFromConfiguration(UIState.cfg.Get());
+            //            //
+            //            std::ofstream out1(r.Get());
+            //            out1 << s;
+            //            out1.close();
             //
-            std::ofstream out1(r.Get());
-            out1 << s;
-            out1.close();
+            UIState.cfg.GetRef().FromFile(r.Get());
         }
     }
 
@@ -833,9 +935,9 @@ void _LegacyControllerWindow()
     float range[2];
     range[0] = rr.startFraction;
     range[1] = rr.endFraction;
-    
+
     Separator();
-    
+
     bool r_b = true;
     Checkbox("Set range", &r_b);
 

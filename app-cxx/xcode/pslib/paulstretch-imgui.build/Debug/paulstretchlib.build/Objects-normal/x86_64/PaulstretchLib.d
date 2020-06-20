@@ -21,4 +21,6 @@ dependencies: \
   /Users/njazz/Documents/github/paulstretchlib/lib/../paulstretch_cpp_modified/Control.h \
   /Users/njazz/Documents/github/paulstretchlib/lib/../paulstretch_cpp_modified/Output/AOutputS.h \
   /Users/njazz/Documents/github/paulstretchlib/lib/../paulstretch_cpp_modified/PAaudiooutput.h \
-  /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/include/portaudio.h
+  /Users/njazz/Documents/github/paulstretchlib/submodules/portaudio/include/portaudio.h \
+  /Users/njazz/Documents/github/paulstretchlib/lib/LiteControl.h \
+  /Users/njazz/Documents/github/paulstretchlib/lib/StringUtilities.hpp

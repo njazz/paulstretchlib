@@ -19,6 +19,12 @@
 #include <chrono>
 
 #include "StringUtilities.hpp"
+
+#include "JSONCodec.hpp"
+
+#include <iostream>
+#include <fstream>
+
 // ---
 namespace PaulstretchLib {
 
@@ -68,29 +74,25 @@ const std::string ToString(const FFTWindowType& v)
     }
 }
 
-const bool ToFFTWindowType(FFTWindowType& obj, const std::string src){
-    if (!src.compare("Rectangular"))
-    {
+const bool ToFFTWindowType(FFTWindowType& obj, const std::string src)
+{
+    if (!src.compare("Rectangular")) {
         obj = FFTWindowType_Rectangular;
         return true;
     }
-    if (!src.compare("Hamming"))
-    {
+    if (!src.compare("Hamming")) {
         obj = FFTWindowType_Hamming;
         return true;
     }
-    if (!src.compare("Hann"))
-    {
+    if (!src.compare("Hann")) {
         obj = FFTWindowType_Hann;
         return true;
     }
-    if (!src.compare("Blackmann"))
-    {
+    if (!src.compare("Blackmann")) {
         obj = FFTWindowType_Blackmann;
         return true;
     }
-    if (!src.compare("BlackmannHarris"))
-    {
+    if (!src.compare("BlackmannHarris")) {
         obj = FFTWindowType_BlackmannHarris;
         return true;
     }
@@ -99,10 +101,10 @@ const bool ToFFTWindowType(FFTWindowType& obj, const std::string src){
 
 const bool ToFFTWindowType(FFTWindowType& obj, const int& v)
 {
-    if (v>=0 && v<5){
+    if (v >= 0 && v < 5) {
         obj = (FFTWindowType)v;
         return true;
-        }
+    }
     return false;
 };
 
@@ -160,6 +162,29 @@ Configuration XMLConfigurationCodec::FromXMLString(const std::string&) { return 
 Configuration ConfigTools::Interpolate(const Configuration& a, const Configuration& b, float fraction)
 {
     return Configuration();
+}
+// ---
+
+void Configuration::ToFile(const std::string& f)
+{
+
+    auto s = JSONStringCodec::ToJSONString(*this);
+    //
+    std::ofstream out1(f);
+    out1 << s;
+    out1.close();
+}
+
+bool Configuration::FromFile(const std::string& f)
+{
+
+    std::string s;
+    std::ifstream in1(f);
+    in1 >> s;
+    in1.close();
+
+    // auto s = PaulstretchLib::JSONStringFromConfiguration(UIState.cfg.Get());
+    return JSONStringCodec::FromJSONString(*this, s);
 }
 
 // ---
@@ -486,7 +511,6 @@ LegacyRenderController& LegacyRenderController::operator=(const LegacyRenderCont
     return *this;
 }
 
-
 bool LegacyRenderController::OpenFile(const std::string& fn)
 {
     _impl->_inputFilename = fn;
@@ -507,13 +531,13 @@ void LegacyRenderController::SetParameters(const Configuration& cfg)
 
     _impl->_legacyControl.set_stretch_direct_controls(stretch_v, windowSize_v, onset_v);
 
-//    _impl->_legacyControl.update_player_stretch();
+    //    _impl->_legacyControl.update_player_stretch();
 
     _impl->_legacyControl.set_window_type(FromFFTWType(_impl->_cfg.windowType));
 
     _impl->_legacyControl.ppar = ToPParameters(_impl->_cfg);
     _impl->_legacyControl.bbpar = ToBBParameters(_impl->_cfg);
-//    _impl->_legacyControl.update_process_parameters();
+    //    _impl->_legacyControl.update_process_parameters();
 };
 
 const Configuration LegacyRenderController::Parameters()
@@ -560,7 +584,6 @@ void LegacyRenderController::RenderToFileAsync(const std::string& of)
 }
 
 //
-
 
 void LegacyRenderController::SetOnFileOpenError(const CallbackFn& fn)
 {
@@ -687,24 +710,30 @@ BatchProcessorLegacyController::BatchProcessorLegacyController()
         _workers.push_back(std::make_shared<LegacyRenderWorker>());
 }
 //
-void BatchProcessorLegacyController::OpenFiles(const std::vector<std::string>& names)
+//void BatchProcessorLegacyController::OpenFiles(const std::vector<std::string>& names)
+//{
+//    _inputFiles = names;
+//    _UpdateTaskList();
+//}
+//void BatchProcessorLegacyController::OpenConfigurations(const std::vector<std::string>& names)
+//{
+//    _configurations = names;
+//    _UpdateTaskList();
+//}
+//void BatchProcessorLegacyController::SetRegions(const std::vector<PercentRegion>& reg)
+//{
+//    _regions = reg;
+//    _UpdateTaskList();
+//}
+//void BatchProcessorLegacyController::SetOutputFolder(const std::string& f)
+//{
+//    _outputFolder = f;
+//    _UpdateTaskList();
+//}
+
+void BatchProcessorLegacyController::SetData(const BatchData& data)
 {
-    _inputFiles = names;
-    _UpdateTaskList();
-}
-void BatchProcessorLegacyController::OpenConfigurations(const std::vector<std::string>& names)
-{
-    _configurations = names;
-    _UpdateTaskList();
-}
-void BatchProcessorLegacyController::SetRegions(const std::vector<PercentRegion>& reg)
-{
-    _regions = reg;
-    _UpdateTaskList();
-}
-void BatchProcessorLegacyController::SetOutputFolder(const std::string& f)
-{
-    _outputFolder = f;
+    _data = data;
     _UpdateTaskList();
 }
 
@@ -712,36 +741,34 @@ std::string BatchProcessorLegacyController::MakeOutputFilename(const std::string
 {
     // TODO
     using namespace StringUtilities;
-    
-    auto lf =SplitStringWithDelimiter(file,".");
+
+    auto lf = SplitStringWithDelimiter(file, ".");
     lf.pop_back();
-    auto ln = JoinStringsWithDelimiter(lf,".");
-    
+    auto ln = JoinStringsWithDelimiter(lf, ".");
+
     auto cfgName = GetFileName(cfg);
-    
+
     auto regionName = "FULL";
-    
-    if ( (region.startFraction>0) || (region.endFraction<1))
+
+    if ((region.startFraction > 0) || (region.endFraction < 1))
         // TODO:
         regionName = "PART";
-    
-    return ln + "_"+cfgName+"_"+regionName+".wav";
+
+    return ln + "_" + cfgName + "_" + regionName + ".wav";
 }
 
-void BatchProcessorLegacyController::_UpdateTaskList(){
+void BatchProcessorLegacyController::_UpdateTaskList()
+{
     _taskList.data.clear();
-    
-    for (const auto& infile: _inputFiles)
-    {
-        for (const auto& incfg: _configurations)
-        {
-            for (const auto& inreg: _regions)
-            {
+
+    for (const auto& infile : _data.inputFiles) {
+        for (const auto& incfg : _data.configurationFiles) {
+            for (const auto& inreg : _data.regions) {
                 RenderTaskSetup setup;
                 setup.audioFile = infile;
-                setup.outputFile = MakeOutputFilename(infile, incfg, inreg, _outputFolder);
+                setup.outputFile = MakeOutputFilename(infile, incfg, inreg, _data.outputFolder);
                 setup.region = inreg;
-                setup.configuration =  Configuration();// TODO: load from file: incfg;
+                setup.configuration = Configuration(); // TODO: load from file: incfg;
                 _taskList.data.push_back(setup);
             }
         }
@@ -752,16 +779,16 @@ void BatchProcessorLegacyController::RenderBatchAsync()
 {
     // extra:
     _UpdateTaskList();
-    
+
     _doneCounter = 0;
     _isRendering = true;
-    
+
     // ---
     for (auto& e : _taskList.data) {
         _ScheduleTask(e);
         _doneCounter++;
     }
-    
+
     _isRendering = false;
 }
 
@@ -784,4 +811,25 @@ size_t BatchProcessorLegacyController::GetTotalTasks() { return _taskList.data.s
 size_t BatchProcessorLegacyController::GetDoneTasks() { return _doneCounter; }
 size_t BatchProcessorLegacyController::GetRemainingTasks() { return _taskList.data.size() - _doneCounter; }
 
+// ---
+
+void BatchData::ToFile(const std::string& f)
+{
+
+    auto s = JSONStringCodec::ToJSONString(*this);
+    //
+    std::ofstream out1(f);
+    out1 << s;
+    out1.close();
+}
+bool BatchData::FromFile(const std::string& f)
+{
+    std::string s;
+    std::ifstream in1(f);
+    in1 >> s;
+    in1.close();
+
+    // auto s = PaulstretchLib::JSONStringFromConfiguration(UIState.cfg.Get());
+    return JSONStringCodec::FromJSONString(*this, s);
+}
 }; // namespace

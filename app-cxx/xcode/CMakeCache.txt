@@ -20,6 +20,33 @@ AUDIOTOOLBOX_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platfor
 //Path to a library.
 AUDIOUNIT_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/AudioUnit.framework
 
+//Build libFLAC++
+BUILD_CXXLIBS:BOOL=OFF
+
+//Build and install doxygen documents
+BUILD_DOCS:BOOL=ON
+
+//Enable API documentation building via Doxygen
+BUILD_DOXYGEN:BOOL=ON
+
+//Build and install examples
+BUILD_EXAMPLES:BOOL=ON
+
+//Build and install programs
+BUILD_PROGRAMS:BOOL=ON
+
+//Build shared libraries
+BUILD_SHARED_LIBS:BOOL=OFF
+
+//Build the testing tree.
+BUILD_TESTING:BOOL=ON
+
+//Build utils
+BUILD_UTILS:BOOL=OFF
+
+//Path to a program.
+BZRCOMMAND:FILEPATH=BZRCOMMAND-NOTFOUND
+
 //Path to a library.
 CARBON_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Carbon.framework
 
@@ -28,6 +55,24 @@ CMAKE_ADDR2LINE:FILEPATH=CMAKE_ADDR2LINE-NOTFOUND
 
 //Path to a program.
 CMAKE_AR:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar
+
+//ASM_NASM compiler
+CMAKE_ASM_NASM_COMPILER:FILEPATH=/Applications/Xcode.app/Contents/Developer/usr/bin/nasm
+
+//Flags used by the ASM_NASM compiler during all build types.
+CMAKE_ASM_NASM_FLAGS:STRING=
+
+//Flags used by the ASM_NASM compiler during DEBUG builds.
+CMAKE_ASM_NASM_FLAGS_DEBUG:STRING=
+
+//Flags used by the ASM_NASM compiler during MINSIZEREL builds.
+CMAKE_ASM_NASM_FLAGS_MINSIZEREL:STRING=
+
+//Flags used by the ASM_NASM compiler during RELEASE builds.
+CMAKE_ASM_NASM_FLAGS_RELEASE:STRING=
+
+//Flags used by the ASM_NASM compiler during RELWITHDEBINFO builds.
+CMAKE_ASM_NASM_FLAGS_RELWITHDEBINFO:STRING=
 
 //Semicolon separated list of supported configuration types, only
 // supports Debug, Release, MinSizeRel, and RelWithDebInfo, anything
@@ -85,11 +130,59 @@ CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=
 //Flags used by the linker during RELWITHDEBINFO builds.
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
+//User executables (bin)
+CMAKE_INSTALL_BINDIR:PATH=bin
+
+//Read-only architecture-independent data (DATAROOTDIR)
+CMAKE_INSTALL_DATADIR:PATH=
+
+//Read-only architecture-independent data root (share)
+CMAKE_INSTALL_DATAROOTDIR:PATH=share
+
+//Documentation root (DATAROOTDIR/doc/PROJECT_NAME)
+CMAKE_INSTALL_DOCDIR:PATH=
+
+//C header files (include)
+CMAKE_INSTALL_INCLUDEDIR:PATH=include
+
+//Info documentation (DATAROOTDIR/info)
+CMAKE_INSTALL_INFODIR:PATH=
+
+//Object code libraries (lib)
+CMAKE_INSTALL_LIBDIR:PATH=lib
+
+//Program executables (libexec)
+CMAKE_INSTALL_LIBEXECDIR:PATH=libexec
+
+//Locale-dependent data (DATAROOTDIR/locale)
+CMAKE_INSTALL_LOCALEDIR:PATH=
+
+//Modifiable single-machine data (var)
+CMAKE_INSTALL_LOCALSTATEDIR:PATH=var
+
+//Man documentation (DATAROOTDIR/man)
+CMAKE_INSTALL_MANDIR:PATH=
+
 //Path to a program.
 CMAKE_INSTALL_NAME_TOOL:FILEPATH=/usr/bin/install_name_tool
 
+//C header files for non-gcc (/usr/include)
+CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
+
 //Install path prefix, prepended onto install directories.
 CMAKE_INSTALL_PREFIX:PATH=/usr/local
+
+//Run-time variable data (LOCALSTATEDIR/run)
+CMAKE_INSTALL_RUNSTATEDIR:PATH=
+
+//System admin executables (sbin)
+CMAKE_INSTALL_SBINDIR:PATH=sbin
+
+//Modifiable architecture-independent data (com)
+CMAKE_INSTALL_SHAREDSTATEDIR:PATH=com
+
+//Read-only single-machine data (etc)
+CMAKE_INSTALL_SYSCONFDIR:PATH=etc
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld
@@ -142,6 +235,21 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=paulstretch-imgui
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION:STATIC=3.4.0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=3
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MINOR:STATIC=4
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_PATCH:STATIC=0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_TWEAK:STATIC=
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib
@@ -208,6 +316,133 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 //Path to a library.
 COREAUDIO_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/CoreAudio.framework
 
+//Path to the coverage program that CTest uses for performing coverage
+// inspection
+COVERAGE_COMMAND:FILEPATH=/usr/bin/gcov
+
+//Extra command line flags to pass to the coverage tool
+COVERAGE_EXTRA_FLAGS:STRING=-l
+
+//Enable to build OSX bundles
+CPACK_BINARY_BUNDLE:BOOL=OFF
+
+//Enable to build Debian packages
+CPACK_BINARY_DEB:BOOL=OFF
+
+//Enable to build OSX Drag And Drop package
+CPACK_BINARY_DRAGNDROP:BOOL=OFF
+
+//Enable to build FreeBSD packages
+CPACK_BINARY_FREEBSD:BOOL=OFF
+
+//Enable to build IFW packages
+CPACK_BINARY_IFW:BOOL=OFF
+
+//Enable to build NSIS packages
+CPACK_BINARY_NSIS:BOOL=OFF
+
+//Enable to build OSX X11 packages
+CPACK_BINARY_OSXX11:BOOL=OFF
+
+//Enable to build PackageMaker packages
+CPACK_BINARY_PACKAGEMAKER:BOOL=OFF
+
+//Enable to build productbuild packages
+CPACK_BINARY_PRODUCTBUILD:BOOL=OFF
+
+//Enable to build RPM packages
+CPACK_BINARY_RPM:BOOL=OFF
+
+//Enable to build STGZ packages
+CPACK_BINARY_STGZ:BOOL=ON
+
+//Enable to build TBZ2 packages
+CPACK_BINARY_TBZ2:BOOL=OFF
+
+//Enable to build TGZ packages
+CPACK_BINARY_TGZ:BOOL=ON
+
+//Enable to build TXZ packages
+CPACK_BINARY_TXZ:BOOL=OFF
+
+//Enable to build RPM source packages
+CPACK_SOURCE_RPM:BOOL=OFF
+
+//Enable to build TBZ2 source packages
+CPACK_SOURCE_TBZ2:BOOL=ON
+
+//Enable to build TGZ source packages
+CPACK_SOURCE_TGZ:BOOL=ON
+
+//Enable to build TXZ source packages
+CPACK_SOURCE_TXZ:BOOL=ON
+
+//Enable to build TZ source packages
+CPACK_SOURCE_TZ:BOOL=ON
+
+//Enable to build ZIP source packages
+CPACK_SOURCE_ZIP:BOOL=OFF
+
+//How many times to retry timed-out CTest submissions.
+CTEST_SUBMIT_RETRY_COUNT:STRING=3
+
+//How long to wait between timed-out CTest submissions.
+CTEST_SUBMIT_RETRY_DELAY:STRING=5
+
+//Path to a program.
+CVSCOMMAND:FILEPATH=/usr/local/bin/cvs
+
+//Options passed to the cvs update command.
+CVS_UPDATE_OPTIONS:STRING=-d -A -P
+
+//Maximum time allowed before CTest will kill the test.
+DART_TESTING_TIMEOUT:STRING=1500
+
+//Dot tool for use with Doxygen
+DOXYGEN_DOT_EXECUTABLE:FILEPATH=/usr/local/bin/dot
+
+//Doxygen documentation generation tool (http://www.doxygen.org)
+DOXYGEN_EXECUTABLE:FILEPATH=/usr/local/bin/doxygen
+
+//Set FLAC__BYTES_PER_WORD to 8 (4 is the default)
+ENABLE_64_BIT_WORDS:BOOL=OFF
+
+//Enable -Werror in all Makefiles
+ENABLE_WERROR:BOOL=OFF
+
+//Value Computed by CMake
+FLAC_BINARY_DIR:STATIC=/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/FLAC
+
+//Value Computed by CMake
+FLAC_SOURCE_DIR:STATIC=/Users/njazz/Documents/github/paulstretchlib/submodules/flac
+
+//Path to a program.
+GITCOMMAND:FILEPATH=/usr/bin/git
+
+//Value Computed by CMake
+GLFW_BINARY_DIR:STATIC=/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW
+
+//Build the GLFW documentation
+GLFW_BUILD_DOCS:BOOL=ON
+
+//Build the GLFW example programs
+GLFW_BUILD_EXAMPLES:BOOL=OFF
+
+//Build the GLFW test programs
+GLFW_BUILD_TESTS:BOOL=OFF
+
+//Generate installation target
+GLFW_INSTALL:BOOL=ON
+
+//Value Computed by CMake
+GLFW_SOURCE_DIR:STATIC=/Users/njazz/Documents/github/paulstretchlib/submodules/glfw
+
+//Use OSMesa for offscreen context creation
+GLFW_USE_OSMESA:BOOL=OFF
+
+//Assume the Vulkan loader is linked with the application
+GLFW_VULKAN_STATIC:BOOL=OFF
+
 //Path to a file.
 GLUT_INCLUDE_DIR:PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/GLUT.framework/Headers
 
@@ -217,6 +452,39 @@ GLUT_cocoa_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms
 //GLUT library for OSX
 GLUT_glut_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/GLUT.framework
 
+//Path to a program.
+HGCOMMAND:FILEPATH=HGCOMMAND-NOTFOUND
+
+//Install CMake package-config module
+INSTALL_CMAKE_CONFIG_MODULE:BOOL=ON
+
+//Install MAN pages
+INSTALL_MANPAGES:BOOL=ON
+
+//Install PkgConfig modules
+INSTALL_PKGCONFIG_MODULES:BOOL=ON
+
+//iconv include directory
+Iconv_INCLUDE_DIR:PATH=/usr/include
+
+//iconv library (potentially the C library)
+Iconv_LIBRARY:FILEPATH=/usr/lib/libiconv.dylib
+
+//libintl include directory
+Intl_INCLUDE_DIR:PATH=/usr/local/include
+
+//libintl libraries (if not in the C library)
+Intl_LIBRARY:FILEPATH=/usr/local/lib/libintl.dylib
+
+//Command to build the project
+MAKECOMMAND:STRING=/usr/local/Cellar/cmake/3.16.4/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
+
+//Path to the memory checking command, used for memory error detection.
+MEMORYCHECK_COMMAND:FILEPATH=/usr/local/bin/valgrind
+
+//File that contains suppressions for the memory checker
+MEMORYCHECK_SUPPRESSIONS_FILE:FILEPATH=
+
 //Include for OpenGL on OS X
 OPENGL_INCLUDE_DIR:PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/OpenGL.framework
 
@@ -225,6 +493,9 @@ OPENGL_gl_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/
 
 //GLU library for OS X (usually same as OpenGL library)
 OPENGL_glu_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/OpenGL.framework
+
+//Path to a program.
+P4COMMAND:FILEPATH=P4COMMAND-NOTFOUND
 
 //Include example projects
 PA_BUILD_EXAMPLES:BOOL=OFF
@@ -241,6 +512,12 @@ PA_OUTPUT_OSX_FRAMEWORK:BOOL=OFF
 //Enable support for CoreAudio
 PA_USE_COREAUDIO:BOOL=ON
 
+//ds
+PA_USE_DS:BOOL=OFF
+
+//wdmks
+PA_USE_WDMKS:BOOL=OFF
+
 //Path to a library.
 SDL2MAIN_LIBRARY:FILEPATH=/usr/local/lib/libSDL2main.a
 
@@ -253,17 +530,56 @@ SDL2_INCLUDE_DIR:PATH=/usr/local/include/SDL2
 //Where the SDL Library can be found
 SDL2_LIBRARY:STRING=/usr/local/lib/libSDL2.dylib;-framework Cocoa
 
+//Name of the computer/site where compile is being run
+SITE:STRING=ambp-310.local
+
+//Path to the SLURM sbatch executable
+SLURM_SBATCH_COMMAND:FILEPATH=SLURM_SBATCH_COMMAND-NOTFOUND
+
+//Path to the SLURM srun executable
+SLURM_SRUN_COMMAND:FILEPATH=SLURM_SRUN_COMMAND-NOTFOUND
+
+//Path to a program.
+SVNCOMMAND:FILEPATH=/usr/bin/svn
+
+//Use any assembly optimization routines
+WITH_ASM:BOOL=ON
+
+//Enable AVX, AVX2 optimizations
+WITH_AVX:BOOL=ON
+
+//ogg support (default: test for libogg)
+WITH_OGG:BOOL=OFF
+
+//Enable GNU GCC stack smash protection
+WITH_STACK_PROTECTOR:BOOL=ON
+
+//Build XMMS plugin
+WITH_XMMS:BOOL=OFF
+
+//Dependencies for the target
+getopt_LIB_DEPENDS:STATIC=general;/usr/local/lib/libintl.dylib;
+
+//Dependencies for the target
+glfw_LIB_DEPENDS:STATIC=general;-framework Cocoa;general;-framework IOKit;general;-framework CoreFoundation;
+
+//Dependencies for the target
+grabbag_LIB_DEPENDS:STATIC=general;FLAC;general;replaygain_analysis;
+
 //Value Computed by CMake
 paulstretch-imgui_BINARY_DIR:STATIC=/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode
 
 //Value Computed by CMake
 paulstretch-imgui_SOURCE_DIR:STATIC=/Users/njazz/Documents/github/paulstretchlib/app-cxx
 
+//Dependencies for the target
+paulstretchlib-static_LIB_DEPENDS:STATIC=general;portaudio;general;audiofile;general;FLAC;general;ALAC;general;G711;
+
 //Value Computed by CMake
 paulstretchlib_BINARY_DIR:STATIC=/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib
 
 //Dependencies for the target
-paulstretchlib_LIB_DEPENDS:STATIC=general;portaudio;general;audiofile;
+paulstretchlib_LIB_DEPENDS:STATIC=general;portaudio;general;audiofile;general;FLAC;general;ALAC;general;G711;
 
 //Value Computed by CMake
 paulstretchlib_SOURCE_DIR:STATIC=/Users/njazz/Documents/github/paulstretchlib/lib
@@ -271,23 +587,43 @@ paulstretchlib_SOURCE_DIR:STATIC=/Users/njazz/Documents/github/paulstretchlib/li
 //Dependencies for the target
 portaudio_LIB_DEPENDS:STATIC=general;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/CoreAudio.framework;general;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/AudioToolbox.framework;general;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/AudioUnit.framework;general;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Carbon.framework;general;m;general;pthread;
 
+//Dependencies for the target
+test_libs_common_LIB_DEPENDS:STATIC=general;FLAC;
+
 
 ########################
 # INTERNAL cache entries
 ########################
 
 //Stored Xcode object GUID
+ALAC_GUID_CMAKE:INTERNAL=5C2CC40EB75444B091DD1F4D
+//Stored Xcode object GUID
 ALL_BUILD_GUID_CMAKE:INTERNAL=0B96040A42FE48E0AA7DBD70
 //ADVANCED property for variable: AUDIOTOOLBOX_LIBRARY
 AUDIOTOOLBOX_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: AUDIOUNIT_LIBRARY
 AUDIOUNIT_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BZRCOMMAND
+BZRCOMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CARBON_LIBRARY
 CARBON_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_ADDR2LINE
 CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ASM_NASM_COMPILER
+CMAKE_ASM_NASM_COMPILER-ADVANCED:INTERNAL=1
+CMAKE_ASM_NASM_COMPILER_WORKS:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ASM_NASM_FLAGS
+CMAKE_ASM_NASM_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ASM_NASM_FLAGS_DEBUG
+CMAKE_ASM_NASM_FLAGS_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ASM_NASM_FLAGS_MINSIZEREL
+CMAKE_ASM_NASM_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ASM_NASM_FLAGS_RELEASE
+CMAKE_ASM_NASM_FLAGS_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ASM_NASM_FLAGS_RELWITHDEBINFO
+CMAKE_ASM_NASM_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //This is the directory where this CMakeCache.txt was created
 CMAKE_CACHEFILE_DIR:INTERNAL=/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode
 //Major version of cmake used to create the current loaded cache
@@ -300,6 +636,8 @@ CMAKE_CACHE_PATCH_VERSION:INTERNAL=4
 CMAKE_COMMAND:INTERNAL=/usr/local/Cellar/cmake/3.16.4/bin/cmake
 //Path to cpack program executable.
 CMAKE_CPACK_COMMAND:INTERNAL=/usr/local/Cellar/cmake/3.16.4/bin/cpack
+//ADVANCED property for variable: CMAKE_CTEST_COMMAND
+CMAKE_CTEST_COMMAND-ADVANCED:INTERNAL=1
 //Path to ctest program executable.
 CMAKE_CTEST_COMMAND:INTERNAL=/usr/local/Cellar/cmake/3.16.4/bin/ctest
 //ADVANCED property for variable: CMAKE_CXX_FLAGS
@@ -344,11 +682,47 @@ CMAKE_GENERATOR_INSTANCE:INTERNAL=
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
+//Test CMAKE_HAVE_LIBC_PTHREAD
+CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=1
+//Have include pthread.h
+CMAKE_HAVE_PTHREAD_H:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=/Users/njazz/Documents/github/paulstretchlib/app-cxx
+//ADVANCED property for variable: CMAKE_INSTALL_BINDIR
+CMAKE_INSTALL_BINDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_DATADIR
+CMAKE_INSTALL_DATADIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_DATAROOTDIR
+CMAKE_INSTALL_DATAROOTDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_DOCDIR
+CMAKE_INSTALL_DOCDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_INCLUDEDIR
+CMAKE_INSTALL_INCLUDEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_INFODIR
+CMAKE_INSTALL_INFODIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LIBDIR
+CMAKE_INSTALL_LIBDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LIBEXECDIR
+CMAKE_INSTALL_LIBEXECDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LOCALEDIR
+CMAKE_INSTALL_LOCALEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LOCALSTATEDIR
+CMAKE_INSTALL_LOCALSTATEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_MANDIR
+CMAKE_INSTALL_MANDIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_INSTALL_NAME_TOOL
 CMAKE_INSTALL_NAME_TOOL-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_OLDINCLUDEDIR
+CMAKE_INSTALL_OLDINCLUDEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_RUNSTATEDIR
+CMAKE_INSTALL_RUNSTATEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_SBINDIR
+CMAKE_INSTALL_SBINDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_SHAREDSTATEDIR
+CMAKE_INSTALL_SHAREDSTATEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_SYSCONFDIR
+CMAKE_INSTALL_SYSCONFDIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_LINKER
 CMAKE_LINKER-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS
@@ -364,7 +738,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=29
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -411,50 +785,260 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: COREAUDIO_LIBRARY
 COREAUDIO_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: COVERAGE_COMMAND
+COVERAGE_COMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: COVERAGE_EXTRA_FLAGS
+COVERAGE_EXTRA_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_BUNDLE
+CPACK_BINARY_BUNDLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_DEB
+CPACK_BINARY_DEB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_DRAGNDROP
+CPACK_BINARY_DRAGNDROP-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_FREEBSD
+CPACK_BINARY_FREEBSD-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_IFW
+CPACK_BINARY_IFW-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_NSIS
+CPACK_BINARY_NSIS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_OSXX11
+CPACK_BINARY_OSXX11-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_PACKAGEMAKER
+CPACK_BINARY_PACKAGEMAKER-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_PRODUCTBUILD
+CPACK_BINARY_PRODUCTBUILD-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_RPM
+CPACK_BINARY_RPM-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_STGZ
+CPACK_BINARY_STGZ-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_TBZ2
+CPACK_BINARY_TBZ2-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_TGZ
+CPACK_BINARY_TGZ-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_BINARY_TXZ
+CPACK_BINARY_TXZ-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_SOURCE_RPM
+CPACK_SOURCE_RPM-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_SOURCE_TBZ2
+CPACK_SOURCE_TBZ2-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_SOURCE_TGZ
+CPACK_SOURCE_TGZ-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_SOURCE_TXZ
+CPACK_SOURCE_TXZ-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_SOURCE_TZ
+CPACK_SOURCE_TZ-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_SOURCE_ZIP
+CPACK_SOURCE_ZIP-ADVANCED:INTERNAL=1
+//Result of TEST_BIG_ENDIAN
+CPU_IS_BIG_ENDIAN:INTERNAL=0
+//ADVANCED property for variable: CTEST_SUBMIT_RETRY_COUNT
+CTEST_SUBMIT_RETRY_COUNT-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CTEST_SUBMIT_RETRY_DELAY
+CTEST_SUBMIT_RETRY_DELAY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CVSCOMMAND
+CVSCOMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CVS_UPDATE_OPTIONS
+CVS_UPDATE_OPTIONS-ADVANCED:INTERNAL=1
+//Stored Xcode object GUID
+Continuous_GUID_CMAKE:INTERNAL=C338D75DF8C64EF6A2CD18A7
+//ADVANCED property for variable: DART_TESTING_TIMEOUT
+DART_TESTING_TIMEOUT-ADVANCED:INTERNAL=1
+//Test DODEFINE_EXTENSIONS
+DODEFINE_EXTENSIONS:INTERNAL=1
+//Test DODEFINE_FORTIFY_SOURCE
+DODEFINE_FORTIFY_SOURCE:INTERNAL=1
+//ADVANCED property for variable: DOXYGEN_DOT_EXECUTABLE
+DOXYGEN_DOT_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DOXYGEN_EXECUTABLE
+DOXYGEN_EXECUTABLE-ADVANCED:INTERNAL=1
+//Stored Xcode object GUID
+Experimental_GUID_CMAKE:INTERNAL=ACA5035DF5C94B9FB516F40C
+//Details about finding Doxygen
+FIND_PACKAGE_MESSAGE_DETAILS_Doxygen:INTERNAL=[/usr/local/bin/doxygen][cfound components: doxygen dot ][v1.8.17()]
 //Details about finding GLUT
 FIND_PACKAGE_MESSAGE_DETAILS_GLUT:INTERNAL=[/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/GLUT.framework][/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/GLUT.framework/Headers][v()]
+//Details about finding Iconv
+FIND_PACKAGE_MESSAGE_DETAILS_Iconv:INTERNAL=[/usr/lib/libiconv.dylib][/usr/include][v()]
+//Details about finding Intl
+FIND_PACKAGE_MESSAGE_DETAILS_Intl:INTERNAL=[/usr/local/include][v()]
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/OpenGL.framework][/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/OpenGL.framework][c ][v()]
 //Details about finding SDL
 FIND_PACKAGE_MESSAGE_DETAILS_SDL:INTERNAL=[/usr/local/lib/libSDL2.dylib;-framework Cocoa][/usr/local/include/SDL2][v()]
+//Details about finding Threads
+FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+//Stored Xcode object GUID
+FLAC-doxygen_GUID_CMAKE:INTERNAL=13F842A9545E452D9080861B
+//Stored Xcode object GUID
+FLAC_GUID_CMAKE:INTERNAL=FDE87C91865841F7B3938923
+//Result of CHECK_CPU_ARCH_X64
+FLAC__CPU_X86_64:INTERNAL=1
+//Have include x86intrin.h
+FLAC__HAS_X86INTRIN:INTERNAL=1
+//Stored Xcode object GUID
+G711_GUID_CMAKE:INTERNAL=925D07AA30F3458FABE66AC5
+//ADVANCED property for variable: GITCOMMAND
+GITCOMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GLUT_INCLUDE_DIR
 GLUT_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GLUT_cocoa_LIBRARY
 GLUT_cocoa_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GLUT_glut_LIBRARY
 GLUT_glut_LIBRARY-ADVANCED:INTERNAL=1
+//Test HAVE_BSWAP16
+HAVE_BSWAP16:INTERNAL=1
+//Test HAVE_BSWAP32
+HAVE_BSWAP32:INTERNAL=1
+//Have include byteswap.h
+HAVE_BYTESWAP_H:INTERNAL=
+//Have function clock_gettime
+HAVE_CLOCK_GETTIME:INTERNAL=
 //Result of TRY_COMPILE
 HAVE_CMAKE_SIZEOF_UNSIGNED_SHORT:INTERNAL=TRUE
+//Have include cpuid.h
+HAVE_CPUID_H:INTERNAL=1
+//Result of TRY_COMPILE
+HAVE_CPU_IS_BIG_ENDIAN:INTERNAL=TRUE
+//Test HAVE_DECL_AFTER_STMT_FLAG
+HAVE_DECL_AFTER_STMT_FLAG:INTERNAL=1
+//Result of TRY_COMPILE
+HAVE_FLAC__CPU_X86_64:INTERNAL=TRUE
+//Have function fseeko
+HAVE_FSEEKO:INTERNAL=1
+//Have include inttypes.h
+HAVE_INTTYPES_H:INTERNAL=1
 //Result of TRY_COMPILE
 HAVE_IS_BIG_ENDIAN:INTERNAL=TRUE
+//Have function lround
+HAVE_LROUND:INTERNAL=1
+//Test HAVE_MBSTATE
+HAVE_MBSTATE:INTERNAL=1
+//Test HAVE_STACKREALIGN_FLAG
+HAVE_STACKREALIGN_FLAG:INTERNAL=1
+//Test HAVE_STACK_PROTECTOR_FLAG
+HAVE_STACK_PROTECTOR_FLAG:INTERNAL=1
 //Have include stddef.h
 HAVE_STDDEF_H:INTERNAL=1
 //Have include stdint.h
 HAVE_STDINT_H:INTERNAL=1
+//Have include string.h
+HAVE_STRING_H:INTERNAL=1
+//Have include sys/ioctl.h
+HAVE_SYS_IOCTL_H:INTERNAL=1
+//Have include sys/param.h
+HAVE_SYS_PARAM_H:INTERNAL=1
 //Have include sys/types.h
 HAVE_SYS_TYPES_H:INTERNAL=1
+//Have include termios.h
+HAVE_TERMIOS_H:INTERNAL=1
+//Test HAVE_WEFFCXX_FLAG
+HAVE_WEFFCXX_FLAG:INTERNAL=1
+//Test HAVE_WERROR_FLAG
+HAVE_WERROR_FLAG:INTERNAL=1
+//ADVANCED property for variable: HGCOMMAND
+HGCOMMAND-ADVANCED:INTERNAL=1
 //Result of TEST_BIG_ENDIAN
 IS_BIG_ENDIAN:INTERNAL=0
+//ADVANCED property for variable: Iconv_INCLUDE_DIR
+Iconv_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//Test Iconv_IS_BUILT_IN
+Iconv_IS_BUILT_IN:INTERNAL=
+//ADVANCED property for variable: Iconv_LIBRARY
+Iconv_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Intl_INCLUDE_DIR
+Intl_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Intl_LIBRARY
+Intl_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MAKECOMMAND
+MAKECOMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MEMORYCHECK_COMMAND
+MEMORYCHECK_COMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MEMORYCHECK_SUPPRESSIONS_FILE
+MEMORYCHECK_SUPPRESSIONS_FILE-ADVANCED:INTERNAL=1
+//Stored Xcode object GUID
+NightlyMemoryCheck_GUID_CMAKE:INTERNAL=16CC37D51F634D51A418F107
+//Stored Xcode object GUID
+Nightly_GUID_CMAKE:INTERNAL=458C768082F44A50854AB356
 //ADVANCED property for variable: OPENGL_INCLUDE_DIR
 OPENGL_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_gl_LIBRARY
 OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_glu_LIBRARY
 OPENGL_glu_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: P4COMMAND
+P4COMMAND-ADVANCED:INTERNAL=1
+//Stored Xcode object GUID
+PROJECT_FLAC_GUID_CMAKE:INTERNAL=52D1AD0289374343934A5E70
+//Stored Xcode object GUID
+PROJECT_GLFW_GUID_CMAKE:INTERNAL=67195FEA517F4871B69D26F2
 //Stored Xcode object GUID
 PROJECT_paulstretch-imgui_GUID_CMAKE:INTERNAL=C6A1F63BF64F42E3B3CB0512
 //Stored Xcode object GUID
 PROJECT_paulstretchlib_GUID_CMAKE:INTERNAL=789730B7A2BF4260B076EBE5
 //Path to a library.
 SDL2_LIBRARY_TEMP:INTERNAL=/usr/local/lib/libSDL2.dylib
+//ADVANCED property for variable: SITE
+SITE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SLURM_SBATCH_COMMAND
+SLURM_SBATCH_COMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SLURM_SRUN_COMMAND
+SLURM_SRUN_COMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SVNCOMMAND
+SVNCOMMAND-ADVANCED:INTERNAL=1
 //Stored Xcode object GUID
 ZERO_CHECK_GUID_CMAKE:INTERNAL=F77CEF288F06422898D01E7F
+//CMAKE_INSTALL_PREFIX during last run
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/usr/local
+//Stored Xcode object GUID
+benchmark_residual_GUID_CMAKE:INTERNAL=DC7E0717DFD746898CB33C33
+//Stored Xcode object GUID
+decode_file_GUID_CMAKE:INTERNAL=C2CBE7FA07404A1C910343B8
+//Stored Xcode object GUID
+docs_GUID_CMAKE:INTERNAL=B1AFC0958D064A2D9BD2BD61
+//Stored Xcode object GUID
+encode_file_GUID_CMAKE:INTERNAL=822A08F7EA7D4603AE776E97
+//Stored Xcode object GUID
+flacapp_GUID_CMAKE:INTERNAL=B73E671B2D21414CB44F5C58
+//Stored Xcode object GUID
+getopt_GUID_CMAKE:INTERNAL=5E5D706CF0BD4009A0AE2262
+//Stored Xcode object GUID
+glfw_GUID_CMAKE:INTERNAL=C742438D7487445185931413
+//Stored Xcode object GUID
+grabbag_GUID_CMAKE:INTERNAL=415667AE77AD4C05AAA8F213
 //Stored Xcode object GUID
 install_GUID_CMAKE:INTERNAL=929FAA0421BD40E2874ED6D1
 //Stored Xcode object GUID
+libaudiofile_GUID_CMAKE:INTERNAL=B72FFC2F8A9F492BA7BB9EC9
+//Stored Xcode object GUID
+metaflac_GUID_CMAKE:INTERNAL=08BCA6D8E45A42BC9B9290E0
+//Stored Xcode object GUID
+package_GUID_CMAKE:INTERNAL=57ABC3D8789041CE8AB53F0A
+//Stored Xcode object GUID
 paulstretch-imgui_GUID_CMAKE:INTERNAL=BA2527004AA94E9A9198C96B
+//Stored Xcode object GUID
+paulstretchlib-static_GUID_CMAKE:INTERNAL=E3937E33E37E4B59A77EDF01
 //Stored Xcode object GUID
 paulstretchlib_GUID_CMAKE:INTERNAL=5F1C569F55B743BAB5E91997
 //Stored Xcode object GUID
 portaudio_GUID_CMAKE:INTERNAL=E6B4466C8C5748378FED18D2
+//Stored Xcode object GUID
+replaygain_analysis_GUID_CMAKE:INTERNAL=50AC4B67A2A249D1A0E71048
+//Stored Xcode object GUID
+replaygain_synthesis_GUID_CMAKE:INTERNAL=894555FE382A49D4AF190BFF
+//Stored Xcode object GUID
+test_cuesheet_GUID_CMAKE:INTERNAL=FD31A660CDED4C9B953B61E0
+//Stored Xcode object GUID
+test_libFLAC_GUID_CMAKE:INTERNAL=A446B7F0BA1E49F598AA2F42
+//Stored Xcode object GUID
+test_libs_common_GUID_CMAKE:INTERNAL=A80D1C57F4334F9B83A70925
+//Stored Xcode object GUID
+test_picture_GUID_CMAKE:INTERNAL=283AE2B1140F4D8194AD3391
+//Stored Xcode object GUID
+test_seeking_GUID_CMAKE:INTERNAL=2257DE403041494E88853B81
+//Stored Xcode object GUID
+test_streams_GUID_CMAKE:INTERNAL=A85C5F52932A4310A5ADB76F
+//Stored Xcode object GUID
+uninstall_GUID_CMAKE:INTERNAL=286B5901780843F4B5560F4F
+//Stored Xcode object GUID
+utf8_GUID_CMAKE:INTERNAL=A0166FE31A254F8B9496462E
 

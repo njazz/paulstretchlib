@@ -1,0 +1,13 @@
+# Target labels
+ libaudiofile
+# Source files and their labels
+/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/CMakeFiles/libaudiofile
+/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/CMakeFiles/libaudiofile.rule
+/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/CMakeFiles/CMakeFiles/libaudiofile-complete.rule
+/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/libaudiofile-prefix/src/libaudiofile-stamp/CMakeFiles/libaudiofile-install.rule
+/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/libaudiofile-prefix/src/libaudiofile-stamp/CMakeFiles/libaudiofile-mkdir.rule
+/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/libaudiofile-prefix/src/libaudiofile-stamp/CMakeFiles/libaudiofile-download.rule
+/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/libaudiofile-prefix/src/libaudiofile-stamp/CMakeFiles/libaudiofile-update.rule
+/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/libaudiofile-prefix/src/libaudiofile-stamp/CMakeFiles/libaudiofile-patch.rule
+/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/libaudiofile-prefix/src/libaudiofile-stamp/CMakeFiles/libaudiofile-configure.rule
+/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/libaudiofile-prefix/src/libaudiofile-stamp/CMakeFiles/libaudiofile-build.rule

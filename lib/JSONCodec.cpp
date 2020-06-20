@@ -10,18 +10,35 @@ namespace PaulstretchLib {
 AutomatedFloat _AFFromJSON(const json& j)
 {
     auto ret = AutomatedFloat();
+    
+    ret.staticValue = j["static_value"];
 
     return ret;
 };
 
 json _JSONFromAF(const AutomatedFloat& a)
 {
-    return json::object();
+    auto j = json::object();
+    
+    j["static_value"] = a.staticValue;
+    
+    return j;
 };
 
 // TODO: error check
 FFTWindowType _WTFromJSON(const json& j)
 {
+    std::string str = j.get<std::string>();
+    
+    if (str.compare(ToString(FFTWindowType_Hann)) == 0)
+        return FFTWindowType_Hann;
+    if (str.compare(ToString(FFTWindowType_Hamming)) == 0)
+        return FFTWindowType_Hamming;
+    if (str.compare(ToString(FFTWindowType_Blackmann)) == 0)
+        return FFTWindowType_Blackmann;
+    if (str.compare(ToString(FFTWindowType_BlackmannHarris)) == 0)
+        return FFTWindowType_BlackmannHarris;
+    
     return FFTWindowType_Rectangular;
 }
 
@@ -134,7 +151,7 @@ std::string JSONStringFromConfiguration(const Configuration& src)
 
 // new:
 
-bool FromJSONString(Configuration& ret, const std::string& src)
+bool JSONStringCodec:: FromJSONString(Configuration& ret, const std::string& src)
 {
     // TODO: try
     auto j = json::parse(src);
@@ -185,7 +202,7 @@ bool FromJSONString(Configuration& ret, const std::string& src)
     return true;
 }
 
-std::string ToJSONString(const Configuration& src)
+std::string JSONStringCodec:: ToJSONString(const Configuration& src)
 {
     json j;
 
@@ -229,6 +246,67 @@ std::string ToJSONString(const Configuration& src)
 
     j["binaural"] = _JSONFromAF(src.binaural);
 
+    return j.dump(4);
+}
+
+// ---
+
+json _JSONFromPercentRegionVec(const std::vector<PercentRegion>& vec)
+{
+    // todo:
+    json j = json::array();
+    
+    for (const auto& e: vec)
+    {
+        json jj = json::object();
+        
+        jj["start"] = e.startFraction;
+        jj["end"] = e.endFraction;
+        
+        j.push_back(jj);
+    }
+    
+    return j;
+}
+
+const std::vector<PercentRegion> _PercentRegionVecFromJSON(const json& j)
+{
+    std::vector<PercentRegion> ret;
+    
+    json::array_t arr = j;
+    for (const auto& e: arr)
+    {
+        PercentRegion p;
+        
+        p.startFraction = e["start"];
+        p.endFraction = e["end"];
+        
+        ret.push_back(p);
+    }
+    
+    return ret;
+}
+
+bool JSONStringCodec:: FromJSONString(BatchData& d, const std::string& src){
+    // todo: try
+    auto ret = json::parse(src);
+    
+    d.configurationFiles = ret["configurations"].get<std::vector<std::string>>();
+    d.inputFiles = ret["input_files"].get<std::vector<std::string>>();
+    d.regions = _PercentRegionVecFromJSON(ret["regions"]);
+    d.outputFolder = ret["output_folder"];
+    return false;
+}
+
+std::string JSONStringCodec:: ToJSONString(const BatchData& obj)
+{
+    json j;
+    
+    j["configurations"] = obj.configurationFiles;
+    j["input_files"] = obj.inputFiles;
+    j["output_folder"] = obj.outputFolder;
+    j["regions"] = _JSONFromPercentRegionVec(obj.regions);
+    
     return j.dump(4);
 }
 

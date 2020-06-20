@@ -1,0 +1,22 @@
+dependencies: \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/stream_decoder.c \
+  /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/FLAC/config.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/include/share/compat.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/include/FLAC/assert.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/include/share/alloc.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/protected/stream_decoder.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/include/FLAC/stream_decoder.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/include/FLAC/export.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/include/FLAC/format.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/include/FLAC/ordinals.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/bitreader.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/cpu.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/bitmath.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/crc.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/fixed.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/float.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/format.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/lpc.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/md5.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/memory.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/macros.h

@@ -1,0 +1,27 @@
+dependencies: \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/stream_encoder.c \
+  /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib/FLAC/config.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/include/share/compat.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/include/FLAC/assert.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/include/FLAC/stream_decoder.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/include/FLAC/export.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/include/FLAC/format.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/include/FLAC/ordinals.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/protected/stream_encoder.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/include/FLAC/stream_encoder.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/float.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/bitwriter.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/bitmath.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/crc.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/cpu.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/fixed.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/format.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/lpc.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/md5.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/memory.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/macros.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/stream_encoder.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/stream_encoder_framing.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/src/libFLAC/include/private/window.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/include/share/alloc.h \
+  /Users/njazz/Documents/github/paulstretchlib/submodules/flac/include/share/private.h

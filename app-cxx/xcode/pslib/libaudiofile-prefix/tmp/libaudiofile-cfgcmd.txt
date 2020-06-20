@@ -1,0 +1,1 @@
+cmd='cd;/Users/njazz/Documents/github/paulstretchlib/lib/../submodules/audiofile;&&;./configure;--srcdir=/Users/njazz/Documents/github/paulstretchlib/lib/../submodules/audiofile/;--prefix=/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/pslib;--enable-static=yes'

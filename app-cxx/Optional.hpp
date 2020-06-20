@@ -43,6 +43,13 @@ public:
         else
             CE_THROW("Optional value error.");
     }
+    
+    VAL& GetRef() {
+        if (!null)
+            return value;
+        else
+            CE_THROW("Optional value error.");
+    }
 
 public:
     Optional() {}

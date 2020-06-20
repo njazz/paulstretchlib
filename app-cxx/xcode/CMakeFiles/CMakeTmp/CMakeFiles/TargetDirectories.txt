@@ -1,2 +1,0 @@
-/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_5b4de.dir
-/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/CMakeFiles/CMakeTmp/CMakeFiles/ALL_BUILD.dir

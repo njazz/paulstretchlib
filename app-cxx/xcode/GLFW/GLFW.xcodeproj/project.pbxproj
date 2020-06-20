@@ -1,0 +1,1331 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		0B96040A42FE48E0AA7DBD70 /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 76F46599E3D2434A9C471FE1 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				04EA667B5CE248B584826E90 /* CMake Rules */,
+			);
+			dependencies = (
+				78F91FBF4A564080AEAAE631 /* PBXTargetDependency */,
+				876CEEDF5146461BAE073DB9 /* PBXTargetDependency */,
+				38B2683AA6984625BC2C1AF4 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+		286B5901780843F4B5560F4F /* uninstall */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F87063A7916A46C6A6A38A0E /* Build configuration list for PBXAggregateTarget "uninstall" */;
+			buildPhases = (
+				57D15D96956C42D1B14490F6 /* CMake Rules */,
+			);
+			dependencies = (
+				5B9BC0A4CC0B485F8D67686F /* PBXTargetDependency */,
+			);
+			name = uninstall;
+			productName = uninstall;
+		};
+		57ABC3D8789041CE8AB53F0A /* package */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 8F79CBCD1CAC41B88F00C861 /* Build configuration list for PBXAggregateTarget "package" */;
+			buildPhases = (
+				6DEC3356E8DD4377B9725277 /* CMake PostBuild Rules */,
+			);
+			dependencies = (
+				4A5526E07A1E4C7F900C9751 /* PBXTargetDependency */,
+			);
+			name = package;
+			productName = package;
+		};
+		929FAA0421BD40E2874ED6D1 /* install */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = FA5F3C09216E441DB0B6A256 /* Build configuration list for PBXAggregateTarget "install" */;
+			buildPhases = (
+				36BDA6291BAB444293929E87 /* CMake PostBuild Rules */,
+			);
+			dependencies = (
+				FE9F3196262142508D7C48DE /* PBXTargetDependency */,
+			);
+			name = install;
+			productName = install;
+		};
+		B1AFC0958D064A2D9BD2BD61 /* docs */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = BEB3AE94551B46F7A58C62AD /* Build configuration list for PBXAggregateTarget "docs" */;
+			buildPhases = (
+				B9F9A2111ABC4429A9348867 /* CMake Rules */,
+			);
+			dependencies = (
+			);
+			name = docs;
+			productName = docs;
+		};
+		F77CEF288F06422898D01E7F /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 34C77A3537E14FDCBFB49CFC /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				528E2B8E64654E20A91E1D43 /* CMake Rules */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		070F2278F0304E9D80D9F5C3 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/osmesa_context.h */ = {isa = PBXBuildFile; fileRef = 31A447C8CE454EFF978DAC81 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/osmesa_context.h */; };
+		07D8A91CFF674876869F5140 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/posix_thread.h */ = {isa = PBXBuildFile; fileRef = ABB54FF6A990413DB3369EC5 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/posix_thread.h */; };
+		08AD21C541B24770AFBEE858 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/include/GLFW/glfw3.h */ = {isa = PBXBuildFile; fileRef = E1D36FB9B9A8469B87115055 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/include/GLFW/glfw3.h */; };
+		0DF0FD9E7ACA4B138C0FEE53 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/egl_context.h */ = {isa = PBXBuildFile; fileRef = F7AF458796A94B1D8A5E344D /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/egl_context.h */; };
+		151E1938D3DA4200A6246A29 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 5763A5C1A3BB4C4E85E73099 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/CMakeLists.txt */; };
+		19BFAB0E9D204EA7B607AE1B /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/egl_context.c */ = {isa = PBXBuildFile; fileRef = 88DB9DD226714A6D8F829965 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/egl_context.c */; settings = {COMPILER_FLAGS = "-Wdeclaration-after-statement"; }; };
+		1D0F495D6FC14728B21E8603 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/vulkan.c */ = {isa = PBXBuildFile; fileRef = D6945AF3A0A645008CDF678B /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/vulkan.c */; settings = {COMPILER_FLAGS = "-Wdeclaration-after-statement"; }; };
+		20EA45692F2D42E2947DBBEC /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/include/GLFW/glfw3native.h */ = {isa = PBXBuildFile; fileRef = A4A4BCF6F7DA4E92B8624452 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/include/GLFW/glfw3native.h */; };
+		21994A1CBADB4C09A9135A14 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_platform.h */ = {isa = PBXBuildFile; fileRef = 257A4EFB33FA431AA9AF4C59 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_platform.h */; };
+		24A02D4E29214A6D802CCB11 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_monitor.m */ = {isa = PBXBuildFile; fileRef = DD04BE8B9673483A8B941128 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_monitor.m */; };
+		2AF541D0BF164BAA9B9CD74B /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/src/glfw_config.h */ = {isa = PBXBuildFile; fileRef = AA8A04D7B1B84032B95EDED3 /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/src/glfw_config.h */; };
+		54AF6FF81C424AE193DF178A /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_time.c */ = {isa = PBXBuildFile; fileRef = 5198BBECCD18449AB6315F3A /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_time.c */; };
+		6003D7A36B194FD793F9E4E2 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/posix_thread.c */ = {isa = PBXBuildFile; fileRef = 44ED7C6054C548AF8B7466CD /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/posix_thread.c */; };
+		6489FCECFBCC486AA0C43B53 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/internal.h */ = {isa = PBXBuildFile; fileRef = C7C78AC343384676BA549432 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/internal.h */; };
+		68E514693E5F46C182DF5953 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_joystick.h */ = {isa = PBXBuildFile; fileRef = B36A09DFD7684888ABBC2325 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_joystick.h */; };
+		68E696B1BD744FABA011C185 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/window.c */ = {isa = PBXBuildFile; fileRef = 1A4D2010845B4FE6BF33FF92 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/window.c */; settings = {COMPILER_FLAGS = "-Wdeclaration-after-statement"; }; };
+		6C586974BF1F4E5391F381BB /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/osmesa_context.c */ = {isa = PBXBuildFile; fileRef = A5C16A0EC0374F019F512E9F /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/osmesa_context.c */; settings = {COMPILER_FLAGS = "-Wdeclaration-after-statement"; }; };
+		6E57D573BE23491895D1E175 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/nsgl_context.m */ = {isa = PBXBuildFile; fileRef = 110C217E19ED4D9D93B86AEA /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/nsgl_context.m */; };
+		771174A2DD0D48AD961E8581 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/monitor.c */ = {isa = PBXBuildFile; fileRef = 86BC22FA5C7648B480A7881B /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/monitor.c */; settings = {COMPILER_FLAGS = "-Wdeclaration-after-statement"; }; };
+		8A7A9EA0A6774214B6B9DB1C /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/nsgl_context.h */ = {isa = PBXBuildFile; fileRef = 362529C00389425CB36671E5 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/nsgl_context.h */; };
+		8F17B2B4640F49F2981526A0 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_window.m */ = {isa = PBXBuildFile; fileRef = F391441D441E4E0492DDC83B /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_window.m */; };
+		9322C26A02094109872D4D78 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/mappings.h */ = {isa = PBXBuildFile; fileRef = 54B32E5F4CAE46C3ADB50746 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/mappings.h */; };
+		A9538BD03782485493F90C87 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_joystick.m */ = {isa = PBXBuildFile; fileRef = 7AC61BDB076245B0AF711FCC /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_joystick.m */; };
+		E3B798CCBD514698A90CFA66 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/context.c */ = {isa = PBXBuildFile; fileRef = 8EC9BDFF986F41388D333F9A /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/context.c */; settings = {COMPILER_FLAGS = "-Wdeclaration-after-statement"; }; };
+		EDA9016287C0451F8EF1C4BA /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/init.c */ = {isa = PBXBuildFile; fileRef = 9213666BB52E48638C392F87 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/init.c */; settings = {COMPILER_FLAGS = "-Wdeclaration-after-statement"; }; };
+		F4C731F430A24D9BB7C23715 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_init.m */ = {isa = PBXBuildFile; fileRef = C3A4CD71B23F41328354E7E1 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_init.m */; };
+		FA044AA1DD98404F86B5406D /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/input.c */ = {isa = PBXBuildFile; fileRef = F85DAE1171494980A7A75DBA /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/input.c */; settings = {COMPILER_FLAGS = "-Wdeclaration-after-statement"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		008345B8216D4D62A0C68F79 /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		09F83FE3E6054FE693753319 /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+		32D1DC6141044F87AB313983 /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+		442508BF8BB34C44B31F2EFC /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		3813C531C6694CD5A6250BDC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67195FEA517F4871B69D26F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F77CEF288F06422898D01E7F;
+			remoteInfo = ZERO_CHECK;
+		};
+		889C4023754A4DBBB6729652 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67195FEA517F4871B69D26F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C742438D7487445185931413;
+			remoteInfo = glfw;
+		};
+		9A07C85634314F7B9972492B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67195FEA517F4871B69D26F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B96040A42FE48E0AA7DBD70;
+			remoteInfo = ALL_BUILD;
+		};
+		ADD4FB9DF9464992A45A6BD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67195FEA517F4871B69D26F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F77CEF288F06422898D01E7F;
+			remoteInfo = ZERO_CHECK;
+		};
+		DE7415C87CA74017BD17E339 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67195FEA517F4871B69D26F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1AFC0958D064A2D9BD2BD61;
+			remoteInfo = docs;
+		};
+		F10CCCE473984104B8378C20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67195FEA517F4871B69D26F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B96040A42FE48E0AA7DBD70;
+			remoteInfo = ALL_BUILD;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		110C217E19ED4D9D93B86AEA /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/nsgl_context.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = nsgl_context.m; path = src/nsgl_context.m; sourceTree = SOURCE_ROOT; };
+		1A4D2010845B4FE6BF33FF92 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/window.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = window.c; path = src/window.c; sourceTree = SOURCE_ROOT; };
+		257A4EFB33FA431AA9AF4C59 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_platform.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = cocoa_platform.h; path = src/cocoa_platform.h; sourceTree = SOURCE_ROOT; };
+		31A447C8CE454EFF978DAC81 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/osmesa_context.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = osmesa_context.h; path = src/osmesa_context.h; sourceTree = SOURCE_ROOT; };
+		35674E6126A04808AB1527CD /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/docs/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = docs/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		362529C00389425CB36671E5 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/nsgl_context.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = nsgl_context.h; path = src/nsgl_context.h; sourceTree = SOURCE_ROOT; };
+		44ED7C6054C548AF8B7466CD /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/posix_thread.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = posix_thread.c; path = src/posix_thread.c; sourceTree = SOURCE_ROOT; };
+		5198BBECCD18449AB6315F3A /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_time.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = cocoa_time.c; path = src/cocoa_time.c; sourceTree = SOURCE_ROOT; };
+		54B32E5F4CAE46C3ADB50746 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/mappings.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = mappings.h; path = src/mappings.h; sourceTree = SOURCE_ROOT; };
+		5763A5C1A3BB4C4E85E73099 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = src/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		5A4D68123C03468CB3DE7E6F /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		5D59273D8D004CAFAA6386A9 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		7805D0B912DE4A59BEBC03F4 /* glfw */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libglfw3.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AC61BDB076245B0AF711FCC /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_joystick.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = cocoa_joystick.m; path = src/cocoa_joystick.m; sourceTree = SOURCE_ROOT; };
+		86BC22FA5C7648B480A7881B /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/monitor.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = monitor.c; path = src/monitor.c; sourceTree = SOURCE_ROOT; };
+		88DB9DD226714A6D8F829965 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/egl_context.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = egl_context.c; path = src/egl_context.c; sourceTree = SOURCE_ROOT; };
+		8EC9BDFF986F41388D333F9A /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/context.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = context.c; path = src/context.c; sourceTree = SOURCE_ROOT; };
+		9213666BB52E48638C392F87 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/init.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = init.c; path = src/init.c; sourceTree = SOURCE_ROOT; };
+		A4A4BCF6F7DA4E92B8624452 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/include/GLFW/glfw3native.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = glfw3native.h; path = include/GLFW/glfw3native.h; sourceTree = SOURCE_ROOT; };
+		A5C16A0EC0374F019F512E9F /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/osmesa_context.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = osmesa_context.c; path = src/osmesa_context.c; sourceTree = SOURCE_ROOT; };
+		AA8A04D7B1B84032B95EDED3 /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/src/glfw_config.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = glfw_config.h; path = "../../app-cxx/xcode/GLFW/src/glfw_config.h"; sourceTree = SOURCE_ROOT; };
+		ABB54FF6A990413DB3369EC5 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/posix_thread.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = posix_thread.h; path = src/posix_thread.h; sourceTree = SOURCE_ROOT; };
+		B36A09DFD7684888ABBC2325 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_joystick.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = cocoa_joystick.h; path = src/cocoa_joystick.h; sourceTree = SOURCE_ROOT; };
+		C3A4CD71B23F41328354E7E1 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_init.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = cocoa_init.m; path = src/cocoa_init.m; sourceTree = SOURCE_ROOT; };
+		C7C78AC343384676BA549432 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/internal.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = internal.h; path = src/internal.h; sourceTree = SOURCE_ROOT; };
+		D6945AF3A0A645008CDF678B /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/vulkan.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = vulkan.c; path = src/vulkan.c; sourceTree = SOURCE_ROOT; };
+		DD04BE8B9673483A8B941128 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_monitor.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = cocoa_monitor.m; path = src/cocoa_monitor.m; sourceTree = SOURCE_ROOT; };
+		E1D36FB9B9A8469B87115055 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/include/GLFW/glfw3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = glfw3.h; path = include/GLFW/glfw3.h; sourceTree = SOURCE_ROOT; };
+		F391441D441E4E0492DDC83B /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_window.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = cocoa_window.m; path = src/cocoa_window.m; sourceTree = SOURCE_ROOT; };
+		F7AF458796A94B1D8A5E344D /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/egl_context.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = egl_context.h; path = src/egl_context.h; sourceTree = SOURCE_ROOT; };
+		F85DAE1171494980A7A75DBA /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/input.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = input.c; path = src/input.c; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		00585B05129847E49E98DAA6 /* GLFW3 */ = {
+			isa = PBXGroup;
+			children = (
+				C54030D9B77E4BEC963709E3 /* uninstall */,
+				964C6D89DE8742B0B41B17A3 /* glfw */,
+				441E1D3D5FFE47C5B471EA9A /* docs */,
+			);
+			name = GLFW3;
+			sourceTree = "<group>";
+		};
+		393BD36E7A2240F490EB19AA /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		3C5FDA886ABA4939A6E306FF /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				C3A4CD71B23F41328354E7E1 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_init.m */,
+				7AC61BDB076245B0AF711FCC /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_joystick.m */,
+				DD04BE8B9673483A8B941128 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_monitor.m */,
+				5198BBECCD18449AB6315F3A /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_time.c */,
+				F391441D441E4E0492DDC83B /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_window.m */,
+				8EC9BDFF986F41388D333F9A /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/context.c */,
+				88DB9DD226714A6D8F829965 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/egl_context.c */,
+				9213666BB52E48638C392F87 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/init.c */,
+				F85DAE1171494980A7A75DBA /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/input.c */,
+				86BC22FA5C7648B480A7881B /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/monitor.c */,
+				110C217E19ED4D9D93B86AEA /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/nsgl_context.m */,
+				A5C16A0EC0374F019F512E9F /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/osmesa_context.c */,
+				44ED7C6054C548AF8B7466CD /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/posix_thread.c */,
+				D6945AF3A0A645008CDF678B /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/vulkan.c */,
+				1A4D2010845B4FE6BF33FF92 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/window.c */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		441E1D3D5FFE47C5B471EA9A /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				DC4CF49BCBEE4953BFDDE98C /* CMake Rules */,
+				35674E6126A04808AB1527CD /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/docs/CMakeLists.txt */,
+			);
+			name = docs;
+			sourceTree = "<group>";
+		};
+		964C6D89DE8742B0B41B17A3 /* glfw */ = {
+			isa = PBXGroup;
+			children = (
+				EB469FE378254C7D8B3A67DB /* Header Files */,
+				3C5FDA886ABA4939A6E306FF /* Source Files */,
+				5763A5C1A3BB4C4E85E73099 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/CMakeLists.txt */,
+			);
+			name = glfw;
+			sourceTree = "<group>";
+		};
+		C54030D9B77E4BEC963709E3 /* uninstall */ = {
+			isa = PBXGroup;
+			children = (
+				EB5B470B1A114F17973FE366 /* CMake Rules */,
+				5A4D68123C03468CB3DE7E6F /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/CMakeLists.txt */,
+			);
+			name = uninstall;
+			sourceTree = "<group>";
+		};
+		DC4CF49BCBEE4953BFDDE98C /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		E848ECEAEAE74A7394457AB2 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				393BD36E7A2240F490EB19AA /* CMake Rules */,
+				5D59273D8D004CAFAA6386A9 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		E8CB28FA8629436FB33F4516 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7805D0B912DE4A59BEBC03F4 /* glfw */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EB469FE378254C7D8B3A67DB /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA8A04D7B1B84032B95EDED3 /* /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/src/glfw_config.h */,
+				E1D36FB9B9A8469B87115055 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/include/GLFW/glfw3.h */,
+				A4A4BCF6F7DA4E92B8624452 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/include/GLFW/glfw3native.h */,
+				B36A09DFD7684888ABBC2325 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_joystick.h */,
+				257A4EFB33FA431AA9AF4C59 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_platform.h */,
+				F7AF458796A94B1D8A5E344D /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/egl_context.h */,
+				C7C78AC343384676BA549432 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/internal.h */,
+				54B32E5F4CAE46C3ADB50746 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/mappings.h */,
+				362529C00389425CB36671E5 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/nsgl_context.h */,
+				31A447C8CE454EFF978DAC81 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/osmesa_context.h */,
+				ABB54FF6A990413DB3369EC5 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/posix_thread.h */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		EB59389B7A2942A480669651 = {
+			isa = PBXGroup;
+			children = (
+				00585B05129847E49E98DAA6 /* GLFW3 */,
+				E848ECEAEAE74A7394457AB2 /* ALL_BUILD */,
+				E8CB28FA8629436FB33F4516 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EB5B470B1A114F17973FE366 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C742438D7487445185931413 /* glfw */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E16E5D443A79447EAE2E306D /* Build configuration list for PBXNativeTarget "glfw" */;
+			buildPhases = (
+				C853F79E59D840379A6395D4 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = glfw;
+			productName = glfw;
+			productReference = 7805D0B912DE4A59BEBC03F4 /* glfw */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		67195FEA517F4871B69D26F2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 0910;
+			};
+			buildConfigurationList = D5C21636F7A240649C9301F2 /* Build configuration list for PBXProject "GLFW" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				008345B8216D4D62A0C68F79 /* Debug */,
+				442508BF8BB34C44B31F2EFC /* Release */,
+				32D1DC6141044F87AB313983 /* MinSizeRel */,
+				09F83FE3E6054FE693753319 /* RelWithDebInfo */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = EB59389B7A2942A480669651;
+			projectDirPath = /Users/njazz/Documents/github/paulstretchlib/submodules/glfw;
+			projectRoot = "";
+			targets = (
+				0B96040A42FE48E0AA7DBD70 /* ALL_BUILD */,
+				F77CEF288F06422898D01E7F /* ZERO_CHECK */,
+				B1AFC0958D064A2D9BD2BD61 /* docs */,
+				C742438D7487445185931413 /* glfw */,
+				929FAA0421BD40E2874ED6D1 /* install */,
+				57ABC3D8789041CE8AB53F0A /* package */,
+				286B5901780843F4B5560F4F /* uninstall */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04EA667B5CE248B584826E90 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW -f /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
+			showEnvVarsInLog = 0;
+		};
+		1A3A439916A44BAA914F9C42 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		2BAE616D1C924288BBCECC13 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		36BDA6291BAB444293929E87 /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW -f /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/CMakeScripts/install_postBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
+			showEnvVarsInLog = 0;
+		};
+		528E2B8E64654E20A91E1D43 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW -f /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
+			showEnvVarsInLog = 0;
+		};
+		57D15D96956C42D1B14490F6 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW -f /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/CMakeScripts/uninstall_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
+			showEnvVarsInLog = 0;
+		};
+		5FE10DDBEB1A403AA58066EF = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		6DEC3356E8DD4377B9725277 /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW -f /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/CMakeScripts/package_postBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
+			showEnvVarsInLog = 0;
+		};
+		942DDDDD22294299ADFFD016 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		B9F9A2111ABC4429A9348867 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/docs -f /Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/docs/CMakeScripts/docs_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
+			showEnvVarsInLog = 0;
+		};
+		E21D556EEAFC42C89452C9E7 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		F9FD50AD2F3D44EF9D7E1740 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C853F79E59D840379A6395D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4C731F430A24D9BB7C23715 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_init.m */,
+				A9538BD03782485493F90C87 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_joystick.m */,
+				24A02D4E29214A6D802CCB11 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_monitor.m */,
+				54AF6FF81C424AE193DF178A /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_time.c */,
+				8F17B2B4640F49F2981526A0 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/cocoa_window.m */,
+				E3B798CCBD514698A90CFA66 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/context.c */,
+				19BFAB0E9D204EA7B607AE1B /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/egl_context.c */,
+				EDA9016287C0451F8EF1C4BA /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/init.c */,
+				FA044AA1DD98404F86B5406D /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/input.c */,
+				771174A2DD0D48AD961E8581 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/monitor.c */,
+				6E57D573BE23491895D1E175 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/nsgl_context.m */,
+				6C586974BF1F4E5391F381BB /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/osmesa_context.c */,
+				6003D7A36B194FD793F9E4E2 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/posix_thread.c */,
+				1D0F495D6FC14728B21E8603 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/vulkan.c */,
+				68E696B1BD744FABA011C185 /* /Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src/window.c */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		38B2683AA6984625BC2C1AF4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F77CEF288F06422898D01E7F /* ZERO_CHECK */;
+			targetProxy = 3813C531C6694CD5A6250BDC /* PBXContainerItemProxy */;
+		};
+		4A5526E07A1E4C7F900C9751 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B96040A42FE48E0AA7DBD70 /* ALL_BUILD */;
+			targetProxy = F10CCCE473984104B8378C20 /* PBXContainerItemProxy */;
+		};
+		5B9BC0A4CC0B485F8D67686F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F77CEF288F06422898D01E7F /* ZERO_CHECK */;
+			targetProxy = ADD4FB9DF9464992A45A6BD9 /* PBXContainerItemProxy */;
+		};
+		78F91FBF4A564080AEAAE631 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C742438D7487445185931413 /* glfw */;
+			targetProxy = 889C4023754A4DBBB6729652 /* PBXContainerItemProxy */;
+		};
+		876CEEDF5146461BAE073DB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1AFC0958D064A2D9BD2BD61 /* docs */;
+			targetProxy = DE7415C87CA74017BD17E339 /* PBXContainerItemProxy */;
+		};
+		FE9F3196262142508D7C48DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B96040A42FE48E0AA7DBD70 /* ALL_BUILD */;
+			targetProxy = 9A07C85634314F7B9972492B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		049C08C8F9BE4C88A9A40A50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/build";
+			};
+			name = Release;
+		};
+		172F26650F70470CAA8E4BD6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",_GLFW_USE_CONFIG_H);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/njazz/Documents/github/paulstretchlib/submodules/glfw/include,/Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src,"/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/src");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "   -fPIC -Wall '-std=c99'  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = glfw3;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/src";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		2660575A2A3D454BBF048ACA /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		2C95D0EC7360413ABA97142D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = package;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		2DD8477D25B7464F9848C9C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = package;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		2DE8C80588DF41B5B9426797 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		32D9ACE2B834431F903BCDCB /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",_GLFW_USE_CONFIG_H);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/njazz/Documents/github/paulstretchlib/submodules/glfw/include,/Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src,"/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/src");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "       -DNDEBUG -fPIC -Wall '-std=c99'  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = glfw3;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/src";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		3650572F111A4EC48D6025DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",_GLFW_USE_CONFIG_H);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/njazz/Documents/github/paulstretchlib/submodules/glfw/include,/Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src,"/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/src");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "    -DNDEBUG -fPIC -Wall '-std=c99'  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = glfw3;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/src";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		36E9AA17ECFA4F71A731E5F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		3C8E14BC67984805A9A87736 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = docs;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/docs";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		424C7A4A21674D34935FCDF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		441981A5B39F445F940D67DC /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = docs;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/docs";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		44B3E9E9883240C48279F372 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/build";
+			};
+			name = RelWithDebInfo;
+		};
+		46206B6C96FF462D882ECAE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = uninstall;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		46CC68E7C80C4578B9302BA7 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		4BD40CEA4DD04FE7A384B582 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		572631072F174864BDAE109B /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		5C61EC9DF2F54027B7780E41 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		6FFF70C132B84FD480751A33 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = uninstall;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		7F499FBB266C4277A3517348 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		891241D40E5544B39169F3E8 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		8CA38E19F2034402877E554E /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = package;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		8FCF7651F21C40F6AC34B320 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = package;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		A31E8B420BA147DE8B014338 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		AC1AAC294D184FB487ED8AE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = docs;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/docs";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		CEC6CDE1F10E4CD6B81C4EC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = uninstall;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		D2A5AD564AF84316A3FD4B6C /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/build";
+			};
+			name = MinSizeRel;
+		};
+		D353EFC470CE4183A72452ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/build";
+			};
+			name = Debug;
+		};
+		E3602FCA01D945499E491C25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = docs;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/docs";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		E8F70FF355AC48B7A7005036 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = uninstall;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		EF98005FB1DB4DCA8A0A9FAF /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",_GLFW_USE_CONFIG_H);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/njazz/Documents/github/paulstretchlib/submodules/glfw/include,/Users/njazz/Documents/github/paulstretchlib/submodules/glfw/src,"/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/src");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "    -DNDEBUG -fPIC -Wall '-std=c99'  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = glfw3;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW/src";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		FEE156F398D848C7ADE5A140 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/njazz/Documents/github/paulstretchlib/app-cxx/xcode/GLFW";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		34C77A3537E14FDCBFB49CFC /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F499FBB266C4277A3517348 /* Debug */,
+				4BD40CEA4DD04FE7A384B582 /* Release */,
+				2660575A2A3D454BBF048ACA /* MinSizeRel */,
+				A31E8B420BA147DE8B014338 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		76F46599E3D2434A9C471FE1 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DE8C80588DF41B5B9426797 /* Debug */,
+				36E9AA17ECFA4F71A731E5F1 /* Release */,
+				572631072F174864BDAE109B /* MinSizeRel */,
+				46CC68E7C80C4578B9302BA7 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8F79CBCD1CAC41B88F00C861 /* Build configuration list for PBXAggregateTarget "package" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DD8477D25B7464F9848C9C7 /* Debug */,
+				2C95D0EC7360413ABA97142D /* Release */,
+				8CA38E19F2034402877E554E /* MinSizeRel */,
+				8FCF7651F21C40F6AC34B320 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BEB3AE94551B46F7A58C62AD /* Build configuration list for PBXAggregateTarget "docs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC1AAC294D184FB487ED8AE3 /* Debug */,
+				E3602FCA01D945499E491C25 /* Release */,
+				3C8E14BC67984805A9A87736 /* MinSizeRel */,
+				441981A5B39F445F940D67DC /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D5C21636F7A240649C9301F2 /* Build configuration list for PBXProject "GLFW" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D353EFC470CE4183A72452ED /* Debug */,
+				049C08C8F9BE4C88A9A40A50 /* Release */,
+				D2A5AD564AF84316A3FD4B6C /* MinSizeRel */,
+				44B3E9E9883240C48279F372 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E16E5D443A79447EAE2E306D /* Build configuration list for PBXNativeTarget "glfw" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				172F26650F70470CAA8E4BD6 /* Debug */,
+				3650572F111A4EC48D6025DF /* Release */,
+				EF98005FB1DB4DCA8A0A9FAF /* MinSizeRel */,
+				32D9ACE2B834431F903BCDCB /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F87063A7916A46C6A6A38A0E /* Build configuration list for PBXAggregateTarget "uninstall" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46206B6C96FF462D882ECAE4 /* Debug */,
+				CEC6CDE1F10E4CD6B81C4EC4 /* Release */,
+				6FFF70C132B84FD480751A33 /* MinSizeRel */,
+				E8F70FF355AC48B7A7005036 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FA5F3C09216E441DB0B6A256 /* Build configuration list for PBXAggregateTarget "install" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEE156F398D848C7ADE5A140 /* Debug */,
+				424C7A4A21674D34935FCDF6 /* Release */,
+				5C61EC9DF2F54027B7780E41 /* MinSizeRel */,
+				891241D40E5544B39169F3E8 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 67195FEA517F4871B69D26F2 /* Project object */;
+}
