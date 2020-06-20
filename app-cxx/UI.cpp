@@ -498,7 +498,7 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
 
     if (cfg.octaves) {
         float f = cfg.oValues[0];
-        if (SliderFloat("-1##oct0", &f, 0, 1)) {
+        if (SliderFloat("-2##oct0", &f, 0, 1)) {
             cfg.oValues[0] = f;
             ret = true;
         }
