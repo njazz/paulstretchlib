@@ -202,7 +202,7 @@ struct Configuration {
     AutomatedFloat binaural;
     
     //
-    void ToFile(const std::string& f);
+    void ToFile(const std::string& f) const;
     bool FromFile(const std::string& f);
 };
 
@@ -257,7 +257,7 @@ struct StretchEngine {
     ~StretchEngine();
 
     void SetParameters(const Configuration&);
-    const Configuration Parameters() const;
+    const Configuration& Parameters() const;
 
     void ProcessBuffer(const std::vector<float>&);
 };
@@ -300,7 +300,7 @@ struct LegacyController {
 //    void SaveConfigurationFile(const std::string&);
     
     void SetParameters(const Configuration&);
-    const Configuration Parameters();
+    const Configuration& Parameters();
 
     //
     float GetRenderPercent();
@@ -308,7 +308,7 @@ struct LegacyController {
     //
 
     void SetRenderRange(const PercentRegion&);
-    PercentRegion RenderRange();
+    const PercentRegion& RenderRange();
 
     void RenderToFile(const std::string&);
     void RenderToFileAsync(const std::string&);
@@ -399,7 +399,7 @@ using LegacyRenderWorkerPtr = std::shared_ptr<LegacyRenderWorker>;
 
 struct BatchData{
     std::vector<std::string> inputFiles;
-    std::vector<std::string> configurationFiles;
+    std::vector<Configuration> configurations;
     std::vector<PercentRegion> regions;
     std::string outputFolder;
     

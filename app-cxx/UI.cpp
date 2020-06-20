@@ -30,9 +30,9 @@ struct _UIState {
     std::string configFilename = "";
     std::string renderFileName = "";
 
-    Optional<PaulstretchLib::Configuration> cfg = PaulstretchLib::Configuration();
+//    Optional<PaulstretchLib::Configuration> cfg = PaulstretchLib::Configuration();
 
-    bool showParameters = false;
+    //bool showParameters = true;
 
     bool firstRenderOutput = false;
     // renderTask?
@@ -48,6 +48,10 @@ struct _UIState {
     //    std::string outputFolder;
 
     PaulstretchLib::BatchData batch;
+    
+    //
+    const PaulstretchLib::Configuration* parameters = nullptr;
+    const PaulstretchLib::PercentRegion* region = nullptr;
 };
 
 static _UIState UIState;
@@ -100,7 +104,9 @@ inline Optional<std::vector<std::string> > _OpenConfigFiles()
         flt.data(), /* NULL | {"*.jpg","*.png"} */
         "paulstretchlib configuration files (JSON)", /* NULL | "image files" */
         0);
-
+    
+    if (r)
+        ret = SplitStringWithDelimiter(r, "|");
     return ret;
 }
 
@@ -148,7 +154,7 @@ inline Optional<std::string> _OpenBatchFile()
 {
     Optional<std::string> ret;
 
-    std::vector<const char*> flt = { "*.ps-patch.json" };
+    std::vector<const char*> flt = { "*.ps-batch.json" };
 
     auto r = tinyfd_openFileDialog(
         "Open batch file", /* NULL or "" */
@@ -274,6 +280,51 @@ void _StringArrayEdit(std::vector<std::string>& obj)
     }
 }
 
+void _ConfigArrayEdit(std::vector<PaulstretchLib::Configuration>& obj)
+{
+    using namespace ImGui;
+
+    int idx = 0;
+    int _itemToRemove = -1;
+
+    for (auto& e : obj) {
+        Text("%i", idx);
+//        Separator();
+
+        if (Button("Del"))
+            _itemToRemove = idx;
+        SameLine(50);
+        if (Button("Replace")) {
+            auto v = _OpenConfigFile();
+            if (!v.IsNull())
+                e.FromFile(v.Get());// = v.Get();
+        }
+        SameLine(130);
+//        bool b = false;
+        
+        if (RadioButton(("Edit##"+std::to_string((long)&e)).c_str(), (UIState.parameters == &e))){
+            UIState.parameters = &e;
+        };
+        
+        //SameLine();
+        if (Button("Write to file"))
+        {
+            auto v = _SaveConfigFile();
+            if (!v.IsNull())
+                e.ToFile(v.Get());
+        }
+
+        idx++;
+
+//        Separator();
+    }
+
+    if (_itemToRemove != -1) {
+        UIState.parameters = nullptr;
+        obj.erase(obj.begin() + _itemToRemove);
+    }
+}
+
 void _BatchWindow()
 {
     using namespace ImGui;
@@ -307,18 +358,20 @@ void _BatchWindow()
 
     // --- audio files
 
-    //Separator();
-    
-
     if (UIState.batch.inputFiles.size() == 0) {
         Text("No audio files");
     }
 
-   // Separator();
-
     _StringArrayEdit(UIState.batch.inputFiles);
 
-    Button("Add audio file ...");
+    if (Button("Add audio file ..."))
+    {
+        auto v = _OpenAudioFile();
+        if (!v.IsNull())
+        {
+            UIState.batch.inputFiles.push_back(v.Get());
+        }
+    }
 
     // --- cfg
     
@@ -331,18 +384,39 @@ void _BatchWindow()
     if (Button("Open configuration files ...")) {
         auto v = _OpenConfigFiles();
         if (!v.IsNull())
-            UIState.batch.configurationFiles = v.Get();
+        {
+            UIState.batch.configurations.clear();
+            for (const auto& e : v.Get())
+            {
+            auto obj = Configuration();
+            obj.FromFile(e);
+                UIState.batch.configurations.push_back(obj);
+                }
+            }
     }
 
-    if (UIState.batch.configurationFiles.size() == 0) {
+    if (UIState.batch.configurations.size() == 0) {
         Text("No configuration files");
     }
 
     
-    _StringArrayEdit(UIState.batch.configurationFiles);
+    _ConfigArrayEdit(UIState.batch.configurations);
 
-    Button("Add configuration file ...");
-    Button("Create configuration file ...");
+    if (Button("Add configuration file ..."))
+    {
+        auto v = _OpenConfigFile();
+        if (!v.IsNull())
+        {
+            auto obj = Configuration();
+            obj.FromFile(v.Get());
+                UIState.batch.configurations.push_back(obj);
+        }
+    }
+    
+    if (Button("Create configuration ..."))
+    {
+        UIState.batch.configurations.push_back(Configuration());
+    }
 
     // regions
 
@@ -371,8 +445,11 @@ void _BatchWindow()
             _itemToRemove = idx;
 
         SameLine(130);
-        bool b = false;
-        Checkbox("View", &b);
+//        bool b = false;
+        if (RadioButton(("View##"+std::to_string((long)&e)).c_str(), (UIState.region == &e)))
+            {
+            UIState.region = &e;
+            }
 
         idx++;
     }
@@ -435,8 +512,9 @@ void _FileWindow()
 
     overview.SetDataSize(1024);
     plotCfg.values.ys = overview.GetData().data();
-
-    auto rng = _lc.RenderRange();
+    
+//    if (UIState.region != nullptr){
+    auto rng = (UIState.region) ? *UIState.region : PercentRegion();//_lc.RenderRange();
 
     uint32_t selStart = overview.FractionToViewCoord(rng.startFraction);
     uint32_t selLen = overview.FractionToViewCoord(rng.endFraction) - selStart;
@@ -444,18 +522,29 @@ void _FileWindow()
     plotCfg.selection.length = &selLen;
     plotCfg.selection.show = true;
 
-    if (Plot("file:", plotCfg) == PlotStatus::selection_updated) {
+    if (Plot("file:", plotCfg) == PlotStatus::selection_updated && (UIState.region != nullptr)) {
         float nStart = overview.ViewCoordToFraction(selStart);
         float nEnd = overview.ViewCoordToFraction(selLen) + nStart;
 
         auto r = PaulstretchLib::PercentRegion(nStart, nEnd);
 
-        _lc.SetRenderRange(r);
-    }
+        if (UIState.region == &_lc.RenderRange()){
+            _lc.SetRenderRange(r);
+            UIState.region = &_lc.RenderRange();
+            }
+        
+        for (auto& e: UIState.batch.regions)
+        {
+            if (&e == UIState.region)
+            {
+                e = r;
+            }
+        }
+    }//}
     End();
 }
 
-bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
+Core::Optional<PaulstretchLib::Configuration> _ConfigurationWindow(const PaulstretchLib::Configuration* cfg_o)
 {
     using namespace ImGui;
 
@@ -463,13 +552,13 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
 
     Begin("Parameters");
 
-    if (cfg_o.IsNull()) {
+    if (cfg_o == nullptr) {
         Text("No configuration selected");
         End();
-        return false;
+        return Core::Optional<PaulstretchLib::Configuration>();
     }
 
-    auto cfg = cfg_o.Get();
+    auto cfg = *cfg_o;//.Get();
 
     Columns(2);
 
@@ -821,10 +910,12 @@ bool _ConfigurationWindow(Optional<PaulstretchLib::Configuration>& cfg_o)
 
     End();
 
-    if (ret)
-        cfg_o.Set(cfg);
+//    if (ret)
+//        *cfg_o = (cfg);
 
-    return ret;
+//    return ret;
+    
+    return (ret) ? Core::Optional<PaulstretchLib::Configuration>(cfg) : Core::Optional<PaulstretchLib::Configuration>();
 }
 
 void _LegacyControllerWindow()
@@ -837,7 +928,7 @@ void _LegacyControllerWindow()
 
     Text("%s", (UIState.filename.compare("") == 0 ? "No file" : UIState.filename.c_str()));
     bool f_b = true;
-    Checkbox("View file", &f_b);
+    RadioButton("View file", f_b);
 
     if (Button("Open file...")) {
         auto f = _OpenAudioFile();
@@ -866,7 +957,9 @@ void _LegacyControllerWindow()
             //
             //            // auto s = PaulstretchLib::JSONStringFromConfiguration(UIState.cfg.Get());
             //            UIState.cfg = PaulstretchLib::FromJSONString(s);
-            UIState.cfg.Get().ToFile(r.Get());
+//            UIState.cfg.Get().ToFile(r.Get());
+            
+            _lc.Parameters().ToFile(r.Get());
         }
     }
 
@@ -879,14 +972,19 @@ void _LegacyControllerWindow()
             //            out1 << s;
             //            out1.close();
             //
-            UIState.cfg.GetRef().FromFile(r.Get());
+//            UIState.cfg.GetRef().FromFile(r.Get());
+            
+            auto p = PaulstretchLib:: Configuration();
+            p.FromFile(r.Get());
+            _lc.SetParameters(p);
         }
     }
 
     Separator();
-
-    Checkbox("Edit Configuration", &UIState.showParameters);
-
+    
+//    bool bb = true;
+    if (RadioButton("Edit Configuration", (UIState.parameters == &_lc.Parameters())))
+        UIState.parameters = &_lc.Parameters();
     Separator();
 
     if (!_lc.IsPlaying()) {
@@ -938,8 +1036,11 @@ void _LegacyControllerWindow()
 
     Separator();
 
-    bool r_b = true;
-    Checkbox("Set range", &r_b);
+    //bool r_b = true;
+    if (RadioButton("Set range", (UIState.region == &_lc.RenderRange())))
+        {
+            UIState.region = &_lc.RenderRange();
+        }
 
     if (DragFloat2("Range", range, 0.005, 0, 1)) {
         _lc.SetRenderRange(PaulstretchLib::PercentRegion(range[0], range[1]));
@@ -1040,18 +1141,31 @@ void PaulstretchUI()
     ImGui::SetNextWindowDockID(UIState._dockLeft, ImGuiCond_FirstUseEver);
     _LegacyControllerWindow();
 
-    if (UIState.showParameters) {
-        UIState.cfg = _lc.Parameters();
+    if (UIState.parameters != nullptr) {
+//        UIState.cfg = *UIState.parameters;
         ImGui::SetNextWindowDockID(UIState._dockRight, ImGuiCond_FirstUseEver);
     } else {
-        UIState.cfg.SetNull();
+        UIState.parameters = nullptr;//cfg.SetNull();
     }
 
-    auto r = _ConfigurationWindow(UIState.cfg);
-    if (r && !UIState.cfg.IsNull()) {
-        _lc.SetParameters(UIState.cfg.Get());
+//    if (UIState.parameters == &_lc.Parameters()){
+    auto r = _ConfigurationWindow(UIState.parameters);
+    if (!r.IsNull()) {
+        if (UIState.parameters == &_lc.Parameters()){
+        _lc.SetParameters(r.Get());
+        UIState.parameters = &_lc.Parameters();
+        }
+        
+        for (auto& e: UIState.batch.configurations)
+        {
+            if (&e == UIState.parameters)
+            {
+                e = r.Get();
+                UIState.parameters = &e;
+            }
+        }
         //UIState.cfg = _lc.Parameters();
-    }
+    }//}
 
     ImGui::SetNextWindowDockID(UIState._dockMain, ImGuiCond_FirstUseEver);
     _FileWindow();

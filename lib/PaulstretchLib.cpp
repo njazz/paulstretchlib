@@ -118,6 +118,7 @@ struct PlayerImplementation {
 
 struct StretchEngineImplementation {
     std::array<ProcessedStretch*, 2> _pStretchChannels = { (nullptr), (nullptr) };
+    Configuration _parameters;
 };
 
 // ---
@@ -165,7 +166,7 @@ Configuration ConfigTools::Interpolate(const Configuration& a, const Configurati
 }
 // ---
 
-void Configuration::ToFile(const std::string& f)
+void Configuration::ToFile(const std::string& f) const
 {
 
     auto s = JSONStringCodec::ToJSONString(*this);
@@ -288,10 +289,12 @@ StretchEngine::~StretchEngine()
     delete _impl;
 }
 
-void StretchEngine::SetParameters(const Configuration&) {}
-const Configuration StretchEngine::Parameters() const
+void StretchEngine::SetParameters(const Configuration&c) {
+    _impl->_parameters = c;
+}
+const Configuration& StretchEngine::Parameters() const
 {
-    return Configuration();
+    return _impl->_parameters;
 }
 
 void StretchEngine::ProcessBuffer(const std::vector<float>&) {}
@@ -409,7 +412,7 @@ void LegacyController::SetParameters(const Configuration& cfg)
     _impl->_legacyControl.update_process_parameters();
 };
 
-const Configuration LegacyController::Parameters()
+const Configuration& LegacyController::Parameters()
 {
     return _impl->_cfg;
 }
@@ -432,7 +435,7 @@ void LegacyController::SetRenderRange(const PercentRegion& r)
     _impl->_range = r;
 }
 
-PercentRegion LegacyController::RenderRange()
+const PercentRegion& LegacyController::RenderRange()
 {
     return _impl->_range;
 }
@@ -760,13 +763,16 @@ std::string BatchProcessorLegacyController::MakeOutputFilename(const std::string
 void BatchProcessorLegacyController::_UpdateTaskList()
 {
     _taskList.data.clear();
-
+    
+    int idx = 0;
     for (const auto& infile : _data.inputFiles) {
-        for (const auto& incfg : _data.configurationFiles) {
+        for (const auto& incfg : _data.configurations) {
             for (const auto& inreg : _data.regions) {
                 RenderTaskSetup setup;
                 setup.audioFile = infile;
-                setup.outputFile = MakeOutputFilename(infile, incfg, inreg, _data.outputFolder);
+                std::string incfgName = "cfg"+std::to_string(idx);
+                idx++;
+                setup.outputFile = MakeOutputFilename(infile, incfgName, inreg, _data.outputFolder);
                 setup.region = inreg;
                 setup.configuration = Configuration(); // TODO: load from file: incfg;
                 _taskList.data.push_back(setup);
