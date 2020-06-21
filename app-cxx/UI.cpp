@@ -39,6 +39,7 @@ struct _UIState {
 
     ImGuiID _dockMain;
     ImGuiID _dockLeft;
+    ImGuiID _dockLeftDown;
     ImGuiID _dockRight;
 
     // batch
@@ -1146,9 +1147,10 @@ void PaulstretchUI()
 
         UIState._dockMain = dockspaceID; // This variable will track the document node, however we are not using it here as we aren't docking anything into it.
         UIState._dockLeft = ImGui::DockBuilderSplitNode(UIState._dockMain, ImGuiDir_Left, 0.20f, NULL, &UIState._dockMain);
+        UIState._dockLeftDown = ImGui::DockBuilderSplitNode(UIState._dockLeft, ImGuiDir_Down, 0.50f, NULL, &UIState._dockLeft);
         UIState._dockRight = ImGui::DockBuilderSplitNode(UIState._dockMain, ImGuiDir_Right, 0.45f, NULL, &UIState._dockMain);
 
-        ImGui::DockBuilderDockWindow("Batch process", UIState._dockLeft);
+        ImGui::DockBuilderDockWindow("Batch process", UIState._dockLeftDown);
         ImGui::DockBuilderDockWindow("Single file", UIState._dockLeft);
 
         ImGui::DockBuilderDockWindow("File", UIState._dockMain);
@@ -1164,7 +1166,7 @@ void PaulstretchUI()
     ImGui::PopStyleVar();
 
     // ---
-    ImGui::SetNextWindowDockID(UIState._dockLeft, ImGuiCond_FirstUseEver);
+    ImGui::SetNextWindowDockID(UIState._dockLeftDown, ImGuiCond_FirstUseEver);
     _BatchWindow();
 
     ImGui::SetNextWindowDockID(UIState._dockLeft, ImGuiCond_FirstUseEver);
