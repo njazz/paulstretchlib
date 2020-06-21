@@ -373,7 +373,7 @@ struct LegacyRenderWorker {
     std::mutex _mutex;
 
     std::mutex _rendering;
-    bool _done = false;
+    bool _done = true;
 
     // input file, output file, region, cfg
     LegacyRenderWorker(const std::string&, const std::string&, const PercentRegion&, const Configuration&);
@@ -451,7 +451,7 @@ public:
     size_t GetDoneTasks();
     size_t GetRemainingTasks();
 
-    const bool IsRendering() { return _isRendering; }
+    const bool IsRendering() { return GetRemainingTasks()==0; }
 };
 };
 

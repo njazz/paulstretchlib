@@ -154,14 +154,14 @@ inline Optional<std::string> _OpenBatchFile()
 {
     Optional<std::string> ret;
 
-    std::vector<const char*> flt = { "*.ps-batch.json" };
+    std::vector<const char*> flt = { "*.ps-batch.json", "*.json" };
 
     auto r = tinyfd_openFileDialog(
         "Open batch file", /* NULL or "" */
         NULL, /* NULL or "" */
-        1, /* 0 */
-        flt.data(), /* NULL | {"*.jpg","*.png"} */
-        "paulstretchlib batch files (JSON)", /* NULL | "image files" */
+        0, /* 0 */
+        NULL,//flt.data(), /* NULL | {"*.jpg","*.png"} */
+        NULL,//"paulstretchlib batch files (JSON)", /* NULL | "image files" */
         0);
 
     if (r)
@@ -213,6 +213,18 @@ inline Optional<std::string> _SaveBatchFile()
 
     return ret;
 };
+
+inline Optional<std::string> _OpenFolder(){
+     Optional<std::string> ret;
+    
+     auto r = tinyfd_selectFolderDialog("Select folder", NULL);
+    
+    if (r)
+        ret.Set(std::string(r));
+
+    return ret;
+    
+}
 // ---
 
 Optional<float> _RangedSlider(const std::string name, const float& value, const PaulstretchLib::RangeInfo& rangeInfo)
@@ -345,6 +357,12 @@ void _BatchWindow()
             UIState.batch.ToFile(v.Get());
         }
     }
+    
+    if (Button("Clear"))
+        {
+            UIState.batch = PaulstretchLib::BatchData();
+        }
+        
     Separator();Text("");
     Separator();
     
@@ -464,7 +482,16 @@ void _BatchWindow()
     Separator();
     Text("");
     Separator();
+    
+    if (Button("Output folder"))
+    {
+        auto v = _OpenFolder();
+        if (!v.IsNull())
+            UIState.batch.outputFolder = v.Get();
+    }
+    Text("%s",(UIState.batch.outputFolder.size()==0)? "No output folder" : UIState.batch.outputFolder.c_str());
 
+    if (UIState.batch.outputFolder.size()!=0){
     if (Button("Render Files")) {
         //        _batch.OpenFiles(UIState.inputFiles);
         //        _batch.OpenConfigurations(UIState.inputConfigurations);
@@ -474,14 +501,16 @@ void _BatchWindow()
         _batch.SetData(UIState.batch);
 
         _batch.RenderBatchAsync();
-    }
+    }}
 
     if (_batch.IsRendering()) {
         Separator();
         Text("Processing %i of %i", (int)_batch.GetDoneTasks(), (int)_batch.GetTotalTasks());
         Separator();
         for (int i = 0; i < _batch.GetActiveWorkerCount(); i++) {
-            Text("%i %%", int(100 * _batch.GetWorkerRenderPercent(i)));
+            auto p = _batch.GetWorkerRenderPercent(i);
+            if (p>=0)
+                Text("%i %%", int(p));
         };
         Separator();
     }

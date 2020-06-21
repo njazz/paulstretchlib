@@ -24,6 +24,9 @@
 
 #include <iostream>
 #include <fstream>
+#include <sstream>
+
+#include "TextFileIO.hpp"
 
 // ---
 namespace PaulstretchLib {
@@ -171,18 +174,21 @@ void Configuration::ToFile(const std::string& f) const
 
     auto s = JSONStringCodec::ToJSONString(*this);
     //
-    std::ofstream out1(f);
-    out1 << s;
-    out1.close();
+//    std::ofstream out1(f);
+//    out1 << s;
+//    out1.close();
+    TextFileIO::ToFile(f, s);
 }
 
 bool Configuration::FromFile(const std::string& f)
 {
 
-    std::string s;
-    std::ifstream in1(f);
-    in1 >> s;
-    in1.close();
+//    std::string s;
+//    std::ifstream in1(f);
+//    in1 >> s;
+//    in1.close();
+
+    auto s = TextFileIO::FromFile(f);
 
     // auto s = PaulstretchLib::JSONStringFromConfiguration(UIState.cfg.Get());
     return JSONStringCodec::FromJSONString(*this, s);
@@ -605,6 +611,7 @@ LegacyRenderWorker::LegacyRenderWorker(const std::string& in_, const std::string
     _ctrl.SetParameters(cfg_);
     _ctrl.SetRenderRange(reg_);
     _output = out_;
+    _done = false;
 }
 
 LegacyRenderWorker::LegacyRenderWorker(const RenderTaskSetup& s)
@@ -628,6 +635,8 @@ void LegacyRenderWorker::SetTask(const RenderTaskSetup& s)
     _ctrl.SetParameters(s.configuration);
     _ctrl.SetRenderRange(s.region);
     _output = s.outputFile;
+    
+    _done = false;
 
     _rendering.unlock();
     _mutex.unlock();
@@ -642,6 +651,7 @@ void LegacyRenderWorker::StartRender()
 {
     if (_done)
         return;
+    
     auto onStartRender = [&]() {
         _mutex.lock();
         _rendering.lock();
@@ -692,10 +702,15 @@ void BatchProcessorLegacyController::_ScheduleTask(const RenderTaskSetup& t)
     bool wait = true;
     while (wait) {
         auto w = _GetAvailableWorker();
-        if (w)
+        if (w != nullptr)
+        {
+            printf("schedule task: %s\n", t.outputFile.c_str());
             w->SetTask(t);
+            w->StartRender();
+        }
         wait = (w == nullptr);
     }
+    printf("schedule task: done\n");
 }
 LegacyRenderWorkerPtr BatchProcessorLegacyController::_GetAvailableWorker()
 {
@@ -740,6 +755,15 @@ void BatchProcessorLegacyController::SetData(const BatchData& data)
     _UpdateTaskList();
 }
 
+template <typename T>
+std::string to_string_with_precision(const T a_value, const int n = 6)
+{
+    std::ostringstream out;
+    out.precision(n);
+    out << std::fixed << a_value;
+    return out.str();
+}
+
 std::string BatchProcessorLegacyController::MakeOutputFilename(const std::string& file, const std::string& cfg, const PercentRegion& region, const std::string& outFolder)
 {
     // TODO
@@ -751,11 +775,11 @@ std::string BatchProcessorLegacyController::MakeOutputFilename(const std::string
 
     auto cfgName = GetFileName(cfg);
 
-    auto regionName = "FULL";
+    std::string regionName = "FULL";
 
     if ((region.startFraction > 0) || (region.endFraction < 1))
         // TODO:
-        regionName = "PART";
+        regionName = "PART_"+to_string_with_precision(region.startFraction)+"_"+to_string_with_precision(region.endFraction);
 
     return ln + "_" + cfgName + "_" + regionName + ".wav";
 }
@@ -764,18 +788,25 @@ void BatchProcessorLegacyController::_UpdateTaskList()
 {
     _taskList.data.clear();
     
+    printf("update task list\n");
+    
     int idx = 0;
     for (const auto& infile : _data.inputFiles) {
+        printf("input file %s\n", infile.c_str());
         for (const auto& incfg : _data.configurations) {
+            printf("cfg %i\n", idx);
             for (const auto& inreg : _data.regions) {
+                printf("region %f %f\n", inreg.startFraction, inreg.endFraction);
                 RenderTaskSetup setup;
                 setup.audioFile = infile;
                 std::string incfgName = "cfg"+std::to_string(idx);
                 idx++;
                 setup.outputFile = MakeOutputFilename(infile, incfgName, inreg, _data.outputFolder);
                 setup.region = inreg;
-                setup.configuration = Configuration(); // TODO: load from file: incfg;
+                setup.configuration = incfg;//Configuration(); // TODO: load from file: incfg;
                 _taskList.data.push_back(setup);
+                
+                printf("added task\n");
             }
         }
     }
@@ -783,6 +814,7 @@ void BatchProcessorLegacyController::_UpdateTaskList()
 
 void BatchProcessorLegacyController::RenderBatchAsync()
 {
+    printf("render batch\n");
     // extra:
     _UpdateTaskList();
 
@@ -791,11 +823,14 @@ void BatchProcessorLegacyController::RenderBatchAsync()
 
     // ---
     for (auto& e : _taskList.data) {
+        printf("task:\n");
+        printf("file %s\n", e.audioFile.c_str());
+        
         _ScheduleTask(e);
         _doneCounter++;
     }
 
-    _isRendering = false;
+    // _isRendering = false;
 }
 
 void BatchProcessorLegacyController::CancelRender()
@@ -824,16 +859,23 @@ void BatchData::ToFile(const std::string& f)
 
     auto s = JSONStringCodec::ToJSONString(*this);
     //
-    std::ofstream out1(f);
-    out1 << s;
-    out1.close();
+    
+    TextFileIO::ToFile(f, s);
+    
+//    std::ofstream out1(f);
+//    out1 << s;
+//    out1.close();
 }
 bool BatchData::FromFile(const std::string& f)
 {
-    std::string s;
-    std::ifstream in1(f);
-    in1 >> s;
-    in1.close();
+//    std::string s;
+//    std::ifstream in1(f);
+//    std::stringstream buffer;
+//    buffer << in1.rdbuf();
+//    buffer.s
+//    in1.close();
+    
+    auto s = TextFileIO::FromFile(f);
 
     // auto s = PaulstretchLib::JSONStringFromConfiguration(UIState.cfg.Get());
     return JSONStringCodec::FromJSONString(*this, s);
