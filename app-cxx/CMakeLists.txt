@@ -1,7 +1,8 @@
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required(VERSION 3.9)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_OSX_DEPLOYMENT_TARGET 10.11)
 
 project(paulstretch-imgui)
 
@@ -39,6 +40,8 @@ set(glew_src
 ../submodules/imgui/examples/libs/gl3w/GL/gl3w.c
 )
 
+include_directories(../submodules/glfw/include/)
+
 set(imgui_src
 
 ../submodules/imgui/imgui.cpp
@@ -66,12 +69,16 @@ AFOverview.cpp
 set (CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} -fstack-protector)
 set (CMAKE_LINKER_FLAGS ${CMAKE_LINKER_FLAGS} -fstack-protector)
 
+
 add_executable(paulstretch-imgui MACOSX_BUNDLE ${src} ${glew_src} ${imgui_src})
+set_property(TARGET paulstretch-imgui PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE)
+
 
 if (WIN32)
 #set(WIN_LIB stdc++ winpthread ssp gcc)
 set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++ -Bstatic,--whole-archive -lssp -lpthread")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static")
+
 endif()
 
 target_link_libraries(paulstretch-imgui 

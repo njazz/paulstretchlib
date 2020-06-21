@@ -315,7 +315,7 @@ void _ConfigArrayEdit(std::vector<PaulstretchLib::Configuration>& obj)
         SameLine(130);
 //        bool b = false;
         
-        if (RadioButton(("Edit##"+std::to_string((long)&e)).c_str(), (UIState.parameters == &e))){
+        if (RadioButton(("Edit##"+std::to_string((uintptr_t)&e)).c_str(), (UIState.parameters == &e))){
             UIState.parameters = &e;
         };
         
@@ -465,7 +465,7 @@ void _BatchWindow()
 
         SameLine(130);
 //        bool b = false;
-        if (RadioButton(("View##"+std::to_string((long)&e)).c_str(), (UIState.region == &e)))
+        if (RadioButton(("View##"+std::to_string((uintptr_t)&e)).c_str(), (UIState.region == &e)))
             {
             UIState.region = &e;
             }
