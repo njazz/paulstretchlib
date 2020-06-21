@@ -10,8 +10,6 @@
 
 #include <memory>
 
-//#include "RangedValue.hpp"
-
 // wrapper classes for the original Paulstretch cxx code
 namespace PaulstretchLib {
 
@@ -67,11 +65,11 @@ const bool ToFFTWindowType(FFTWindowType& obj, const int& v);
 
 
 // this one is unused:
-enum StretchMode {
-    StretchMode_Stretch,
-    StretchMode_HyperStretch,
-    StretchMode_Shorten
-};
+//enum StretchMode {
+//    StretchMode_Stretch,
+//    StretchMode_HyperStretch,
+//    StretchMode_Shorten
+//};
 
 
 //
@@ -165,8 +163,7 @@ struct Configuration {
     float onsetSensitivity = .5;
 
     FFTWindowType windowType = FFTWindowType_Rectangular;
-    //    StretchMode stretchMode = StretchMode_Stretch;
-
+    
     bool harmonics = false;
     float hFreq = 440;
     float hBandwidth = 0;
@@ -296,9 +293,6 @@ struct LegacyController {
 
     bool OpenFile(const std::string&);
 
-//    bool OpenConfigurationFile(const std::string&);
-//    void SaveConfigurationFile(const std::string&);
-    
     void SetParameters(const Configuration&);
     const Configuration& Parameters();
 
@@ -366,7 +360,6 @@ struct RenderTaskSetup {
 };
 
 // runs legacy controller in separate thread (currently using RenderToFileAsync)
-
 struct LegacyRenderWorker {
     LegacyRenderController _ctrl;
     std::string _output;
@@ -410,10 +403,6 @@ struct BatchData{
 
 struct BatchProcessorLegacyController {
 private:
-//    std::vector<std::string> _inputFiles;
-//    std::vector<std::string> _configurations;
-//    std::vector<PercentRegion> _regions;
-//    std::string _outputFolder;
 
     BatchData _data;
 
@@ -430,11 +419,6 @@ private:
 
 public:
     BatchProcessorLegacyController();
-
-//    void OpenFiles(const std::vector<std::string>& names);
-//    void OpenConfigurations(const std::vector<std::string>& names);
-//    void SetRegions(const std::vector<PercentRegion>& reg);
-//    void SetOutputFolder(const std::string&);
 
     void SetData(const BatchData& data);
     BatchData Data() { return _data;}

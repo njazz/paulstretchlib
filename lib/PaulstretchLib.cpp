@@ -167,30 +167,19 @@ Configuration ConfigTools::Interpolate(const Configuration& a, const Configurati
 {
     return Configuration();
 }
+
 // ---
 
 void Configuration::ToFile(const std::string& f) const
 {
 
     auto s = JSONStringCodec::ToJSONString(*this);
-    //
-//    std::ofstream out1(f);
-//    out1 << s;
-//    out1.close();
     TextFileIO::ToFile(f, s);
 }
 
 bool Configuration::FromFile(const std::string& f)
 {
-
-//    std::string s;
-//    std::ifstream in1(f);
-//    in1 >> s;
-//    in1.close();
-
     auto s = TextFileIO::FromFile(f);
-
-    // auto s = PaulstretchLib::JSONStringFromConfiguration(UIState.cfg.Get());
     return JSONStringCodec::FromJSONString(*this, s);
 }
 
@@ -540,13 +529,11 @@ void LegacyRenderController::SetParameters(const Configuration& cfg)
 
     _impl->_legacyControl.set_stretch_direct_controls(stretch_v, windowSize_v, onset_v);
 
-    //    _impl->_legacyControl.update_player_stretch();
-
     _impl->_legacyControl.set_window_type(FromFFTWType(_impl->_cfg.windowType));
 
     _impl->_legacyControl.ppar = ToPParameters(_impl->_cfg);
     _impl->_legacyControl.bbpar = ToBBParameters(_impl->_cfg);
-    //    _impl->_legacyControl.update_process_parameters();
+    
 };
 
 const Configuration LegacyRenderController::Parameters()
@@ -727,27 +714,6 @@ BatchProcessorLegacyController::BatchProcessorLegacyController()
     for (int i = 0; i < std::thread::hardware_concurrency(); i++)
         _workers.push_back(std::make_shared<LegacyRenderWorker>());
 }
-//
-//void BatchProcessorLegacyController::OpenFiles(const std::vector<std::string>& names)
-//{
-//    _inputFiles = names;
-//    _UpdateTaskList();
-//}
-//void BatchProcessorLegacyController::OpenConfigurations(const std::vector<std::string>& names)
-//{
-//    _configurations = names;
-//    _UpdateTaskList();
-//}
-//void BatchProcessorLegacyController::SetRegions(const std::vector<PercentRegion>& reg)
-//{
-//    _regions = reg;
-//    _UpdateTaskList();
-//}
-//void BatchProcessorLegacyController::SetOutputFolder(const std::string& f)
-//{
-//    _outputFolder = f;
-//    _UpdateTaskList();
-//}
 
 void BatchProcessorLegacyController::SetData(const BatchData& data)
 {
@@ -829,8 +795,6 @@ void BatchProcessorLegacyController::RenderBatchAsync()
         _ScheduleTask(e);
         _doneCounter++;
     }
-
-    // _isRendering = false;
 }
 
 void BatchProcessorLegacyController::CancelRender()
@@ -858,26 +822,13 @@ void BatchData::ToFile(const std::string& f)
 {
 
     auto s = JSONStringCodec::ToJSONString(*this);
-    //
-    
     TextFileIO::ToFile(f, s);
-    
-//    std::ofstream out1(f);
-//    out1 << s;
-//    out1.close();
+
 }
 bool BatchData::FromFile(const std::string& f)
 {
-//    std::string s;
-//    std::ifstream in1(f);
-//    std::stringstream buffer;
-//    buffer << in1.rdbuf();
-//    buffer.s
-//    in1.close();
-    
-    auto s = TextFileIO::FromFile(f);
 
-    // auto s = PaulstretchLib::JSONStringFromConfiguration(UIState.cfg.Get());
+    auto s = TextFileIO::FromFile(f);
     return JSONStringCodec::FromJSONString(*this, s);
 }
 }; // namespace
