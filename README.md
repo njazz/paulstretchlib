@@ -8,4 +8,23 @@ Contents:<br>
 
 <br>
 
+Library & app extra features:<br>
+- multi-threaded batch processing
+- JSON file formats for configuration and batch settings
+
+Unsupported original features:<br>
+- stretch rate limited to 10000x<br>
+- parameter automation not yet implemented<br>
+- original XML file support dropped<br>
+
+Roadmap:<br>
+- rewrite original code with less dependencies<br>
+- automation for all parameters<br>
+- automation editor in app<br>
+
+Currently available builds:<br>
+- windows (minGW) - FAILS<br>
+- linux - not tested<br>
+- macOS - OK<br>
+
 ![screenshot](screenshot.png)
