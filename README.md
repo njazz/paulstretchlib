@@ -28,3 +28,15 @@ Currently available builds:<br>
 - macOS - OK<br>
 
 ![screenshot](screenshot.png)
+
+build:<br><br>
+git submodule init<br>
+git submodule update<br>
+cd lib && mkdir build<br>
+cmake ..<br>
+make<br>
+cd ../../app-cxx<br>
+mkdir build<br>
+cd build<br>
+cmake ..<br>
+make
