@@ -23,9 +23,9 @@ Roadmap:<br>
 - automation editor in app<br>
 
 Currently available builds:<br>
-- windows (minGW) - FAILS<br>
+- windows (minGW) - ok<br>
 - linux - not tested<br>
-- macOS - OK<br>
+- macOS - ok<br>
 
 ![screenshot](screenshot.png)
 
